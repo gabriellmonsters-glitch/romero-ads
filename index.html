@@ -1,1190 +1,1032 @@
+```html
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Romero Ads&Wev | Marketing Digital</title>
-
-    <meta name="description"
-          content="Romero Ads&Wev — Marketing Digital, Publicidade, Tráfego Pago, Redes Sociais e Desenvolvimento Web.">
-
-    <style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ROMERO ADS&WEV | Marketing Digital • Publicidade • Web</title>
+
+<meta name="description" content="ROMERO ADS&WEV — Marketing Digital, Publicidade, Social Media, Tráfego Pago e Desenvolvimento Web.">
+
+<style>
+
+/* =========================
+   BASE
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#08080b;
+    color:#fff;
+    font-family:Arial, Helvetica, sans-serif;
+    overflow-x:hidden;
+}
+
+a{
+    color:inherit;
+    text-decoration:none;
+}
+
+::selection{
+    background:#a855f7;
+    color:#fff;
+}
+
+
+/* =========================
+   BACKGROUND
+========================= */
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:-3;
+
+    background:
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(124,58,237,.13),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 85% 30%,
+            rgba(236,72,153,.10),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 50% 90%,
+            rgba(168,85,247,.07),
+            transparent 35%
+        );
+}
+
+body::after{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:-2;
+
+    opacity:.22;
+
+    background-image:
+        linear-gradient(
+            rgba(255,255,255,.025) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,.025) 1px,
+            transparent 1px
+        );
+
+    background-size:60px 60px;
+}
+
+
+/* =========================
+   NAVIGATION
+========================= */
+
+nav{
+    position:fixed;
+    top:18px;
+    left:50%;
+    transform:translateX(-50%);
 
-        /* =====================================================
-           RESET
-        ===================================================== */
+    width:min(1150px,92%);
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    padding:15px 22px;
 
-        html {
-            scroll-behavior: smooth;
-        }
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
 
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            background: #070709;
-            color: #fff;
-            line-height: 1.5;
-            overflow-x: hidden;
-        }
+    border:1px solid rgba(255,255,255,.09);
 
-        body::selection {
-            background: #fff;
-            color: #070709;
-        }
+    background:rgba(10,10,14,.68);
 
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
+    backdrop-filter:blur(20px);
+    -webkit-backdrop-filter:blur(20px);
 
-        img {
-            max-width: 100%;
-            display: block;
-        }
+    border-radius:18px;
 
-        .container {
-            width: 100%;
-            max-width: 1180px;
-            margin: auto;
-            padding: 0 28px;
-        }
+    z-index:1000;
 
+    box-shadow:
+        0 15px 50px rgba(0,0,0,.35),
+        0 0 40px rgba(124,58,237,.05);
+}
 
-        /* =====================================================
-           FUNDO / TEXTURA
-        ===================================================== */
+.logo{
+    font-size:14px;
+    font-weight:800;
+    letter-spacing:2px;
 
-        body::before {
-            content: "";
-            position: fixed;
-            inset: 0;
+    background:linear-gradient(
+        90deg,
+        #ffffff,
+        #c084fc,
+        #f472b6
+    );
 
-            background-image:
-                linear-gradient(
-                    rgba(255,255,255,0.018) 1px,
-                    transparent 1px
-                ),
-                linear-gradient(
-                    90deg,
-                    rgba(255,255,255,0.018) 1px,
-                    transparent 1px
-                );
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+}
 
-            background-size: 70px 70px;
+.nav-links{
+    display:flex;
+    gap:28px;
+    align-items:center;
+}
 
-            mask-image: linear-gradient(
-                to bottom,
-                black,
-                transparent 75%
-            );
+.nav-links a{
+    font-size:12px;
+    color:#aaa;
+    transition:.3s;
+}
 
-            pointer-events: none;
-            z-index: -5;
-        }
+.nav-links a:hover{
+    color:#fff;
+}
 
-        .ambient {
-            position: fixed;
-            width: 600px;
-            height: 600px;
 
-            border-radius: 50%;
+/* =========================
+   HERO
+========================= */
 
-            background: rgba(255,255,255,0.035);
+.hero{
+    min-height:100vh;
 
-            filter: blur(130px);
+    display:flex;
+    align-items:center;
 
-            top: -300px;
-            left: 50%;
+    padding:
+        150px
+        max(7vw,30px)
+        100px;
 
-            transform: translateX(-50%);
+    position:relative;
+}
 
-            pointer-events: none;
+.hero-content{
+    max-width:1100px;
+}
 
-            z-index: -3;
-        }
+.hero-label{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
 
+    font-size:11px;
+    letter-spacing:3px;
+    text-transform:uppercase;
 
-        /* =====================================================
-           NAVEGAÇÃO
-        ===================================================== */
+    color:#bdb4ca;
 
-        nav {
-            position: fixed;
+    margin-bottom:30px;
+}
 
-            top: 18px;
-            left: 50%;
+.hero-label::before{
+    content:"";
+    width:32px;
+    height:1px;
 
-            transform: translateX(-50%);
+    background:linear-gradient(
+        90deg,
+        #8b5cf6,
+        #ec4899
+    );
+}
 
-            width: calc(100% - 36px);
-            max-width: 1100px;
+.hero h1{
+    font-size:clamp(55px,9vw,125px);
 
-            padding: 13px 16px;
+    line-height:.88;
 
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+    letter-spacing:-6px;
 
-            border: 1px solid rgba(255,255,255,0.08);
+    font-weight:900;
 
-            border-radius: 18px;
+    max-width:1100px;
 
-            background: rgba(10,10,13,0.72);
+    margin-bottom:40px;
+}
 
-            backdrop-filter: blur(18px);
-            -webkit-backdrop-filter: blur(18px);
+.hero h1 .outline{
+    color:transparent;
 
-            box-shadow:
-                0 15px 50px rgba(0,0,0,0.35);
+    -webkit-text-stroke:1px rgba(255,255,255,.55);
 
-            z-index: 1000;
-        }
+    text-shadow:
+        0 0 40px rgba(124,58,237,.12);
+}
 
-        .nav-logo {
-            font-size: 14px;
-            font-weight: 800;
+.hero h1 .gradient{
+    background:linear-gradient(
+        90deg,
+        #ffffff 10%,
+        #c084fc 55%,
+        #f472b6 100%
+    );
 
-            letter-spacing: 2px;
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+}
 
-            padding-left: 8px;
-        }
+.hero-description{
+    max-width:600px;
 
-        .nav-logo span {
-            color: #777780;
-            font-weight: 400;
-        }
+    color:#a7a4ad;
 
-        .nav-links {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
+    font-size:17px;
 
-        .nav-links a {
-            color: #92929a;
-            font-size: 11px;
-            padding: 9px 12px;
+    line-height:1.7;
 
-            border-radius: 10px;
+    margin-bottom:40px;
+}
 
-            transition: 0.25s ease;
-        }
 
-        .nav-links a:hover {
-            color: #fff;
-            background: rgba(255,255,255,0.06);
-        }
+/* =========================
+   BUTTONS
+========================= */
 
-        .nav-contact {
-            background: #fff !important;
-            color: #08080a !important;
-            font-weight: 700;
-        }
+.buttons{
+    display:flex;
+    gap:14px;
+    flex-wrap:wrap;
+}
 
-        .nav-contact:hover {
-            background: #ddd !important;
-        }
+.btn{
+    padding:15px 23px;
 
+    border-radius:10px;
 
-        /* =====================================================
-           HERO
-        ===================================================== */
+    font-size:12px;
 
-        .hero-section {
-            min-height: 100vh;
+    font-weight:700;
 
-            display: flex;
-            align-items: center;
+    letter-spacing:.5px;
 
-            position: relative;
+    transition:
+        transform .3s,
+        box-shadow .3s,
+        border-color .3s;
+}
 
-            overflow: hidden;
+.btn:hover{
+    transform:translateY(-3px);
+}
 
-            padding: 150px 0 100px;
-        }
+.btn-primary{
+    background:linear-gradient(
+        110deg,
+        #7c3aed,
+        #a855f7,
+        #ec4899
+    );
 
-        .hero-section::before {
-            content: "";
+    box-shadow:
+        0 10px 35px rgba(168,85,247,.20);
+}
 
-            position: absolute;
+.btn-primary:hover{
+    box-shadow:
+        0 15px 45px rgba(236,72,153,.30);
+}
 
-            width: 900px;
-            height: 900px;
+.btn-secondary{
+    border:1px solid rgba(255,255,255,.14);
 
-            border-radius: 50%;
+    background:rgba(255,255,255,.025);
 
-            border: 1px solid rgba(255,255,255,0.035);
+    color:#ddd;
+}
 
-            left: 50%;
-            top: 50%;
+.btn-secondary:hover{
+    border-color:rgba(192,132,252,.5);
+}
 
-            transform: translate(-50%, -50%);
-        }
 
-        .hero-section::after {
-            content: "";
+/* =========================
+   SCROLL
+========================= */
 
-            position: absolute;
+.scroll{
+    position:absolute;
+    bottom:35px;
+    left:max(7vw,30px);
 
-            width: 600px;
-            height: 600px;
+    display:flex;
+    align-items:center;
+    gap:12px;
 
-            border-radius: 50%;
+    font-size:9px;
 
-            border: 1px solid rgba(255,255,255,0.025);
+    letter-spacing:3px;
 
-            left: 50%;
-            top: 50%;
+    color:#777;
+}
 
-            transform: translate(-50%, -50%);
-        }
+.scroll-line{
+    width:35px;
+    height:1px;
 
-        .hero-content {
-            position: relative;
-            z-index: 2;
+    background:linear-gradient(
+        90deg,
+        #8b5cf6,
+        #ec4899
+    );
+}
 
-            width: 100%;
-        }
 
-        .hero-label {
-            display: flex;
-            align-items: center;
-            gap: 10px;
+/* =========================
+   MARQUEE
+========================= */
 
-            color: #85858e;
+.marquee{
+    border-top:1px solid rgba(255,255,255,.06);
+    border-bottom:1px solid rgba(255,255,255,.06);
 
-            font-size: 10px;
-            letter-spacing: 3px;
-            text-transform: uppercase;
+    overflow:hidden;
 
-            margin-bottom: 28px;
-        }
+    white-space:nowrap;
 
-        .hero-label::before {
-            content: "";
+    padding:20px 0;
 
-            width: 28px;
-            height: 1px;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(124,58,237,.025),
+            rgba(236,72,153,.025)
+        );
+}
 
-            background: #fff;
-        }
+.marquee-track{
+    display:inline-block;
 
-        .hero-title {
-            max-width: 1050px;
+    animation:marquee 25s linear infinite;
 
-            font-size: clamp(
-                60px,
-                10vw,
-                132px
-            );
+    color:#555;
 
-            line-height: 0.87;
+    font-size:12px;
 
-            letter-spacing: -7px;
+    letter-spacing:4px;
 
-            font-weight: 800;
-        }
+    text-transform:uppercase;
+}
 
-        .hero-title .outline {
-            color: transparent;
+.marquee span{
+    margin:0 35px;
+}
 
-            -webkit-text-stroke: 1px rgba(255,255,255,0.55);
-        }
+.marquee .highlight{
+    color:#9f7aea;
+}
 
-        .hero-title .soft {
-            color: #777780;
-        }
+@keyframes marquee{
+    from{
+        transform:translateX(0);
+    }
 
-        .hero-bottom {
-            margin-top: 65px;
+    to{
+        transform:translateX(-50%);
+    }
+}
 
-            display: grid;
 
-            grid-template-columns: 1fr 1fr;
+/* =========================
+   SECTIONS
+========================= */
 
-            gap: 50px;
+section{
+    padding:120px max(7vw,30px);
+}
 
-            align-items: end;
-        }
+.section-label{
+    color:#a78bfa;
 
-        .hero-description {
-            max-width: 500px;
+    font-size:10px;
 
-            color: #92929b;
+    letter-spacing:4px;
 
-            font-size: 16px;
-        }
+    text-transform:uppercase;
 
-        .hero-actions {
-            display: flex;
-            justify-content: flex-end;
-            gap: 12px;
-        }
+    margin-bottom:18px;
+}
 
+.section-title{
+    font-size:clamp(38px,5vw,70px);
 
-        /* =====================================================
-           BOTÕES
-        ===================================================== */
+    letter-spacing:-3px;
 
-        .button {
-            position: relative;
+    line-height:1;
 
-            display: inline-flex;
+    margin-bottom:55px;
+}
 
-            align-items: center;
-            justify-content: center;
 
-            padding: 15px 21px;
+/* =========================
+   SERVICES
+========================= */
 
-            border-radius: 12px;
+.services-grid{
+    display:grid;
 
-            border: 1px solid #29292f;
+    grid-template-columns:
+        repeat(4,1fr);
 
-            background: rgba(20,20,24,0.8);
+    gap:14px;
+}
 
-            font-size: 12px;
-            font-weight: 700;
+.service{
+    min-height:270px;
 
-            transition:
-                transform .3s ease,
-                border-color .3s ease,
-                background .3s ease,
-                box-shadow .3s ease;
+    padding:30px;
 
-            overflow: hidden;
-        }
+    border:1px solid rgba(255,255,255,.08);
 
-        .button::after {
-            content: "";
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.045),
+            rgba(255,255,255,.015)
+        );
 
-            position: absolute;
+    border-radius:18px;
 
-            width: 100px;
-            height: 100%;
+    position:relative;
 
-            left: -130px;
-            top: 0;
+    overflow:hidden;
 
-            background: linear-gradient(
-                90deg,
-                transparent,
-                rgba(255,255,255,0.15),
-                transparent
-            );
+    transition:
+        transform .35s,
+        border-color .35s,
+        box-shadow .35s;
+}
 
-            transform: skewX(-20deg);
+.service::before{
+    content:"";
 
-            transition: .6s ease;
-        }
+    position:absolute;
 
-        .button:hover::after {
-            left: 130%;
-        }
+    width:180px;
+    height:180px;
 
-        .button:hover {
-            transform: translateY(-4px);
+    right:-80px;
+    top:-80px;
 
-            border-color: #55555e;
+    background:
+        radial-gradient(
+            circle,
+            rgba(168,85,247,.25),
+            transparent 70%
+        );
 
-            box-shadow:
-                0 15px 35px rgba(0,0,0,0.25);
-        }
+    transition:.4s;
+}
 
-        .button.primary {
-            color: #070709;
+.service:hover{
+    transform:translateY(-8px);
 
-            background: #fff;
+    border-color:
+        rgba(192,132,252,.35);
 
-            border-color: #fff;
-        }
+    box-shadow:
+        0 20px 60px rgba(0,0,0,.3),
+        0 0 40px rgba(124,58,237,.07);
+}
 
-        .button.primary:hover {
-            background: #e8e8e9;
-        }
+.service:hover::before{
+    transform:scale(1.4);
+}
 
+.service-number{
+    font-size:11px;
 
-        /* =====================================================
-           INDICADOR
-        ===================================================== */
+    color:#8b5cf6;
 
-        .scroll-indicator {
-            position: absolute;
+    letter-spacing:2px;
+}
 
-            bottom: 40px;
-            left: 50%;
+.service h3{
+    font-size:23px;
 
-            transform: translateX(-50%);
+    margin-top:70px;
 
-            color: #595960;
+    margin-bottom:14px;
+}
 
-            font-size: 9px;
+.service p{
+    color:#85828b;
 
-            letter-spacing: 3px;
+    line-height:1.6;
 
-            text-transform: uppercase;
-        }
+    font-size:13px;
+}
 
-        .scroll-indicator::after {
-            content: "";
 
-            display: block;
+/* =========================
+   BRAND BLOCKS
+========================= */
 
-            width: 1px;
-            height: 35px;
+.brand-grid{
+    display:grid;
 
-            margin: 12px auto 0;
+    grid-template-columns:
+        repeat(2,1fr);
 
-            background: linear-gradient(
-                #777,
-                transparent
-            );
-        }
+    gap:18px;
+}
 
+.brand-card{
+    min-height:390px;
 
-        /* =====================================================
-           SEÇÕES
-        ===================================================== */
+    padding:45px;
 
-        section {
-            padding: 130px 0;
+    border-radius:22px;
 
-            position: relative;
-        }
+    border:1px solid rgba(255,255,255,.08);
 
-        .section-top {
-            display: flex;
+    background:
+        radial-gradient(
+            circle at 80% 20%,
+            rgba(168,85,247,.14),
+            transparent 30%
+        ),
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.045),
+            rgba(255,255,255,.01)
+        );
 
-            justify-content: space-between;
-            align-items: end;
+    position:relative;
 
-            gap: 40px;
+    overflow:hidden;
 
-            margin-bottom: 60px;
-        }
+    transition:.4s;
+}
 
-        .section-label {
-            color: #73737b;
+.brand-card:nth-child(2){
+    background:
+        radial-gradient(
+            circle at 80% 20%,
+            rgba(236,72,153,.13),
+            transparent 30%
+        ),
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.045),
+            rgba(255,255,255,.01)
+        );
+}
 
-            font-size: 10px;
+.brand-card:hover{
+    transform:translateY(-8px);
 
-            text-transform: uppercase;
+    border-color:
+        rgba(255,255,255,.17);
+}
 
-            letter-spacing: 3px;
+.brand-card .small{
+    font-size:10px;
 
-            margin-bottom: 12px;
-        }
+    color:#888;
 
-        .section-title {
-            font-size: clamp(
-                38px,
-                6vw,
-                68px
-            );
+    letter-spacing:3px;
 
-            line-height: 0.95;
+    text-transform:uppercase;
+}
 
-            letter-spacing: -3px;
-        }
+.brand-card h3{
+    font-size:clamp(45px,6vw,80px);
 
-        .section-description {
-            max-width: 420px;
+    letter-spacing:-5px;
 
-            color: #85858e;
+    margin-top:100px;
 
-            font-size: 14px;
-        }
+    margin-bottom:20px;
+}
 
+.brand-card p{
+    max-width:440px;
 
-        /* =====================================================
-           SERVIÇOS
-        ===================================================== */
+    color:#888;
 
-        .services-grid {
-            display: grid;
+    line-height:1.7;
 
-            grid-template-columns:
-                repeat(4, 1fr);
+    font-size:14px;
+}
 
-            border-top: 1px solid #25252b;
-            border-left: 1px solid #25252b;
-        }
+.brand-card .arrow{
+    position:absolute;
 
-        .service {
-            min-height: 310px;
+    right:35px;
+    bottom:30px;
 
-            padding: 32px;
+    width:45px;
+    height:45px;
 
-            border-right: 1px solid #25252b;
-            border-bottom: 1px solid #25252b;
+    display:flex;
 
-            position: relative;
+    align-items:center;
+    justify-content:center;
 
-            background:
-                linear-gradient(
-                    145deg,
-                    rgba(20,20,24,0.7),
-                    rgba(8,8,10,0.8)
-                );
+    border-radius:50%;
 
-            transition: .4s ease;
+    border:1px solid rgba(255,255,255,.1);
 
-            overflow: hidden;
-        }
+    color:#c084fc;
 
-        .service::before {
-            content: "";
+    transition:.3s;
+}
 
-            position: absolute;
+.brand-card:hover .arrow{
+    background:linear-gradient(
+        135deg,
+        #7c3aed,
+        #ec4899
+    );
 
-            width: 180px;
-            height: 180px;
+    color:#fff;
 
-            border-radius: 50%;
+    transform:rotate(-45deg);
+}
 
-            background: rgba(255,255,255,0.025);
 
-            filter: blur(35px);
+/* =========================
+   CLIENTS
+========================= */
 
-            right: -90px;
-            top: -90px;
+.clients{
+    display:grid;
 
-            transition: .4s ease;
-        }
+    grid-template-columns:
+        repeat(3,1fr);
 
-        .service:hover {
-            background: #111115;
-            transform: translateY(-5px);
-        }
+    gap:12px;
+}
 
-        .service:hover::before {
-            background: rgba(255,255,255,0.07);
-        }
+.client{
+    min-height:130px;
 
-        .service-number {
-            color: #56565e;
+    display:flex;
 
-            font-size: 10px;
+    align-items:center;
+    justify-content:center;
 
-            letter-spacing: 2px;
-        }
+    text-align:center;
 
-        .service-icon {
-            margin-top: 70px;
+    padding:20px;
 
-            font-size: 26px;
+    border:1px solid rgba(255,255,255,.07);
 
-            filter: grayscale(1);
-        }
+    background:rgba(255,255,255,.018);
 
-        .service h3 {
-            font-size: 21px;
+    border-radius:15px;
 
-            margin-top: 18px;
-            margin-bottom: 12px;
-        }
+    color:#777;
 
-        .service p {
-            color: #7f7f88;
+    font-size:14px;
 
-            font-size: 13px;
+    font-weight:700;
 
-            max-width: 230px;
-        }
+    letter-spacing:1px;
 
+    transition:.3s;
+}
 
-        /* =====================================================
-           MARQUEE
-        ===================================================== */
+.client:hover{
+    color:#fff;
 
-        .marquee {
-            overflow: hidden;
+    border-color:
+        rgba(192,132,252,.35);
 
-            border-top: 1px solid #222229;
-            border-bottom: 1px solid #222229;
+    background:
+        linear-gradient(
+            135deg,
+            rgba(124,58,237,.08),
+            rgba(236,72,153,.05)
+        );
 
-            padding: 23px 0;
+    transform:translateY(-4px);
+}
 
-            background: #0b0b0e;
-        }
 
-        .marquee-track {
-            display: flex;
+/* =========================
+   ABOUT
+========================= */
 
-            width: max-content;
+.about{
+    display:grid;
 
-            animation: marquee 25s linear infinite;
-        }
+    grid-template-columns:
+        1.4fr .6fr;
 
-        .marquee span {
-            font-size: 12px;
+    gap:80px;
 
-            color: #55555d;
+    align-items:end;
+}
 
-            letter-spacing: 4px;
+.about-text{
+    font-size:clamp(24px,3vw,42px);
 
-            margin-right: 60px;
+    line-height:1.2;
 
-            white-space: nowrap;
-        }
+    letter-spacing:-1.5px;
+}
 
-        @keyframes marquee {
+.about-text span{
+    color:#777;
+}
 
-            from {
-                transform: translateX(0);
-            }
+.about-info{
+    border-top:1px solid rgba(255,255,255,.1);
+}
 
-            to {
-                transform: translateX(-50%);
-            }
+.info-row{
+    display:flex;
 
-        }
+    justify-content:space-between;
 
+    padding:18px 0;
 
-        /* =====================================================
-           ROMERO ADS / WEB
-        ===================================================== */
+    border-bottom:1px solid rgba(255,255,255,.07);
 
-        .brand-wrapper {
-            display: grid;
+    font-size:12px;
+}
 
-            grid-template-columns: 1fr 1fr;
+.info-row span:first-child{
+    color:#666;
+}
 
-            gap: 18px;
-        }
+.info-row span:last-child{
+    color:#ddd;
+}
 
-        .brand-card {
-            min-height: 460px;
 
-            padding: 42px;
+/* =========================
+   CONTACT
+========================= */
 
-            border-radius: 24px;
+.contact{
+    position:relative;
 
-            border: 1px solid #28282f;
+    overflow:hidden;
 
-            background:
-                radial-gradient(
-                    circle at 80% 20%,
-                    rgba(255,255,255,0.07),
-                    transparent 28%
-                ),
-                linear-gradient(
-                    145deg,
-                    #17171c,
-                    #0b0b0e
-                );
+    padding:
+        120px
+        max(7vw,30px);
+}
 
-            position: relative;
+.contact::before{
+    content:"";
 
-            overflow: hidden;
+    position:absolute;
 
-            display: flex;
-            flex-direction: column;
+    width:600px;
+    height:600px;
 
-            transition: .4s ease;
-        }
+    left:50%;
+    top:50%;
 
-        .brand-card:hover {
-            transform: translateY(-7px);
+    transform:
+        translate(-50%,-50%);
 
-            border-color: #44444d;
+    background:
+        radial-gradient(
+            circle,
+            rgba(124,58,237,.18),
+            rgba(236,72,153,.08),
+            transparent 65%
+        );
 
-            box-shadow:
-                0 30px 70px rgba(0,0,0,0.3);
-        }
+    pointer-events:none;
+}
 
-        .brand-card.web {
-            background:
-                radial-gradient(
-                    circle at 20% 20%,
-                    rgba(255,255,255,0.05),
-                    transparent 28%
-                ),
-                linear-gradient(
-                    145deg,
-                    #111116,
-                    #08080b
-                );
-        }
+.contact-inner{
+    position:relative;
 
-        .brand-tag {
-            color: #777780;
+    text-align:center;
 
-            font-size: 10px;
+    max-width:900px;
 
-            letter-spacing: 4px;
-        }
+    margin:auto;
+}
 
-        .brand-card h3 {
-            font-size: clamp(
-                31px,
-                4vw,
-                48px
-            );
+.contact h2{
+    font-size:clamp(45px,8vw,100px);
 
-            line-height: 1;
+    line-height:.95;
 
-            letter-spacing: -2px;
+    letter-spacing:-5px;
 
-            margin-top: 35px;
+    margin-bottom:30px;
+}
 
-            max-width: 500px;
-        }
+.contact h2 span{
+    background:linear-gradient(
+        90deg,
+        #a78bfa,
+        #f472b6
+    );
 
-        .brand-card p {
-            color: #85858e;
+    -webkit-background-clip:text;
+    background-clip:text;
 
-            font-size: 14px;
+    color:transparent;
+}
 
-            max-width: 480px;
+.contact p{
+    color:#888;
 
-            margin-top: 20px;
-        }
+    max-width:550px;
 
-        .brand-card .button {
-            margin-top: auto;
+    margin:0 auto 35px;
 
-            align-self: flex-start;
-        }
+    line-height:1.7;
+}
 
+.contact-links{
+    display:flex;
 
-        /* =====================================================
-           CLIENTES
-        ===================================================== */
+    justify-content:center;
 
-        .clients-grid {
-            display: grid;
+    gap:12px;
 
-            grid-template-columns:
-                repeat(3, 1fr);
+    flex-wrap:wrap;
+}
 
-            gap: 1px;
 
-            background: #292930;
+/* =========================
+   FOOTER
+========================= */
 
-            border: 1px solid #292930;
-        }
+footer{
+    padding:30px max(7vw,30px);
 
-        .client {
-            min-height: 145px;
+    border-top:1px solid rgba(255,255,255,.06);
 
-            display: flex;
+    display:flex;
 
-            align-items: center;
-            justify-content: center;
+    justify-content:space-between;
 
-            text-align: center;
+    gap:20px;
 
-            padding: 20px;
+    color:#555;
 
-            background: #0b0b0e;
+    font-size:10px;
 
-            color: #aaaab2;
+    letter-spacing:1px;
+}
 
-            font-size: 14px;
 
-            font-weight: 600;
+/* =========================
+   ANIMATIONS
+========================= */
 
-            transition: .3s ease;
-        }
+@keyframes fadeUp{
 
-        .client:hover {
-            background: #151519;
+    from{
+        opacity:0;
+        transform:translateY(25px);
+    }
 
-            color: #fff;
-        }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
 
-        .client-note {
-            color: #5f5f68;
+}
 
-            text-align: center;
+.hero-content{
+    animation:fadeUp 1s ease forwards;
+}
 
-            font-size: 11px;
+.hero-label{
+    animation:fadeUp 1s .1s ease both;
+}
 
-            max-width: 650px;
+.hero h1{
+    animation:fadeUp 1s .2s ease both;
+}
 
-            margin: 25px auto 0;
-        }
+.hero-description{
+    animation:fadeUp 1s .35s ease both;
+}
 
+.buttons{
+    animation:fadeUp 1s .45s ease both;
+}
 
-        /* =====================================================
-           SOBRE
-        ===================================================== */
 
-        .about-section {
-            background: #0b0b0e;
-        }
+/* =========================
+   RESPONSIVE
+========================= */
 
-        .about-grid {
-            display: grid;
+@media(max-width:900px){
 
-            grid-template-columns: .8fr 1.2fr;
+    .nav-links{
+        display:none;
+    }
 
-            gap: 100px;
+    .services-grid{
+        grid-template-columns:
+            repeat(2,1fr);
+    }
 
-            align-items: start;
-        }
+    .about{
+        grid-template-columns:1fr;
+        gap:50px;
+    }
 
-        .about-name {
-            font-size: clamp(
-                40px,
-                6vw,
-                75px
-            );
+}
 
-            letter-spacing: -4px;
+@media(max-width:600px){
 
-            line-height: .9;
-        }
+    nav{
+        top:10px;
+        padding:14px 17px;
+    }
 
-        .about-text {
-            color: #85858e;
+    .hero{
+        padding:
+            140px
+            25px
+            90px;
+    }
 
-            font-size: 16px;
+    .hero h1{
+        letter-spacing:-4px;
+    }
 
-            max-width: 650px;
-        }
+    section{
+        padding:90px 25px;
+    }
 
-        .about-text p {
-            margin-bottom: 22px;
-        }
+    .services-grid,
+    .brand-grid,
+    .clients{
+        grid-template-columns:1fr;
+    }
 
-        .about-text strong {
-            color: #fff;
-        }
+    .service{
+        min-height:230px;
+    }
 
-        .about-meta {
-            display: grid;
+    .brand-card{
+        min-height:330px;
+        padding:30px;
+    }
 
-            grid-template-columns:
-                repeat(3, 1fr);
+    .brand-card h3{
+        margin-top:80px;
+    }
 
-            gap: 12px;
+    .contact{
+        padding:90px 25px;
+    }
 
-            margin-top: 45px;
-        }
+    .contact h2{
+        letter-spacing:-4px;
+    }
 
-        .meta {
-            padding-top: 18px;
+    footer{
+        flex-direction:column;
+        text-align:center;
+    }
 
-            border-top: 1px solid #292930;
-        }
+}
 
-        .meta strong {
-            display: block;
-
-            font-size: 20px;
-        }
-
-        .meta span {
-            color: #66666f;
-
-            font-size: 10px;
-
-            text-transform: uppercase;
-
-            letter-spacing: 1px;
-        }
-
-
-        /* =====================================================
-           CONTATO
-        ===================================================== */
-
-        .contact-section {
-            padding: 170px 0;
-
-            text-align: center;
-
-            overflow: hidden;
-        }
-
-        .contact-section::before {
-            content: "";
-
-            position: absolute;
-
-            width: 700px;
-            height: 700px;
-
-            border-radius: 50%;
-
-            border: 1px solid rgba(255,255,255,0.03);
-
-            left: 50%;
-            top: 50%;
-
-            transform: translate(-50%, -50%);
-        }
-
-        .contact-title {
-            position: relative;
-
-            z-index: 2;
-
-            font-size: clamp(
-                48px,
-                9vw,
-                105px
-            );
-
-            line-height: .9;
-
-            letter-spacing: -6px;
-        }
-
-        .contact-title span {
-            color: #66666e;
-        }
-
-        .contact-subtitle {
-            position: relative;
-
-            z-index: 2;
-
-            color: #85858e;
-
-            margin-top: 25px;
-
-            font-size: 15px;
-        }
-
-        .contact-buttons {
-            position: relative;
-
-            z-index: 2;
-
-            display: flex;
-
-            justify-content: center;
-
-            flex-wrap: wrap;
-
-            gap: 10px;
-
-            margin-top: 40px;
-        }
-
-
-        /* =====================================================
-           FOOTER
-        ===================================================== */
-
-        footer {
-            border-top: 1px solid #202026;
-
-            padding: 35px 0;
-
-            color: #55555d;
-
-            font-size: 10px;
-
-            letter-spacing: 1px;
-
-            text-align: center;
-
-            background: #060608;
-        }
-
-
-        /* =====================================================
-           RESPONSIVO
-        ===================================================== */
-
-        @media (max-width: 900px) {
-
-            .nav-links a:not(.nav-contact) {
-                display: none;
-            }
-
-            .hero-title {
-                font-size: clamp(
-                    55px,
-                    12vw,
-                    100px
-                );
-            }
-
-            .hero-bottom {
-                grid-template-columns: 1fr;
-
-                gap: 30px;
-            }
-
-            .hero-actions {
-                justify-content: flex-start;
-            }
-
-            .services-grid {
-                grid-template-columns:
-                    repeat(2, 1fr);
-            }
-
-            .brand-wrapper {
-                grid-template-columns: 1fr;
-            }
-
-            .about-grid {
-                grid-template-columns: 1fr;
-
-                gap: 50px;
-            }
-
-        }
-
-
-        @media (max-width: 600px) {
-
-            .container {
-                padding: 0 20px;
-            }
-
-            nav {
-                top: 12px;
-
-                width: calc(100% - 24px);
-
-                border-radius: 15px;
-            }
-
-            .nav-logo {
-                font-size: 11px;
-            }
-
-            .nav-contact {
-                font-size: 10px !important;
-                padding: 8px 10px !important;
-            }
-
-            .hero-section {
-                min-height: 100svh;
-
-                padding:
-                    130px 0
-                    90px;
-            }
-
-            .hero-title {
-                font-size: 55px;
-
-                letter-spacing: -4px;
-            }
-
-            .hero-bottom {
-                margin-top: 45px;
-            }
-
-            .hero-actions {
-                flex-direction: column;
-
-                align-items: stretch;
-            }
-
-            .hero-actions .button {
-                width: 100%;
-            }
-
-            section {
-                padding: 90px 0;
-            }
-
-            .section-top {
-                display: block;
-
-                margin-bottom: 40px;
-            }
-
-            .section-description {
-                margin-top: 20px;
-            }
-
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .service {
-                min-height: 260px;
-            }
-
-            .service-icon {
-                margin-top: 50px;
-            }
-
-            .brand-card {
-                min-height: 400px;
-
-                padding: 30px;
-            }
-
-            .clients-grid {
-                grid-template-columns:
-                    repeat(2, 1fr);
-            }
-
-            .client {
-                min-height: 110px;
-
-                font-size: 12px;
-            }
-
-            .about-meta {
-                grid-template-columns: 1fr;
-            }
-
-            .contact-section {
-                padding: 120px 0;
-            }
-
-            .contact-title {
-                font-size: 58px;
-
-                letter-spacing: -4px;
-            }
-
-            .contact-buttons {
-                flex-direction: column;
-
-                align-items: stretch;
-            }
-
-        }
-
-
-        @media (max-width: 380px) {
-
-            .hero-title {
-                font-size: 48px;
-            }
-
-            .clients-grid {
-                grid-template-columns: 1fr;
-            }
-
-        }
-
-    </style>
+</style>
 </head>
 
 
 <body>
 
 
-<div class="ambient"></div>
-
-
-<!-- =====================================================
-     NAVEGAÇÃO
-===================================================== -->
+<!-- =========================
+     NAV
+========================= -->
 
 <nav>
 
-    <a href="#" class="nav-logo">
-        ROMERO <span>ADS&WEV</span>
+    <a href="#" class="logo">
+        ROMERO ADS&WEV
     </a>
 
     <div class="nav-links">
@@ -1193,7 +1035,7 @@
             Serviços
         </a>
 
-        <a href="#marcas">
+        <a href="#romero">
             Romero Ads
         </a>
 
@@ -1205,7 +1047,7 @@
             Sobre
         </a>
 
-        <a href="#contato" class="nav-contact">
+        <a href="#contato">
             Contato
         </a>
 
@@ -1214,514 +1056,415 @@
 </nav>
 
 
-
-<!-- =====================================================
+<!-- =========================
      HERO
-===================================================== -->
+========================= -->
 
-<header class="hero-section">
+<header class="hero">
 
-    <div class="container hero-content">
+    <div class="hero-content">
 
         <div class="hero-label">
             Marketing Digital • Publicidade • Web
         </div>
 
+        <h1>
 
-        <h1 class="hero-title">
-
-            SUA MARCA<br>
+            SUA MARCA
+            <br>
 
             <span class="outline">
                 EM
             </span>
 
-            <span class="soft">
+            <br>
+
+            <span class="gradient">
                 EVIDÊNCIA.
             </span>
 
         </h1>
 
+        <p class="hero-description">
 
-        <div class="hero-bottom">
+            Estratégia, criatividade e presença digital
+            para transformar ideias em marcas que
+            chamam atenção e conectam pessoas.
 
-            <p class="hero-description">
+        </p>
 
-                Transformamos ideias em estratégias,
-                conteúdo e experiências digitais para
-                fortalecer marcas e criar novas
-                oportunidades.
+        <div class="buttons">
 
-            </p>
+            <a
+                class="btn btn-primary"
+                href="https://drive.google.com/file/d/1uDN8y_ABWFQvCc9g50rlhF3pa6CNWxaV/view?usp=drive_link"
+                target="_blank"
+            >
+                VER PORTFÓLIO
+            </a>
 
-
-            <div class="hero-actions">
-
-                <a
-                    class="button primary"
-                    href="https://drive.google.com/file/d/1uDN8y_ABWFQvCc9g50rlhF3pa6CNWxaV/view?usp=drive_link"
-                    target="_blank"
-                >
-                    📁 Ver Portfólio
-                </a>
-
-
-                <a
-                    class="button"
-                    href="https://wa.me/5511940361367"
-                    target="_blank"
-                >
-                    💬 Fale conosco
-                </a>
-
-            </div>
+            <a
+                class="btn btn-secondary"
+                href="https://wa.me/5511940361367"
+                target="_blank"
+            >
+                FALAR NO WHATSAPP
+            </a>
 
         </div>
 
     </div>
 
+    <div class="scroll">
 
-    <div class="scroll-indicator">
-        Scroll
+        <div class="scroll-line"></div>
+
+        SCROLL
+
     </div>
 
 </header>
 
 
-
-<!-- =====================================================
+<!-- =========================
      MARQUEE
-===================================================== -->
+========================= -->
 
 <div class="marquee">
 
     <div class="marquee-track">
 
-        <span>MARKETING DIGITAL</span>
-        <span>TRÁFEGO PAGO</span>
-        <span>REDES SOCIAIS</span>
-        <span>CRIAÇÃO DE CONTEÚDO</span>
-        <span>DESENVOLVIMENTO WEB</span>
+        <span>Marketing Digital</span>
+        <span class="highlight">✦</span>
 
-        <span>MARKETING DIGITAL</span>
-        <span>TRÁFEGO PAGO</span>
-        <span>REDES SOCIAIS</span>
-        <span>CRIAÇÃO DE CONTEÚDO</span>
-        <span>DESENVOLVIMENTO WEB</span>
+        <span>Publicidade</span>
+        <span class="highlight">✦</span>
+
+        <span>Social Media</span>
+        <span class="highlight">✦</span>
+
+        <span>Tráfego Pago</span>
+        <span class="highlight">✦</span>
+
+        <span>Web</span>
+        <span class="highlight">✦</span>
+
+        <span>Marketing Digital</span>
+        <span class="highlight">✦</span>
+
+        <span>Publicidade</span>
+        <span class="highlight">✦</span>
+
+        <span>Social Media</span>
+        <span class="highlight">✦</span>
+
+        <span>Tráfego Pago</span>
+        <span class="highlight">✦</span>
+
+        <span>Web</span>
+        <span class="highlight">✦</span>
 
     </div>
 
 </div>
 
 
-
-<!-- =====================================================
+<!-- =========================
      SERVIÇOS
-===================================================== -->
+========================= -->
 
 <section id="servicos">
 
-    <div class="container">
+    <div class="section-label">
+        01 / Serviços
+    </div>
 
-        <div class="section-top">
+    <h2 class="section-title">
+        O QUE FAZEMOS
+    </h2>
 
-            <div>
 
-                <div class="section-label">
-                    01 — Serviços
-                </div>
+    <div class="services-grid">
 
-                <h2 class="section-title">
-                    O que fazemos.
-                </h2>
 
+        <div class="service">
+
+            <div class="service-number">
+                01
             </div>
 
+            <h3>
+                Marketing Digital
+            </h3>
 
-            <p class="section-description">
-
-                Soluções digitais pensadas para fortalecer
-                sua marca, ampliar sua presença e conectar
-                seu negócio ao público certo.
-
+            <p>
+                Estratégias digitais pensadas para
+                fortalecer sua marca, alcançar o público
+                certo e gerar novas oportunidades.
             </p>
 
         </div>
 
 
-        <div class="services-grid">
+        <div class="service">
 
-
-            <div class="service">
-
-                <div class="service-number">
-                    01
-                </div>
-
-                <div class="service-icon">
-                    ◇
-                </div>
-
-                <h3>
-                    Marketing Digital
-                </h3>
-
-                <p>
-                    Estratégias digitais para aumentar
-                    presença, visibilidade e conexão.
-                </p>
-
+            <div class="service-number">
+                02
             </div>
 
+            <h3>
+                Tráfego Pago
+            </h3>
 
-
-            <div class="service">
-
-                <div class="service-number">
-                    02
-                </div>
-
-                <div class="service-icon">
-                    ◎
-                </div>
-
-                <h3>
-                    Tráfego Pago
-                </h3>
-
-                <p>
-                    Campanhas estratégicas para alcançar
-                    o público certo e gerar oportunidades.
-                </p>
-
-            </div>
-
-
-
-            <div class="service">
-
-                <div class="service-number">
-                    03
-                </div>
-
-                <div class="service-icon">
-                    ⌁
-                </div>
-
-                <h3>
-                    Redes Sociais
-                </h3>
-
-                <p>
-                    Gestão, conteúdo e estratégias para
-                    fortalecer sua presença digital.
-                </p>
-
-            </div>
-
-
-
-            <div class="service">
-
-                <div class="service-number">
-                    04
-                </div>
-
-                <div class="service-icon">
-                    ✦
-                </div>
-
-                <h3>
-                    Criação de Conteúdo
-                </h3>
-
-                <p>
-                    Artes e conteúdos desenvolvidos para
-                    comunicar sua marca com criatividade.
-                </p>
-
-            </div>
-
+            <p>
+                Campanhas estratégicas para aumentar
+                alcance, gerar tráfego e colocar sua
+                marca diante das pessoas certas.
+            </p>
 
         </div>
+
+
+        <div class="service">
+
+            <div class="service-number">
+                03
+            </div>
+
+            <h3>
+                Redes Sociais
+            </h3>
+
+            <p>
+                Gestão, planejamento e conteúdo para
+                transformar suas redes sociais em canais
+                de comunicação com seu público.
+            </p>
+
+        </div>
+
+
+        <div class="service">
+
+            <div class="service-number">
+                04
+            </div>
+
+            <h3>
+                Criação de Conteúdo
+            </h3>
+
+            <p>
+                Artes, campanhas e conteúdos desenvolvidos
+                para comunicar sua marca de maneira
+                profissional e estratégica.
+            </p>
+
+        </div>
+
 
     </div>
 
 </section>
 
 
-
-<!-- =====================================================
+<!-- =========================
      ROMERO ADS / WEB
-===================================================== -->
+========================= -->
 
-<section id="marcas">
+<section id="romero">
 
-    <div class="container">
+    <div class="section-label">
+        02 / Soluções
+    </div>
 
-        <div class="section-top">
+    <h2 class="section-title">
+        DUAS FRENTES.<br>
+        UMA PRESENÇA DIGITAL.
+    </h2>
 
-            <div>
 
-                <div class="section-label">
-                    02 — Nossas marcas
-                </div>
+    <div class="brand-grid">
 
-                <h2 class="section-title">
-                    Duas frentes.<br>
-                    Uma presença.
-                </h2>
 
+        <div class="brand-card">
+
+            <div class="small">
+                Marketing & Publicidade
+            </div>
+
+            <h3>
+                ROMERO<br>ADS
+            </h3>
+
+            <p>
+                Estratégias de marketing e publicidade
+                digital para conectar marcas ao público
+                certo e gerar presença, alcance e resultados.
+            </p>
+
+            <div class="arrow">
+                ↗
             </div>
 
         </div>
 
 
-        <div class="brand-wrapper">
+        <div class="brand-card">
 
-
-            <!-- ROMERO ADS -->
-
-            <div class="brand-card">
-
-                <div class="brand-tag">
-                    ROMERO ADS
-                </div>
-
-                <h3>
-                    Estratégia para colocar sua marca em evidência.
-                </h3>
-
-                <p>
-                    Marketing Digital, Tráfego Pago, Redes Sociais,
-                    criação de conteúdo e planejamento de campanhas
-                    para ajudar marcas a alcançarem novos públicos.
-                </p>
-
-
-                <a
-                    class="button primary"
-                    href="#contato"
-                >
-                    Conheça a Romero Ads
-                </a>
-
+            <div class="small">
+                Desenvolvimento Web
             </div>
 
+            <h3>
+                ROMERO<br>WEB
+            </h3>
 
+            <p>
+                Soluções digitais para fortalecer a presença
+                online de marcas e negócios, com criação,
+                desenvolvimento e experiências pensadas
+                para cada projeto.
+            </p>
 
-            <!-- ROMERO WEB -->
-
-            <div class="brand-card web">
-
-                <div class="brand-tag">
-                    ROMERO WEB
-                </div>
-
-                <h3>
-                    Sua empresa também merece estar na internet.
-                </h3>
-
-                <p>
-                    Criamos sites modernos, profissionais e responsivos
-                    para apresentar sua marca, seus serviços e suas
-                    soluções no ambiente digital.
-                </p>
-
-
-                <a
-                    class="button primary"
-                    href="#contato"
-                >
-                    Conheça a Romero Web
-                </a>
-
+            <div class="arrow">
+                ↗
             </div>
-
 
         </div>
+
 
     </div>
 
 </section>
 
 
-
-<!-- =====================================================
+<!-- =========================
      CLIENTES
-===================================================== -->
+========================= -->
 
 <section id="clientes">
 
-    <div class="container">
+    <div class="section-label">
+        03 / Clientes
+    </div>
 
-        <div class="section-top">
-
-            <div>
-
-                <div class="section-label">
-                    03 — Experiência
-                </div>
-
-                <h2 class="section-title">
-                    Alguns clientes.
-                </h2>
-
-            </div>
+    <h2 class="section-title">
+        MARCAS QUE<br>
+        JÁ CONFIARAM
+    </h2>
 
 
-            <p class="section-description">
+    <div class="clients">
 
-                Marcas e profissionais que já confiaram
-                em nosso trabalho.
-
-            </p>
-
+        <div class="client">
+            Caio Autopeças
         </div>
 
-
-        <div class="clients-grid">
-
-
-            <div class="client">
-                Caio Autopeças
-            </div>
-
-
-            <div class="client">
-                Ventura Semijoias
-            </div>
-
-
-            <div class="client">
-                Gilvania Consultoria
-            </div>
-
-
-            <div class="client">
-                EverR
-            </div>
-
-
-            <div class="client">
-                Elétrica Perillo
-            </div>
-
-
-            <div class="client">
-                Cantinho da Jú
-            </div>
-
-
+        <div class="client">
+            Ventura Semijoias
         </div>
 
+        <div class="client">
+            Gilvania Consultoria
+        </div>
 
-        <p class="client-note">
+        <div class="client">
+            EverR
+        </div>
 
-            Além das marcas apresentadas, a Romero Ads&Wev já atendeu
-            diversos outros clientes e projetos, respeitando a privacidade
-            daqueles que optam por não divulgar sua identidade.
+        <div class="client">
+            Elétrica Perillo
+        </div>
 
-        </p>
+        <div class="client">
+            Cantinho da Jú
+        </div>
 
     </div>
+
+
+    <p style="
+        color:#666;
+        font-size:12px;
+        line-height:1.7;
+        max-width:650px;
+        margin-top:25px;
+    ">
+
+        Além das marcas apresentadas, a Romero Ads&Wev
+        já atendeu diversos outros clientes e projetos,
+        respeitando a privacidade daqueles que optam
+        por não divulgar sua identidade.
+
+    </p>
 
 </section>
 
 
-
-<!-- =====================================================
+<!-- =========================
      SOBRE
-===================================================== -->
+========================= -->
 
-<section
-    id="sobre"
-    class="about-section"
->
+<section id="sobre">
 
-    <div class="container">
+    <div class="section-label">
+        04 / Sobre
+    </div>
 
-        <div class="about-grid">
+    <div class="about">
+
+        <div class="about-text">
+
+            Gabriel Romero é o empreendedor por trás
+            da <span>Romero Ads&Wev.</span>
+
+            <br><br>
+
+            Desde 2023, transformando ideias em
+            estratégias, conteúdos e experiências
+            digitais.
+
+        </div>
 
 
-            <div>
+        <div class="about-info">
 
-                <div class="section-label">
-                    04 — Sobre
-                </div>
+            <div class="info-row">
 
-                <div class="about-name">
-                    Gabriel<br>
-                    Romero.
-                </div>
+                <span>
+                    Desde
+                </span>
+
+                <span>
+                    2023
+                </span>
 
             </div>
 
 
-            <div class="about-text">
+            <div class="info-row">
 
-                <p>
+                <span>
+                    Especialidade
+                </span>
 
-                    Sou empreendedor e fundador da
-                    <strong>Romero Ads&Wev</strong>,
-                    atuando no mercado de Marketing Digital
-                    desde março de 2023.
+                <span>
+                    Marketing
+                </span>
 
-                </p>
-
-
-                <p>
-
-                    Meu trabalho une criatividade, estratégia
-                    e agilidade para desenvolver soluções digitais
-                    para diferentes tipos de negócios e profissionais.
-
-                </p>
+            </div>
 
 
-                <div class="about-meta">
+            <div class="info-row">
 
+                <span>
+                    Digital
+                </span>
 
-                    <div class="meta">
-
-                        <strong>
-                            2023
-                        </strong>
-
-                        <span>
-                            Início da Romero
-                        </span>
-
-                    </div>
-
-
-                    <div class="meta">
-
-                        <strong>
-                            Ads
-                        </strong>
-
-                        <span>
-                            Marketing & Estratégia
-                        </span>
-
-                    </div>
-
-
-                    <div class="meta">
-
-                        <strong>
-                            Web
-                        </strong>
-
-                        <span>
-                            Desenvolvimento Digital
-                        </span>
-
-                    </div>
-
-
-                </div>
+                <span>
+                    Ads + Web
+                </span>
 
             </div>
 
@@ -1732,73 +1475,65 @@
 </section>
 
 
-
-<!-- =====================================================
+<!-- =========================
      CONTATO
-===================================================== -->
+========================= -->
 
-<section
-    id="contato"
-    class="contact-section"
->
+<section id="contato" class="contact">
 
-    <div class="container">
+    <div class="contact-inner">
 
         <div class="section-label">
-            05 — Vamos conversar
+            05 / Contato
         </div>
 
+        <h2>
 
-        <h2 class="contact-title">
-
-            PRONTO PARA<br>
-
-            <span>
-                COLOCAR SUA MARCA
-            </span>
-
+            VAMOS COLOCAR
             <br>
 
-            EM EVIDÊNCIA?
+            SUA MARCA
+            <br>
+
+            <span>EM EVIDÊNCIA?</span>
 
         </h2>
 
 
-        <p class="contact-subtitle">
+        <p>
 
-            Vamos transformar sua ideia em presença digital.
+            Tem uma ideia, projeto ou negócio que precisa
+            de uma presença digital mais forte?
+
+            Vamos conversar.
 
         </p>
 
 
-        <div class="contact-buttons">
-
+        <div class="contact-links">
 
             <a
-                class="button primary"
+                class="btn btn-primary"
                 href="https://wa.me/5511940361367"
                 target="_blank"
             >
-                💬 WhatsApp
+                WHATSAPP
             </a>
 
-
             <a
-                class="button"
+                class="btn btn-secondary"
                 href="https://www.instagram.com/adsromero"
                 target="_blank"
             >
-                📸 Instagram
+                INSTAGRAM
             </a>
-
 
             <a
-                class="button"
+                class="btn btn-secondary"
                 href="mailto:RomeroAds@proton.me"
             >
-                ✉️ E-mail
+                E-MAIL
             </a>
-
 
         </div>
 
@@ -1807,21 +1542,23 @@
 </section>
 
 
-
-<!-- =====================================================
+<!-- =========================
      FOOTER
-===================================================== -->
+========================= -->
 
 <footer>
 
-    © 2026 ROMERO ADS&WEV
+    <div>
+        © 2026 ROMERO ADS&WEV
+    </div>
 
-    <br><br>
-
-    MARKETING DIGITAL • PUBLICIDADE • WEB
+    <div>
+        MARKETING DIGITAL • PUBLICIDADE • WEB
+    </div>
 
 </footer>
 
 
 </body>
 </html>
+```
