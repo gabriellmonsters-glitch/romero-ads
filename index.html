@@ -6,9 +6,15 @@
 
     <title>Romero Ads&Wev | Marketing Digital</title>
 
-    <meta name="description" content="Romero Ads&Wev — Marketing Digital, Tráfego Pago, Redes Sociais e Desenvolvimento Web.">
+    <meta name="description"
+          content="Romero Ads&Wev — Marketing Digital, Publicidade, Tráfego Pago, Redes Sociais e Desenvolvimento Web.">
 
     <style>
+
+        /* =====================================================
+           RESET
+        ===================================================== */
+
         * {
             margin: 0;
             padding: 0;
@@ -21,9 +27,15 @@
 
         body {
             font-family: Arial, Helvetica, sans-serif;
-            background: #0b0b0d;
-            color: #ffffff;
+            background: #070709;
+            color: #fff;
             line-height: 1.5;
+            overflow-x: hidden;
+        }
+
+        body::selection {
+            background: #fff;
+            color: #070709;
         }
 
         a {
@@ -31,409 +43,1405 @@
             color: inherit;
         }
 
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
         .container {
             width: 100%;
-            max-width: 900px;
+            max-width: 1180px;
             margin: auto;
-            padding: 0 22px;
+            padding: 0 28px;
         }
 
-        /* TOPO */
 
-        header {
-            min-height: 100vh;
+        /* =====================================================
+           FUNDO / TEXTURA
+        ===================================================== */
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+
+            background-image:
+                linear-gradient(
+                    rgba(255,255,255,0.018) 1px,
+                    transparent 1px
+                ),
+                linear-gradient(
+                    90deg,
+                    rgba(255,255,255,0.018) 1px,
+                    transparent 1px
+                );
+
+            background-size: 70px 70px;
+
+            mask-image: linear-gradient(
+                to bottom,
+                black,
+                transparent 75%
+            );
+
+            pointer-events: none;
+            z-index: -5;
+        }
+
+        .ambient {
+            position: fixed;
+            width: 600px;
+            height: 600px;
+
+            border-radius: 50%;
+
+            background: rgba(255,255,255,0.035);
+
+            filter: blur(130px);
+
+            top: -300px;
+            left: 50%;
+
+            transform: translateX(-50%);
+
+            pointer-events: none;
+
+            z-index: -3;
+        }
+
+
+        /* =====================================================
+           NAVEGAÇÃO
+        ===================================================== */
+
+        nav {
+            position: fixed;
+
+            top: 18px;
+            left: 50%;
+
+            transform: translateX(-50%);
+
+            width: calc(100% - 36px);
+            max-width: 1100px;
+
+            padding: 13px 16px;
+
             display: flex;
             align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 60px 0;
-            background:
-                radial-gradient(circle at top, #25252b 0%, #0b0b0d 45%);
+            justify-content: space-between;
+
+            border: 1px solid rgba(255,255,255,0.08);
+
+            border-radius: 18px;
+
+            background: rgba(10,10,13,0.72);
+
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+
+            box-shadow:
+                0 15px 50px rgba(0,0,0,0.35);
+
+            z-index: 1000;
         }
 
-        .hero {
-            width: 100%;
-        }
-
-        .logo {
-            font-size: 27px;
+        .nav-logo {
+            font-size: 14px;
             font-weight: 800;
+
             letter-spacing: 2px;
-            margin-bottom: 12px;
+
+            padding-left: 8px;
         }
 
-        .logo span {
+        .nav-logo span {
+            color: #777780;
             font-weight: 400;
         }
 
-        .tagline {
-            font-size: 14px;
-            color: #a7a7ad;
-            letter-spacing: 1px;
-            margin-bottom: 35px;
-        }
-
-        .hero h1 {
-            font-size: clamp(38px, 8vw, 72px);
-            line-height: 1.05;
-            margin-bottom: 22px;
-            letter-spacing: -2px;
-        }
-
-        .hero h1 span {
-            color: #bdbdc4;
-        }
-
-        .hero p {
-            max-width: 620px;
-            margin: auto;
-            color: #b2b2b8;
-            font-size: 17px;
-        }
-
-        /* BOTÕES */
-
-        .buttons {
+        .nav-links {
             display: flex;
-            flex-direction: column;
-            gap: 12px;
-            max-width: 500px;
-            margin: 38px auto 0;
+            align-items: center;
+            gap: 5px;
         }
+
+        .nav-links a {
+            color: #92929a;
+            font-size: 11px;
+            padding: 9px 12px;
+
+            border-radius: 10px;
+
+            transition: 0.25s ease;
+        }
+
+        .nav-links a:hover {
+            color: #fff;
+            background: rgba(255,255,255,0.06);
+        }
+
+        .nav-contact {
+            background: #fff !important;
+            color: #08080a !important;
+            font-weight: 700;
+        }
+
+        .nav-contact:hover {
+            background: #ddd !important;
+        }
+
+
+        /* =====================================================
+           HERO
+        ===================================================== */
+
+        .hero-section {
+            min-height: 100vh;
+
+            display: flex;
+            align-items: center;
+
+            position: relative;
+
+            overflow: hidden;
+
+            padding: 150px 0 100px;
+        }
+
+        .hero-section::before {
+            content: "";
+
+            position: absolute;
+
+            width: 900px;
+            height: 900px;
+
+            border-radius: 50%;
+
+            border: 1px solid rgba(255,255,255,0.035);
+
+            left: 50%;
+            top: 50%;
+
+            transform: translate(-50%, -50%);
+        }
+
+        .hero-section::after {
+            content: "";
+
+            position: absolute;
+
+            width: 600px;
+            height: 600px;
+
+            border-radius: 50%;
+
+            border: 1px solid rgba(255,255,255,0.025);
+
+            left: 50%;
+            top: 50%;
+
+            transform: translate(-50%, -50%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+
+            width: 100%;
+        }
+
+        .hero-label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            color: #85858e;
+
+            font-size: 10px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+
+            margin-bottom: 28px;
+        }
+
+        .hero-label::before {
+            content: "";
+
+            width: 28px;
+            height: 1px;
+
+            background: #fff;
+        }
+
+        .hero-title {
+            max-width: 1050px;
+
+            font-size: clamp(
+                60px,
+                10vw,
+                132px
+            );
+
+            line-height: 0.87;
+
+            letter-spacing: -7px;
+
+            font-weight: 800;
+        }
+
+        .hero-title .outline {
+            color: transparent;
+
+            -webkit-text-stroke: 1px rgba(255,255,255,0.55);
+        }
+
+        .hero-title .soft {
+            color: #777780;
+        }
+
+        .hero-bottom {
+            margin-top: 65px;
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 50px;
+
+            align-items: end;
+        }
+
+        .hero-description {
+            max-width: 500px;
+
+            color: #92929b;
+
+            font-size: 16px;
+        }
+
+        .hero-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 12px;
+        }
+
+
+        /* =====================================================
+           BOTÕES
+        ===================================================== */
 
         .button {
-            padding: 16px 22px;
-            border: 1px solid #303036;
+            position: relative;
+
+            display: inline-flex;
+
+            align-items: center;
+            justify-content: center;
+
+            padding: 15px 21px;
+
             border-radius: 12px;
-            background: #151518;
-            font-weight: 600;
-            transition: 0.25s;
+
+            border: 1px solid #29292f;
+
+            background: rgba(20,20,24,0.8);
+
+            font-size: 12px;
+            font-weight: 700;
+
+            transition:
+                transform .3s ease,
+                border-color .3s ease,
+                background .3s ease,
+                box-shadow .3s ease;
+
+            overflow: hidden;
+        }
+
+        .button::after {
+            content: "";
+
+            position: absolute;
+
+            width: 100px;
+            height: 100%;
+
+            left: -130px;
+            top: 0;
+
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(255,255,255,0.15),
+                transparent
+            );
+
+            transform: skewX(-20deg);
+
+            transition: .6s ease;
+        }
+
+        .button:hover::after {
+            left: 130%;
         }
 
         .button:hover {
-            transform: translateY(-3px);
-            background: #202025;
-            border-color: #55555d;
+            transform: translateY(-4px);
+
+            border-color: #55555e;
+
+            box-shadow:
+                0 15px 35px rgba(0,0,0,0.25);
         }
 
         .button.primary {
-            background: #ffffff;
-            color: #0b0b0d;
-            border-color: #ffffff;
+            color: #070709;
+
+            background: #fff;
+
+            border-color: #fff;
         }
 
         .button.primary:hover {
-            background: #dddddf;
+            background: #e8e8e9;
         }
 
-        /* SEÇÕES */
+
+        /* =====================================================
+           INDICADOR
+        ===================================================== */
+
+        .scroll-indicator {
+            position: absolute;
+
+            bottom: 40px;
+            left: 50%;
+
+            transform: translateX(-50%);
+
+            color: #595960;
+
+            font-size: 9px;
+
+            letter-spacing: 3px;
+
+            text-transform: uppercase;
+        }
+
+        .scroll-indicator::after {
+            content: "";
+
+            display: block;
+
+            width: 1px;
+            height: 35px;
+
+            margin: 12px auto 0;
+
+            background: linear-gradient(
+                #777,
+                transparent
+            );
+        }
+
+
+        /* =====================================================
+           SEÇÕES
+        ===================================================== */
 
         section {
-            padding: 90px 0;
+            padding: 130px 0;
+
+            position: relative;
         }
 
-        .section-title {
-            text-align: center;
-            margin-bottom: 45px;
+        .section-top {
+            display: flex;
+
+            justify-content: space-between;
+            align-items: end;
+
+            gap: 40px;
+
+            margin-bottom: 60px;
         }
 
-        .section-title small {
-            color: #8f8f97;
+        .section-label {
+            color: #73737b;
+
+            font-size: 10px;
+
             text-transform: uppercase;
-            letter-spacing: 2px;
-            font-size: 11px;
-        }
 
-        .section-title h2 {
-            font-size: 36px;
-            margin-top: 10px;
-        }
+            letter-spacing: 3px;
 
-        .section-title p {
-            max-width: 600px;
-            margin: 14px auto 0;
-            color: #9999a1;
-        }
-
-        /* CARDS */
-
-        .cards {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 16px;
-        }
-
-        .card {
-            background: #121216;
-            border: 1px solid #24242a;
-            border-radius: 18px;
-            padding: 30px;
-            transition: 0.25s;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            border-color: #414149;
-        }
-
-        .card-number {
-            font-size: 12px;
-            color: #777780;
-            margin-bottom: 25px;
-        }
-
-        .card h3 {
-            font-size: 22px;
             margin-bottom: 12px;
         }
 
-        .card p {
-            color: #9999a1;
+        .section-title {
+            font-size: clamp(
+                38px,
+                6vw,
+                68px
+            );
+
+            line-height: 0.95;
+
+            letter-spacing: -3px;
+        }
+
+        .section-description {
+            max-width: 420px;
+
+            color: #85858e;
+
             font-size: 14px;
         }
 
-        /* ROMERO ADS / WEB */
 
-        .brand-section {
-            background: #101014;
-        }
+        /* =====================================================
+           SERVIÇOS
+        ===================================================== */
 
-        .brand-box {
-            border: 1px solid #29292f;
-            border-radius: 24px;
-            padding: 40px;
-            background: linear-gradient(145deg, #17171b, #0e0e11);
-        }
-
-        .brand-name {
-            font-size: 14px;
-            letter-spacing: 3px;
-            color: #9b9ba3;
-            margin-bottom: 14px;
-        }
-
-        .brand-box h3 {
-            font-size: 34px;
-            margin-bottom: 14px;
-        }
-
-        .brand-box p {
-            color: #a4a4ac;
-            max-width: 650px;
-        }
-
-        /* CLIENTES */
-
-        .clients {
+        .services-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 12px;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            border-top: 1px solid #25252b;
+            border-left: 1px solid #25252b;
+        }
+
+        .service {
+            min-height: 310px;
+
+            padding: 32px;
+
+            border-right: 1px solid #25252b;
+            border-bottom: 1px solid #25252b;
+
+            position: relative;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(20,20,24,0.7),
+                    rgba(8,8,10,0.8)
+                );
+
+            transition: .4s ease;
+
+            overflow: hidden;
+        }
+
+        .service::before {
+            content: "";
+
+            position: absolute;
+
+            width: 180px;
+            height: 180px;
+
+            border-radius: 50%;
+
+            background: rgba(255,255,255,0.025);
+
+            filter: blur(35px);
+
+            right: -90px;
+            top: -90px;
+
+            transition: .4s ease;
+        }
+
+        .service:hover {
+            background: #111115;
+            transform: translateY(-5px);
+        }
+
+        .service:hover::before {
+            background: rgba(255,255,255,0.07);
+        }
+
+        .service-number {
+            color: #56565e;
+
+            font-size: 10px;
+
+            letter-spacing: 2px;
+        }
+
+        .service-icon {
+            margin-top: 70px;
+
+            font-size: 26px;
+
+            filter: grayscale(1);
+        }
+
+        .service h3 {
+            font-size: 21px;
+
+            margin-top: 18px;
+            margin-bottom: 12px;
+        }
+
+        .service p {
+            color: #7f7f88;
+
+            font-size: 13px;
+
+            max-width: 230px;
+        }
+
+
+        /* =====================================================
+           MARQUEE
+        ===================================================== */
+
+        .marquee {
+            overflow: hidden;
+
+            border-top: 1px solid #222229;
+            border-bottom: 1px solid #222229;
+
+            padding: 23px 0;
+
+            background: #0b0b0e;
+        }
+
+        .marquee-track {
+            display: flex;
+
+            width: max-content;
+
+            animation: marquee 25s linear infinite;
+        }
+
+        .marquee span {
+            font-size: 12px;
+
+            color: #55555d;
+
+            letter-spacing: 4px;
+
+            margin-right: 60px;
+
+            white-space: nowrap;
+        }
+
+        @keyframes marquee {
+
+            from {
+                transform: translateX(0);
+            }
+
+            to {
+                transform: translateX(-50%);
+            }
+
+        }
+
+
+        /* =====================================================
+           ROMERO ADS / WEB
+        ===================================================== */
+
+        .brand-wrapper {
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 18px;
+        }
+
+        .brand-card {
+            min-height: 460px;
+
+            padding: 42px;
+
+            border-radius: 24px;
+
+            border: 1px solid #28282f;
+
+            background:
+                radial-gradient(
+                    circle at 80% 20%,
+                    rgba(255,255,255,0.07),
+                    transparent 28%
+                ),
+                linear-gradient(
+                    145deg,
+                    #17171c,
+                    #0b0b0e
+                );
+
+            position: relative;
+
+            overflow: hidden;
+
+            display: flex;
+            flex-direction: column;
+
+            transition: .4s ease;
+        }
+
+        .brand-card:hover {
+            transform: translateY(-7px);
+
+            border-color: #44444d;
+
+            box-shadow:
+                0 30px 70px rgba(0,0,0,0.3);
+        }
+
+        .brand-card.web {
+            background:
+                radial-gradient(
+                    circle at 20% 20%,
+                    rgba(255,255,255,0.05),
+                    transparent 28%
+                ),
+                linear-gradient(
+                    145deg,
+                    #111116,
+                    #08080b
+                );
+        }
+
+        .brand-tag {
+            color: #777780;
+
+            font-size: 10px;
+
+            letter-spacing: 4px;
+        }
+
+        .brand-card h3 {
+            font-size: clamp(
+                31px,
+                4vw,
+                48px
+            );
+
+            line-height: 1;
+
+            letter-spacing: -2px;
+
+            margin-top: 35px;
+
+            max-width: 500px;
+        }
+
+        .brand-card p {
+            color: #85858e;
+
+            font-size: 14px;
+
+            max-width: 480px;
+
+            margin-top: 20px;
+        }
+
+        .brand-card .button {
+            margin-top: auto;
+
+            align-self: flex-start;
+        }
+
+
+        /* =====================================================
+           CLIENTES
+        ===================================================== */
+
+        .clients-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 1px;
+
+            background: #292930;
+
+            border: 1px solid #292930;
         }
 
         .client {
-            min-height: 100px;
-            border: 1px solid #29292f;
-            border-radius: 14px;
+            min-height: 145px;
+
             display: flex;
+
             align-items: center;
             justify-content: center;
+
             text-align: center;
-            padding: 15px;
-            color: #c7c7cc;
+
+            padding: 20px;
+
+            background: #0b0b0e;
+
+            color: #aaaab2;
+
+            font-size: 14px;
+
             font-weight: 600;
-            background: #111114;
+
+            transition: .3s ease;
+        }
+
+        .client:hover {
+            background: #151519;
+
+            color: #fff;
         }
 
         .client-note {
+            color: #5f5f68;
+
             text-align: center;
-            color: #777780;
-            font-size: 13px;
+
+            font-size: 11px;
+
+            max-width: 650px;
+
+            margin: 25px auto 0;
+        }
+
+
+        /* =====================================================
+           SOBRE
+        ===================================================== */
+
+        .about-section {
+            background: #0b0b0e;
+        }
+
+        .about-grid {
+            display: grid;
+
+            grid-template-columns: .8fr 1.2fr;
+
+            gap: 100px;
+
+            align-items: start;
+        }
+
+        .about-name {
+            font-size: clamp(
+                40px,
+                6vw,
+                75px
+            );
+
+            letter-spacing: -4px;
+
+            line-height: .9;
+        }
+
+        .about-text {
+            color: #85858e;
+
+            font-size: 16px;
+
+            max-width: 650px;
+        }
+
+        .about-text p {
+            margin-bottom: 22px;
+        }
+
+        .about-text strong {
+            color: #fff;
+        }
+
+        .about-meta {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 12px;
+
+            margin-top: 45px;
+        }
+
+        .meta {
+            padding-top: 18px;
+
+            border-top: 1px solid #292930;
+        }
+
+        .meta strong {
+            display: block;
+
+            font-size: 20px;
+        }
+
+        .meta span {
+            color: #66666f;
+
+            font-size: 10px;
+
+            text-transform: uppercase;
+
+            letter-spacing: 1px;
+        }
+
+
+        /* =====================================================
+           CONTATO
+        ===================================================== */
+
+        .contact-section {
+            padding: 170px 0;
+
+            text-align: center;
+
+            overflow: hidden;
+        }
+
+        .contact-section::before {
+            content: "";
+
+            position: absolute;
+
+            width: 700px;
+            height: 700px;
+
+            border-radius: 50%;
+
+            border: 1px solid rgba(255,255,255,0.03);
+
+            left: 50%;
+            top: 50%;
+
+            transform: translate(-50%, -50%);
+        }
+
+        .contact-title {
+            position: relative;
+
+            z-index: 2;
+
+            font-size: clamp(
+                48px,
+                9vw,
+                105px
+            );
+
+            line-height: .9;
+
+            letter-spacing: -6px;
+        }
+
+        .contact-title span {
+            color: #66666e;
+        }
+
+        .contact-subtitle {
+            position: relative;
+
+            z-index: 2;
+
+            color: #85858e;
+
             margin-top: 25px;
-        }
 
-        /* SOBRE */
-
-        .about {
-            text-align: center;
-            max-width: 720px;
-            margin: auto;
-        }
-
-        .about p {
-            color: #a4a4ac;
-            margin-bottom: 15px;
-        }
-
-        .about strong {
-            color: #ffffff;
-        }
-
-        /* CONTATO */
-
-        .contact {
-            text-align: center;
-            padding-bottom: 110px;
-        }
-
-        .contact h2 {
-            font-size: 38px;
-            margin-bottom: 15px;
-        }
-
-        .contact p {
-            color: #9999a1;
+            font-size: 15px;
         }
 
         .contact-buttons {
-            max-width: 500px;
-            margin: 30px auto 0;
+            position: relative;
+
+            z-index: 2;
+
+            display: flex;
+
+            justify-content: center;
+
+            flex-wrap: wrap;
+
+            gap: 10px;
+
+            margin-top: 40px;
         }
 
-        /* RODAPÉ */
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
 
         footer {
-            border-top: 1px solid #202025;
-            padding: 30px 20px;
+            border-top: 1px solid #202026;
+
+            padding: 35px 0;
+
+            color: #55555d;
+
+            font-size: 10px;
+
+            letter-spacing: 1px;
+
             text-align: center;
-            color: #66666e;
-            font-size: 12px;
+
+            background: #060608;
         }
 
-        /* RESPONSIVO */
 
-        @media (max-width: 650px) {
+        /* =====================================================
+           RESPONSIVO
+        ===================================================== */
 
-            .hero h1 {
-                font-size: 44px;
+        @media (max-width: 900px) {
+
+            .nav-links a:not(.nav-contact) {
+                display: none;
             }
 
-            .cards {
+            .hero-title {
+                font-size: clamp(
+                    55px,
+                    12vw,
+                    100px
+                );
+            }
+
+            .hero-bottom {
+                grid-template-columns: 1fr;
+
+                gap: 30px;
+            }
+
+            .hero-actions {
+                justify-content: flex-start;
+            }
+
+            .services-grid {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+            .brand-wrapper {
                 grid-template-columns: 1fr;
             }
 
-            .clients {
-                grid-template-columns: repeat(2, 1fr);
+            .about-grid {
+                grid-template-columns: 1fr;
+
+                gap: 50px;
             }
 
-            .brand-box {
-                padding: 28px;
+        }
+
+
+        @media (max-width: 600px) {
+
+            .container {
+                padding: 0 20px;
             }
 
-            .brand-box h3 {
-                font-size: 28px;
+            nav {
+                top: 12px;
+
+                width: calc(100% - 24px);
+
+                border-radius: 15px;
+            }
+
+            .nav-logo {
+                font-size: 11px;
+            }
+
+            .nav-contact {
+                font-size: 10px !important;
+                padding: 8px 10px !important;
+            }
+
+            .hero-section {
+                min-height: 100svh;
+
+                padding:
+                    130px 0
+                    90px;
+            }
+
+            .hero-title {
+                font-size: 55px;
+
+                letter-spacing: -4px;
+            }
+
+            .hero-bottom {
+                margin-top: 45px;
+            }
+
+            .hero-actions {
+                flex-direction: column;
+
+                align-items: stretch;
+            }
+
+            .hero-actions .button {
+                width: 100%;
             }
 
             section {
-                padding: 70px 0;
+                padding: 90px 0;
             }
+
+            .section-top {
+                display: block;
+
+                margin-bottom: 40px;
+            }
+
+            .section-description {
+                margin-top: 20px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .service {
+                min-height: 260px;
+            }
+
+            .service-icon {
+                margin-top: 50px;
+            }
+
+            .brand-card {
+                min-height: 400px;
+
+                padding: 30px;
+            }
+
+            .clients-grid {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+            .client {
+                min-height: 110px;
+
+                font-size: 12px;
+            }
+
+            .about-meta {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-section {
+                padding: 120px 0;
+            }
+
+            .contact-title {
+                font-size: 58px;
+
+                letter-spacing: -4px;
+            }
+
+            .contact-buttons {
+                flex-direction: column;
+
+                align-items: stretch;
+            }
+
         }
+
+
+        @media (max-width: 380px) {
+
+            .hero-title {
+                font-size: 48px;
+            }
+
+            .clients-grid {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
     </style>
 </head>
 
+
 <body>
 
-<header>
-    <div class="container hero">
 
-        <div class="logo">
-            ROMERO <span>ADS&WEV</span>
+<div class="ambient"></div>
+
+
+<!-- =====================================================
+     NAVEGAÇÃO
+===================================================== -->
+
+<nav>
+
+    <a href="#" class="nav-logo">
+        ROMERO <span>ADS&WEV</span>
+    </a>
+
+    <div class="nav-links">
+
+        <a href="#servicos">
+            Serviços
+        </a>
+
+        <a href="#marcas">
+            Romero Ads
+        </a>
+
+        <a href="#clientes">
+            Clientes
+        </a>
+
+        <a href="#sobre">
+            Sobre
+        </a>
+
+        <a href="#contato" class="nav-contact">
+            Contato
+        </a>
+
+    </div>
+
+</nav>
+
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<header class="hero-section">
+
+    <div class="container hero-content">
+
+        <div class="hero-label">
+            Marketing Digital • Publicidade • Web
         </div>
 
-        <div class="tagline">
-            MARKETING DIGITAL • PUBLICIDADE • WEB
-        </div>
 
-        <h1>
-            Sua marca em<br>
-            <span>evidência.</span>
+        <h1 class="hero-title">
+
+            SUA MARCA<br>
+
+            <span class="outline">
+                EM
+            </span>
+
+            <span class="soft">
+                EVIDÊNCIA.
+            </span>
+
         </h1>
 
-        <p>
-            Transformamos ideias em estratégias, conteúdo e presença digital
-            para ajudar marcas e negócios a crescerem.
-        </p>
 
-        <div class="buttons">
+        <div class="hero-bottom">
 
-            <!-- TROQUE O LINK ABAIXO PELO SEU PORTFÓLIO -->
-            <a class="button primary"
-               href="https://drive.google.com/file/d/1uDN8y_ABWFQvCc9g50rlhF3pa6CNWxaV/view?usp=drive_link"
-               target="_blank">
-                📁 Conheça nosso Portfólio
-            </a>
+            <p class="hero-description">
 
-            <!-- TROQUE PELO SEU WHATSAPP -->
-            <a class="button"
-               href="https://wa.me/5511940361367"
-               target="_blank">
-                💬 Fale conosco no WhatsApp
-            </a>
+                Transformamos ideias em estratégias,
+                conteúdo e experiências digitais para
+                fortalecer marcas e criar novas
+                oportunidades.
 
-            <a class="button" href="#servicos">
-                ↓ Conheça nossos serviços
-            </a>
+            </p>
+
+
+            <div class="hero-actions">
+
+                <a
+                    class="button primary"
+                    href="https://drive.google.com/file/d/1uDN8y_ABWFQvCc9g50rlhF3pa6CNWxaV/view?usp=drive_link"
+                    target="_blank"
+                >
+                    📁 Ver Portfólio
+                </a>
+
+
+                <a
+                    class="button"
+                    href="https://wa.me/5511940361367"
+                    target="_blank"
+                >
+                    💬 Fale conosco
+                </a>
+
+            </div>
 
         </div>
 
     </div>
+
+
+    <div class="scroll-indicator">
+        Scroll
+    </div>
+
 </header>
 
+
+
+<!-- =====================================================
+     MARQUEE
+===================================================== -->
+
+<div class="marquee">
+
+    <div class="marquee-track">
+
+        <span>MARKETING DIGITAL</span>
+        <span>TRÁFEGO PAGO</span>
+        <span>REDES SOCIAIS</span>
+        <span>CRIAÇÃO DE CONTEÚDO</span>
+        <span>DESENVOLVIMENTO WEB</span>
+
+        <span>MARKETING DIGITAL</span>
+        <span>TRÁFEGO PAGO</span>
+        <span>REDES SOCIAIS</span>
+        <span>CRIAÇÃO DE CONTEÚDO</span>
+        <span>DESENVOLVIMENTO WEB</span>
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     SERVIÇOS
+===================================================== -->
 
 <section id="servicos">
 
     <div class="container">
 
-        <div class="section-title">
-            <small>O que fazemos</small>
-            <h2>Nossos serviços</h2>
+        <div class="section-top">
 
-            <p>
-                Soluções digitais pensadas para fortalecer sua marca
-                e criar novas oportunidades.
+            <div>
+
+                <div class="section-label">
+                    01 — Serviços
+                </div>
+
+                <h2 class="section-title">
+                    O que fazemos.
+                </h2>
+
+            </div>
+
+
+            <p class="section-description">
+
+                Soluções digitais pensadas para fortalecer
+                sua marca, ampliar sua presença e conectar
+                seu negócio ao público certo.
+
             </p>
+
         </div>
 
 
-        <div class="cards">
+        <div class="services-grid">
 
-            <div class="card">
-                <div class="card-number">01</div>
-                <h3>Marketing Digital</h3>
+
+            <div class="service">
+
+                <div class="service-number">
+                    01
+                </div>
+
+                <div class="service-icon">
+                    ◇
+                </div>
+
+                <h3>
+                    Marketing Digital
+                </h3>
+
                 <p>
-                    Estratégias digitais para aumentar a presença,
-                    visibilidade e conexão da sua marca.
+                    Estratégias digitais para aumentar
+                    presença, visibilidade e conexão.
                 </p>
+
             </div>
 
 
-            <div class="card">
-                <div class="card-number">02</div>
-                <h3>Tráfego Pago</h3>
+
+            <div class="service">
+
+                <div class="service-number">
+                    02
+                </div>
+
+                <div class="service-icon">
+                    ◎
+                </div>
+
+                <h3>
+                    Tráfego Pago
+                </h3>
+
                 <p>
-                    Campanhas estratégicas para alcançar o público certo
-                    e gerar novas oportunidades.
+                    Campanhas estratégicas para alcançar
+                    o público certo e gerar oportunidades.
                 </p>
+
             </div>
 
 
-            <div class="card">
-                <div class="card-number">03</div>
-                <h3>Redes Sociais</h3>
+
+            <div class="service">
+
+                <div class="service-number">
+                    03
+                </div>
+
+                <div class="service-icon">
+                    ⌁
+                </div>
+
+                <h3>
+                    Redes Sociais
+                </h3>
+
                 <p>
-                    Gestão, conteúdo e estratégias para fortalecer
-                    sua presença nas redes sociais.
+                    Gestão, conteúdo e estratégias para
+                    fortalecer sua presença digital.
                 </p>
+
             </div>
 
 
-            <div class="card">
-                <div class="card-number">04</div>
-                <h3>Criação de Conteúdo</h3>
+
+            <div class="service">
+
+                <div class="service-number">
+                    04
+                </div>
+
+                <div class="service-icon">
+                    ✦
+                </div>
+
+                <h3>
+                    Criação de Conteúdo
+                </h3>
+
                 <p>
-                    Artes e conteúdos desenvolvidos para comunicar
-                    sua marca de forma criativa e profissional.
+                    Artes e conteúdos desenvolvidos para
+                    comunicar sua marca com criatividade.
                 </p>
+
             </div>
+
 
         </div>
 
@@ -442,73 +1450,95 @@
 </section>
 
 
-<section class="brand-section">
+
+<!-- =====================================================
+     ROMERO ADS / WEB
+===================================================== -->
+
+<section id="marcas">
 
     <div class="container">
 
-        <div class="brand-box">
+        <div class="section-top">
 
-            <div class="brand-name">
-                ROMERO ADS
+            <div>
+
+                <div class="section-label">
+                    02 — Nossas marcas
+                </div>
+
+                <h2 class="section-title">
+                    Duas frentes.<br>
+                    Uma presença.
+                </h2>
+
             </div>
 
-            <h3>
-                Estratégia para colocar sua marca em evidência.
-            </h3>
+        </div>
 
-            <p>
-                Trabalhamos com Marketing Digital, Tráfego Pago,
-                Redes Sociais, criação de conteúdo e planejamento
-                de campanhas para ajudar marcas a alcançarem novos públicos.
-            </p>
 
-            <div class="buttons">
+        <div class="brand-wrapper">
 
-                <a class="button primary"
-                   href="#contato">
+
+            <!-- ROMERO ADS -->
+
+            <div class="brand-card">
+
+                <div class="brand-tag">
+                    ROMERO ADS
+                </div>
+
+                <h3>
+                    Estratégia para colocar sua marca em evidência.
+                </h3>
+
+                <p>
+                    Marketing Digital, Tráfego Pago, Redes Sociais,
+                    criação de conteúdo e planejamento de campanhas
+                    para ajudar marcas a alcançarem novos públicos.
+                </p>
+
+
+                <a
+                    class="button primary"
+                    href="#contato"
+                >
                     Conheça a Romero Ads
                 </a>
 
             </div>
 
-        </div>
-
-    </div>
-
-</section>
 
 
-<section>
+            <!-- ROMERO WEB -->
 
-    <div class="container">
+            <div class="brand-card web">
 
-        <div class="brand-box">
+                <div class="brand-tag">
+                    ROMERO WEB
+                </div>
 
-            <div class="brand-name">
-                ROMERO WEB
-            </div>
+                <h3>
+                    Sua empresa também merece estar na internet.
+                </h3>
 
-            <h3>
-                Sua empresa também merece estar na internet.
-            </h3>
+                <p>
+                    Criamos sites modernos, profissionais e responsivos
+                    para apresentar sua marca, seus serviços e suas
+                    soluções no ambiente digital.
+                </p>
 
-            <p>
-                Criamos sites modernos, profissionais e responsivos
-                para apresentar sua marca, seus serviços e suas soluções
-                no ambiente digital.
-            </p>
 
-            <div class="buttons">
-
-                <!-- FUTURAMENTE VOCÊ PODE COLOCAR O LINK DO SITE DA ROMERO WEB -->
-
-                <a class="button primary"
-                   href="#contato">
+                <a
+                    class="button primary"
+                    href="#contato"
+                >
                     Conheça a Romero Web
                 </a>
 
             </div>
 
+
         </div>
 
     </div>
@@ -516,51 +1546,72 @@
 </section>
 
 
-<section>
+
+<!-- =====================================================
+     CLIENTES
+===================================================== -->
+
+<section id="clientes">
 
     <div class="container">
 
-        <div class="section-title">
+        <div class="section-top">
 
-            <small>Experiência</small>
+            <div>
 
-            <h2>Alguns clientes</h2>
+                <div class="section-label">
+                    03 — Experiência
+                </div>
 
-            <p>
-                Marcas e profissionais que já confiaram em nosso trabalho.
+                <h2 class="section-title">
+                    Alguns clientes.
+                </h2>
+
+            </div>
+
+
+            <p class="section-description">
+
+                Marcas e profissionais que já confiaram
+                em nosso trabalho.
+
             </p>
 
         </div>
 
 
-        <div class="clients">
+        <div class="clients-grid">
 
-            <!-- SUBSTITUA PELOS NOMES DOS CLIENTES -->
 
             <div class="client">
                 Caio Autopeças
             </div>
 
+
             <div class="client">
                 Ventura Semijoias
-
             </div>
+
 
             <div class="client">
-               Gilvania Consultoria
+                Gilvania Consultoria
             </div>
+
 
             <div class="client">
                 EverR
             </div>
 
+
             <div class="client">
                 Elétrica Perillo
             </div>
 
+
             <div class="client">
-               Cantinho da Jú
+                Cantinho da Jú
             </div>
+
 
         </div>
 
@@ -578,72 +1629,176 @@
 </section>
 
 
-<section>
 
-    <div class="container about">
+<!-- =====================================================
+     SOBRE
+===================================================== -->
 
-        <div class="section-title">
+<section
+    id="sobre"
+    class="about-section"
+>
 
-            <small>Sobre</small>
+    <div class="container">
 
-            <h2>Gabriel Romero</h2>
+        <div class="about-grid">
+
+
+            <div>
+
+                <div class="section-label">
+                    04 — Sobre
+                </div>
+
+                <div class="about-name">
+                    Gabriel<br>
+                    Romero.
+                </div>
+
+            </div>
+
+
+            <div class="about-text">
+
+                <p>
+
+                    Sou empreendedor e fundador da
+                    <strong>Romero Ads&Wev</strong>,
+                    atuando no mercado de Marketing Digital
+                    desde março de 2023.
+
+                </p>
+
+
+                <p>
+
+                    Meu trabalho une criatividade, estratégia
+                    e agilidade para desenvolver soluções digitais
+                    para diferentes tipos de negócios e profissionais.
+
+                </p>
+
+
+                <div class="about-meta">
+
+
+                    <div class="meta">
+
+                        <strong>
+                            2023
+                        </strong>
+
+                        <span>
+                            Início da Romero
+                        </span>
+
+                    </div>
+
+
+                    <div class="meta">
+
+                        <strong>
+                            Ads
+                        </strong>
+
+                        <span>
+                            Marketing & Estratégia
+                        </span>
+
+                    </div>
+
+
+                    <div class="meta">
+
+                        <strong>
+                            Web
+                        </strong>
+
+                        <span>
+                            Desenvolvimento Digital
+                        </span>
+
+                    </div>
+
+
+                </div>
+
+            </div>
 
         </div>
-
-
-        <p>
-            Sou empreendedor e fundador da <strong>Romero Ads&Wev</strong>,
-            atuando no mercado de Marketing Digital desde março de 2023.
-        </p>
-
-        <p>
-            Meu trabalho une criatividade, estratégia e agilidade
-            para desenvolver soluções digitais para diferentes tipos
-            de negócios e profissionais.
-        </p>
 
     </div>
 
 </section>
 
 
-<section id="contato">
 
-    <div class="container contact">
+<!-- =====================================================
+     CONTATO
+===================================================== -->
 
-        <h2>
-            Pronto para colocar sua marca em evidência?
+<section
+    id="contato"
+    class="contact-section"
+>
+
+    <div class="container">
+
+        <div class="section-label">
+            05 — Vamos conversar
+        </div>
+
+
+        <h2 class="contact-title">
+
+            PRONTO PARA<br>
+
+            <span>
+                COLOCAR SUA MARCA
+            </span>
+
+            <br>
+
+            EM EVIDÊNCIA?
+
         </h2>
 
-        <p>
+
+        <p class="contact-subtitle">
+
             Vamos transformar sua ideia em presença digital.
+
         </p>
 
 
-        <div class="contact-buttons buttons">
+        <div class="contact-buttons">
 
-            <a class="button primary"
-               href="https://wa.me/5511940361367"
-               target="_blank">
+
+            <a
+                class="button primary"
+                href="https://wa.me/5511940361367"
+                target="_blank"
+            >
                 💬 WhatsApp
             </a>
 
 
-            <!-- COLOQUE SEU INSTAGRAM AQUI -->
-
-            <a class="button"
-               href="https://www.instagram.com/adsromero"
-               target="_blank">
+            <a
+                class="button"
+                href="https://www.instagram.com/adsromero"
+                target="_blank"
+            >
                 📸 Instagram
             </a>
 
 
-            <!-- COLOQUE SEU E-MAIL AQUI -->
-
-            <a class="button"
-               href="mailto:RomeroAds@proton.me">
+            <a
+                class="button"
+                href="mailto:RomeroAds@proton.me"
+            >
                 ✉️ E-mail
             </a>
+
 
         </div>
 
@@ -652,11 +1807,18 @@
 </section>
 
 
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
 <footer>
 
-    © 2026 Romero Ads&Wev  
-    <br>
-    Marketing Digital • Publicidade • Web
+    © 2026 ROMERO ADS&WEV
+
+    <br><br>
+
+    MARKETING DIGITAL • PUBLICIDADE • WEB
 
 </footer>
 
