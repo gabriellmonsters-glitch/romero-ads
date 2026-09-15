@@ -9,7 +9,305 @@
 <meta name="description" content="ROMERO ADS&WEB — Marketing Digital, Publicidade, Social Media, Tráfego Pago e Desenvolvimento Web.">
 
 <meta name="theme-color" content="#08080b">
+/* =========================================================
+   PROJETOS SELECIONADOS
+========================================================= */
 
+.projects-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+}
+
+.project-card{
+    position:relative;
+    min-height:560px;
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:24px;
+    overflow:hidden;
+    background:#0c0c10;
+
+    transition:
+        transform .45s cubic-bezier(.2,.7,.2,1),
+        border-color .45s ease,
+        box-shadow .45s ease;
+}
+
+.project-card:hover{
+    transform:translateY(-8px);
+    border-color:rgba(192,132,252,.30);
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,.35),
+        0 0 45px rgba(124,58,237,.07);
+}
+
+
+/* IMAGEM */
+
+.project-image{
+    height:330px;
+    position:relative;
+    overflow:hidden;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:#111116;
+}
+
+.project-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+
+    transition:
+        transform .7s cubic-bezier(.2,.7,.2,1),
+        filter .5s ease;
+}
+
+.project-card:hover .project-image img{
+    transform:scale(1.045);
+}
+
+
+/* SOMBREAMENTO ENTRE IMAGEM E TEXTO */
+
+.project-image::after{
+    content:"";
+    position:absolute;
+    inset:0;
+
+    background:
+        linear-gradient(
+            to bottom,
+            transparent 55%,
+            rgba(8,8,11,.15) 75%,
+            rgba(8,8,11,.65) 100%
+        );
+
+    pointer-events:none;
+}
+
+
+/* CONTEÚDO */
+
+.project-content{
+    position:relative;
+    padding:30px;
+}
+
+.project-top{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+    margin-bottom:18px;
+}
+
+.project-number{
+    font-size:10px;
+    color:#8b5cf6;
+    letter-spacing:3px;
+}
+
+.project-type{
+    font-size:9px;
+    color:#666;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    text-align:right;
+}
+
+.project-content h3{
+    font-size:clamp(25px,3vw,38px);
+    letter-spacing:-1.5px;
+    margin-bottom:14px;
+}
+
+.project-content p{
+    color:#85828b;
+    font-size:13px;
+    line-height:1.7;
+    max-width:570px;
+}
+
+
+/* TAGS */
+
+.project-tags{
+    display:flex;
+    flex-wrap:wrap;
+    gap:7px;
+    margin-top:22px;
+}
+
+.project-tag{
+    padding:7px 10px;
+
+    border:
+        1px solid rgba(255,255,255,.08);
+
+    border-radius:50px;
+
+    background:
+        rgba(255,255,255,.025);
+
+    color:#777;
+
+    font-size:8px;
+
+    letter-spacing:1.5px;
+
+    text-transform:uppercase;
+
+    transition:
+        border-color .3s ease,
+        color .3s ease,
+        background .3s ease;
+}
+
+.project-card:hover .project-tag{
+    border-color:
+        rgba(192,132,252,.20);
+
+    color:#aaa;
+
+    background:
+        rgba(168,85,247,.035);
+}
+
+
+/* NÚMERO GIGANTE DECORATIVO */
+
+.project-big-number{
+    position:absolute;
+
+    right:20px;
+    bottom:-20px;
+
+    font-size:110px;
+    font-weight:900;
+
+    color:rgba(255,255,255,.018);
+
+    line-height:1;
+
+    pointer-events:none;
+}
+
+
+/* DESTAQUE DOS CARDS */
+
+.project-card:nth-child(1){
+    grid-row:span 2;
+}
+
+.project-card:nth-child(1) .project-image{
+    height:500px;
+}
+
+.project-card:nth-child(4){
+    grid-column:span 2;
+}
+
+.project-card:nth-child(4){
+    display:grid;
+    grid-template-columns:1.05fr .95fr;
+    min-height:400px;
+}
+
+.project-card:nth-child(4) .project-image{
+    height:100%;
+    min-height:400px;
+}
+
+
+/* CTA PORTFÓLIO */
+
+.portfolio-bottom{
+    margin-top:45px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    gap:30px;
+
+    padding-top:30px;
+
+    border-top:
+        1px solid rgba(255,255,255,.07);
+}
+
+.portfolio-bottom p{
+    max-width:520px;
+
+    color:#69666f;
+
+    font-size:12px;
+
+    line-height:1.7;
+}
+
+
+/* RESPONSIVO */
+
+@media(max-width:900px){
+
+    .projects-grid{
+        grid-template-columns:1fr;
+    }
+
+    .project-card:nth-child(1){
+        grid-row:auto;
+    }
+
+    .project-card:nth-child(1) .project-image{
+        height:380px;
+    }
+
+    .project-card:nth-child(4){
+        grid-column:auto;
+        display:block;
+        min-height:auto;
+    }
+
+    .project-card:nth-child(4) .project-image{
+        height:380px;
+        min-height:0;
+    }
+
+}
+
+@media(max-width:600px){
+
+    .project-card{
+        min-height:auto;
+        border-radius:19px;
+    }
+
+    .project-image,
+    .project-card:nth-child(1) .project-image,
+    .project-card:nth-child(4) .project-image{
+        height:310px;
+    }
+
+    .project-content{
+        padding:24px;
+    }
+
+    .project-top{
+        align-items:flex-start;
+    }
+
+    .portfolio-bottom{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+}
 <style>
 
 /* =========================================================
@@ -1842,7 +2140,335 @@ footer{
 <!-- =====================================================
      CLIENTES
 ===================================================== -->
+<!-- =====================================================
+     PROJETOS SELECIONADOS
+===================================================== -->
 
+<section id="projetos">
+
+    <div class="section-label reveal">
+        03 / Projetos
+    </div>
+
+    <h2 class="section-title reveal">
+        PROJETOS<br>
+        SELECIONADOS
+    </h2>
+
+
+    <div class="projects-grid">
+
+
+        <!-- VENTURA -->
+
+        <article class="project-card reveal">
+
+            <div class="project-image">
+
+                <img
+                    src="ventura.jpg"
+                    alt="Ventura Semijoias"
+                    loading="lazy"
+                >
+
+            </div>
+
+
+            <div class="project-content">
+
+                <div class="project-top">
+
+                    <span class="project-number">
+                        01
+                    </span>
+
+                    <span class="project-type">
+                        Registro de Marca
+                    </span>
+
+                </div>
+
+
+                <h3>
+                    Ventura Semijoias
+                </h3>
+
+
+                <p>
+                    Assessoria no processo de registro
+                    da marca, acompanhando as etapas
+                    necessárias para a proteção da
+                    identidade da empresa.
+                </p>
+
+
+                <div class="project-tags">
+
+                    <span class="project-tag">
+                        Registro de Marca
+                    </span>
+
+                    <span class="project-tag">
+                        INPI
+                    </span>
+
+                    <span class="project-tag">
+                        Assessoria
+                    </span>
+
+                </div>
+
+
+                <span class="project-big-number">
+                    01
+                </span>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- CAIO AUTOPEÇAS -->
+
+        <article class="project-card reveal reveal-delay-1">
+
+            <div class="project-image">
+
+                <img
+                    src="caio.png"
+                    alt="Caio Autopeças"
+                    loading="lazy"
+                >
+
+            </div>
+
+
+            <div class="project-content">
+
+                <div class="project-top">
+
+                    <span class="project-number">
+                        02
+                    </span>
+
+                    <span class="project-type">
+                        Presença Digital
+                    </span>
+
+                </div>
+
+
+                <h3>
+                    Caio Autopeças
+                </h3>
+
+
+                <p>
+                    Estruturação da presença da empresa
+                    no Instagram, criação dos primeiros
+                    conteúdos e configuração do
+                    WhatsApp corporativo.
+                </p>
+
+
+                <div class="project-tags">
+
+                    <span class="project-tag">
+                        Instagram
+                    </span>
+
+                    <span class="project-tag">
+                        Social Media
+                    </span>
+
+                    <span class="project-tag">
+                        Conteúdo
+                    </span>
+
+                    <span class="project-tag">
+                        WhatsApp
+                    </span>
+
+                </div>
+
+
+                <span class="project-big-number">
+                    02
+                </span>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- CONSTRUTEC -->
+
+        <article class="project-card reveal reveal-delay-2">
+
+            <div class="project-image">
+
+                <img
+                    src="construtec.png"
+                    alt="Construtec"
+                    loading="lazy"
+                >
+
+            </div>
+
+
+            <div class="project-content">
+
+                <div class="project-top">
+
+                    <span class="project-number">
+                        03
+                    </span>
+
+                    <span class="project-type">
+                        Identidade Visual
+                    </span>
+
+                </div>
+
+
+                <h3>
+                    Construtec
+                </h3>
+
+
+                <p>
+                    Desenvolvimento da logomarca da
+                    empresa, criando a base visual para
+                    sua comunicação e posicionamento.
+                </p>
+
+
+                <div class="project-tags">
+
+                    <span class="project-tag">
+                        Logomarca
+                    </span>
+
+                    <span class="project-tag">
+                        Branding
+                    </span>
+
+                    <span class="project-tag">
+                        Identidade Visual
+                    </span>
+
+                </div>
+
+
+                <span class="project-big-number">
+                    03
+                </span>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- LU SOBREMESAS -->
+
+        <article class="project-card reveal">
+
+            <div class="project-image">
+
+                <img
+                    src="lu-sobremesas.png"
+                    alt="Lu Sobremesas Caseiras"
+                    loading="lazy"
+                >
+
+            </div>
+
+
+            <div class="project-content">
+
+                <div class="project-top">
+
+                    <span class="project-number">
+                        04
+                    </span>
+
+                    <span class="project-type">
+                        Identidade & Materiais
+                    </span>
+
+                </div>
+
+
+                <h3>
+                    Lu Sobremesas Caseiras
+                </h3>
+
+
+                <p>
+                    Desenvolvimento da logomarca e
+                    criação de materiais para aplicação
+                    física da identidade, incluindo
+                    banner para fachada e adesivos.
+                </p>
+
+
+                <div class="project-tags">
+
+                    <span class="project-tag">
+                        Logomarca
+                    </span>
+
+                    <span class="project-tag">
+                        Banner
+                    </span>
+
+                    <span class="project-tag">
+                        Adesivos
+                    </span>
+
+                    <span class="project-tag">
+                        Identidade Visual
+                    </span>
+
+                </div>
+
+
+                <span class="project-big-number">
+                    04
+                </span>
+
+            </div>
+
+        </article>
+
+
+    </div>
+
+
+    <div class="portfolio-bottom reveal">
+
+        <p>
+            Estes são alguns dos projetos desenvolvidos
+            pela ROMERO ADS&WEB. Conheça outros trabalhos,
+            soluções e materiais no portfólio completo.
+        </p>
+
+
+        <a
+            class="btn btn-primary"
+            href="https://drive.google.com/file/d/1uDN8y_ABWFQvCc9g50rlhF3pa6CNWxaV/view?usp=drive_link"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            VER PORTFÓLIO COMPLETO ↗
+        </a>
+
+    </div>
+
+</section>
 <section id="clientes">
 
     <div class="section-label reveal">
