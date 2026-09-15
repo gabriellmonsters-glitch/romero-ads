@@ -1,19 +1,20 @@
-```html
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>ROMERO ADS&WEV | Marketing Digital • Publicidade • Web</title>
+<title>ROMERO ADS&WEB | Marketing Digital • Publicidade • Web</title>
 
-<meta name="description" content="ROMERO ADS&WEV — Marketing Digital, Publicidade, Social Media, Tráfego Pago e Desenvolvimento Web.">
+<meta name="description" content="ROMERO ADS&WEB — Marketing Digital, Publicidade, Social Media, Tráfego Pago e Desenvolvimento Web.">
+
+<meta name="theme-color" content="#08080b">
 
 <style>
 
-/* =========================
+/* =========================================================
    BASE
-========================= */
+========================================================= */
 
 *{
     margin:0;
@@ -37,47 +38,51 @@ a{
     text-decoration:none;
 }
 
+button,
+a{
+    -webkit-tap-highlight-color:transparent;
+}
+
 ::selection{
     background:#a855f7;
     color:#fff;
 }
 
 
-/* =========================
+/* =========================================================
    BACKGROUND
-========================= */
+========================================================= */
 
-body::before{
-    content:"";
+.page-background{
     position:fixed;
     inset:0;
     pointer-events:none;
-    z-index:-3;
+    z-index:-5;
 
     background:
         radial-gradient(
             circle at 15% 20%,
-            rgba(124,58,237,.13),
+            rgba(124,58,237,.15),
             transparent 30%
         ),
         radial-gradient(
             circle at 85% 30%,
-            rgba(236,72,153,.10),
+            rgba(236,72,153,.11),
             transparent 30%
         ),
         radial-gradient(
             circle at 50% 90%,
-            rgba(168,85,247,.07),
+            rgba(168,85,247,.08),
             transparent 35%
-        );
+        ),
+        #08080b;
 }
 
-body::after{
-    content:"";
+.grid-background{
     position:fixed;
     inset:0;
     pointer-events:none;
-    z-index:-2;
+    z-index:-4;
 
     opacity:.22;
 
@@ -96,19 +101,57 @@ body::after{
 }
 
 
-/* =========================
+/* =========================================================
+   CURSOR GLOW
+========================================================= */
+
+.cursor-glow{
+    position:fixed;
+
+    width:500px;
+    height:500px;
+
+    border-radius:50%;
+
+    pointer-events:none;
+
+    z-index:-3;
+
+    opacity:.35;
+
+    transform:translate(-50%,-50%);
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(168,85,247,.20) 0%,
+            rgba(236,72,153,.08) 28%,
+            transparent 68%
+        );
+
+    filter:blur(12px);
+
+    transition:opacity .3s ease;
+}
+
+
+/* =========================================================
    NAVIGATION
-========================= */
+========================================================= */
 
 nav{
     position:fixed;
+
     top:18px;
     left:50%;
+
     transform:translateX(-50%);
 
     width:min(1150px,92%);
 
-    padding:15px 22px;
+    height:74px;
+
+    padding:8px 18px;
 
     display:flex;
     align-items:center;
@@ -116,57 +159,134 @@ nav{
 
     border:1px solid rgba(255,255,255,.09);
 
-    background:rgba(10,10,14,.68);
+    background:rgba(8,8,12,.70);
 
-    backdrop-filter:blur(20px);
-    -webkit-backdrop-filter:blur(20px);
+    backdrop-filter:blur(22px);
+    -webkit-backdrop-filter:blur(22px);
 
-    border-radius:18px;
+    border-radius:20px;
 
     z-index:1000;
 
     box-shadow:
         0 15px 50px rgba(0,0,0,.35),
-        0 0 40px rgba(124,58,237,.05);
+        0 0 40px rgba(124,58,237,.04);
+
+    transition:
+        top .35s ease,
+        background .35s ease,
+        border-color .35s ease,
+        box-shadow .35s ease;
 }
+
+nav.scrolled{
+    top:10px;
+
+    background:rgba(8,8,12,.88);
+
+    border-color:rgba(192,132,252,.14);
+
+    box-shadow:
+        0 15px 50px rgba(0,0,0,.45),
+        0 0 35px rgba(124,58,237,.07);
+}
+
+
+/* =========================================================
+   LOGO
+========================================================= */
 
 .logo{
-    font-size:14px;
-    font-weight:800;
-    letter-spacing:2px;
+    display:flex;
+    align-items:center;
 
-    background:linear-gradient(
-        90deg,
-        #ffffff,
-        #c084fc,
-        #f472b6
-    );
+    height:58px;
 
-    -webkit-background-clip:text;
-    background-clip:text;
-    color:transparent;
+    overflow:hidden;
+
+    border-radius:12px;
 }
+
+.logo img{
+    width:108px;
+    height:58px;
+
+    object-fit:cover;
+
+    object-position:center;
+
+    display:block;
+
+    transform:scale(1.15);
+
+    transition:
+        transform .35s ease,
+        filter .35s ease;
+}
+
+.logo:hover img{
+    transform:scale(1.20);
+
+    filter:
+        drop-shadow(0 0 8px rgba(168,85,247,.35));
+}
+
+
+/* =========================================================
+   NAV LINKS
+========================================================= */
 
 .nav-links{
     display:flex;
-    gap:28px;
+    gap:27px;
     align-items:center;
 }
 
 .nav-links a{
-    font-size:12px;
+    position:relative;
+
+    font-size:11px;
+
     color:#aaa;
-    transition:.3s;
+
+    letter-spacing:.3px;
+
+    transition:color .3s ease;
+}
+
+.nav-links a::after{
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    bottom:-8px;
+
+    width:0;
+    height:1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #8b5cf6,
+            #ec4899
+        );
+
+    transition:width .3s ease;
 }
 
 .nav-links a:hover{
     color:#fff;
 }
 
+.nav-links a:hover::after{
+    width:100%;
+}
 
-/* =========================
+
+/* =========================================================
    HERO
-========================= */
+========================================================= */
 
 .hero{
     min-height:100vh;
@@ -175,24 +295,54 @@ nav{
     align-items:center;
 
     padding:
-        150px
+        160px
         max(7vw,30px)
         100px;
 
     position:relative;
 }
 
+.hero::after{
+    content:"";
+
+    position:absolute;
+
+    width:650px;
+    height:650px;
+
+    right:-220px;
+    top:10%;
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(124,58,237,.10),
+            rgba(236,72,153,.04),
+            transparent 68%
+        );
+
+    pointer-events:none;
+}
+
 .hero-content{
+    position:relative;
+    z-index:2;
+
     max-width:1100px;
 }
 
 .hero-label{
     display:inline-flex;
     align-items:center;
+
     gap:10px;
 
-    font-size:11px;
+    font-size:10px;
+
     letter-spacing:3px;
+
     text-transform:uppercase;
 
     color:#bdb4ca;
@@ -202,14 +352,16 @@ nav{
 
 .hero-label::before{
     content:"";
+
     width:32px;
     height:1px;
 
-    background:linear-gradient(
-        90deg,
-        #8b5cf6,
-        #ec4899
-    );
+    background:
+        linear-gradient(
+            90deg,
+            #8b5cf6,
+            #ec4899
+        );
 }
 
 .hero h1{
@@ -229,22 +381,25 @@ nav{
 .hero h1 .outline{
     color:transparent;
 
-    -webkit-text-stroke:1px rgba(255,255,255,.55);
+    -webkit-text-stroke:
+        1px rgba(255,255,255,.55);
 
     text-shadow:
         0 0 40px rgba(124,58,237,.12);
 }
 
 .hero h1 .gradient{
-    background:linear-gradient(
-        90deg,
-        #ffffff 10%,
-        #c084fc 55%,
-        #f472b6 100%
-    );
+    background:
+        linear-gradient(
+            90deg,
+            #ffffff 5%,
+            #c084fc 55%,
+            #f472b6 100%
+        );
 
     -webkit-background-clip:text;
     background-clip:text;
+
     color:transparent;
 }
 
@@ -261,31 +416,73 @@ nav{
 }
 
 
-/* =========================
+/* =========================================================
    BUTTONS
-========================= */
+========================================================= */
 
 .buttons{
     display:flex;
+
     gap:14px;
+
     flex-wrap:wrap;
 }
 
 .btn{
+    position:relative;
+
+    overflow:hidden;
+
+    display:inline-flex;
+
+    align-items:center;
+    justify-content:center;
+
+    min-height:48px;
+
     padding:15px 23px;
 
-    border-radius:10px;
+    border-radius:11px;
 
-    font-size:12px;
+    font-size:11px;
 
     font-weight:700;
 
-    letter-spacing:.5px;
+    letter-spacing:.7px;
 
     transition:
-        transform .3s,
-        box-shadow .3s,
-        border-color .3s;
+        transform .3s ease,
+        box-shadow .3s ease,
+        border-color .3s ease,
+        background .3s ease;
+}
+
+.btn::before{
+    content:"";
+
+    position:absolute;
+
+    top:-100%;
+    left:-80%;
+
+    width:60%;
+    height:300%;
+
+    transform:rotate(25deg);
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.22),
+            transparent
+        );
+
+    transition:left .65s ease;
+}
+
+.btn:hover::before{
+    left:130%;
 }
 
 .btn:hover{
@@ -293,12 +490,13 @@ nav{
 }
 
 .btn-primary{
-    background:linear-gradient(
-        110deg,
-        #7c3aed,
-        #a855f7,
-        #ec4899
-    );
+    background:
+        linear-gradient(
+            110deg,
+            #7c3aed,
+            #a855f7,
+            #ec4899
+        );
 
     box-shadow:
         0 10px 35px rgba(168,85,247,.20);
@@ -306,33 +504,42 @@ nav{
 
 .btn-primary:hover{
     box-shadow:
-        0 15px 45px rgba(236,72,153,.30);
+        0 15px 45px rgba(236,72,153,.28);
 }
 
 .btn-secondary{
-    border:1px solid rgba(255,255,255,.14);
+    border:
+        1px solid rgba(255,255,255,.14);
 
-    background:rgba(255,255,255,.025);
+    background:
+        rgba(255,255,255,.025);
 
     color:#ddd;
 }
 
 .btn-secondary:hover{
-    border-color:rgba(192,132,252,.5);
+    border-color:
+        rgba(192,132,252,.50);
+
+    background:
+        rgba(168,85,247,.05);
 }
 
 
-/* =========================
-   SCROLL
-========================= */
+/* =========================================================
+   SCROLL INDICATOR
+========================================================= */
 
 .scroll{
     position:absolute;
+
     bottom:35px;
     left:max(7vw,30px);
 
     display:flex;
+
     align-items:center;
+
     gap:12px;
 
     font-size:9px;
@@ -346,21 +553,41 @@ nav{
     width:35px;
     height:1px;
 
-    background:linear-gradient(
-        90deg,
-        #8b5cf6,
-        #ec4899
-    );
+    background:
+        linear-gradient(
+            90deg,
+            #8b5cf6,
+            #ec4899
+        );
+
+    animation:
+        scrollPulse 2s ease-in-out infinite;
+}
+
+@keyframes scrollPulse{
+
+    0%,100%{
+        width:25px;
+        opacity:.5;
+    }
+
+    50%{
+        width:45px;
+        opacity:1;
+    }
 }
 
 
-/* =========================
+/* =========================================================
    MARQUEE
-========================= */
+========================================================= */
 
 .marquee{
-    border-top:1px solid rgba(255,255,255,.06);
-    border-bottom:1px solid rgba(255,255,255,.06);
+    border-top:
+        1px solid rgba(255,255,255,.06);
+
+    border-bottom:
+        1px solid rgba(255,255,255,.06);
 
     overflow:hidden;
 
@@ -379,11 +606,12 @@ nav{
 .marquee-track{
     display:inline-block;
 
-    animation:marquee 25s linear infinite;
+    animation:
+        marquee 25s linear infinite;
 
     color:#555;
 
-    font-size:12px;
+    font-size:11px;
 
     letter-spacing:4px;
 
@@ -395,10 +623,11 @@ nav{
 }
 
 .marquee .highlight{
-    color:#9f7aea;
+    color:#a78bfa;
 }
 
 @keyframes marquee{
+
     from{
         transform:translateX(0);
     }
@@ -409,12 +638,14 @@ nav{
 }
 
 
-/* =========================
+/* =========================================================
    SECTIONS
-========================= */
+========================================================= */
 
 section{
-    padding:120px max(7vw,30px);
+    padding:
+        120px
+        max(7vw,30px);
 }
 
 .section-label{
@@ -430,7 +661,8 @@ section{
 }
 
 .section-title{
-    font-size:clamp(38px,5vw,70px);
+    font-size:
+        clamp(38px,5vw,70px);
 
     letter-spacing:-3px;
 
@@ -440,9 +672,42 @@ section{
 }
 
 
-/* =========================
+/* =========================================================
+   REVEAL ANIMATION
+========================================================= */
+
+.reveal{
+    opacity:0;
+
+    transform:translateY(35px);
+
+    transition:
+        opacity .8s cubic-bezier(.2,.7,.2,1),
+        transform .8s cubic-bezier(.2,.7,.2,1);
+}
+
+.reveal.visible{
+    opacity:1;
+
+    transform:translateY(0);
+}
+
+.reveal-delay-1{
+    transition-delay:.08s;
+}
+
+.reveal-delay-2{
+    transition-delay:.16s;
+}
+
+.reveal-delay-3{
+    transition-delay:.24s;
+}
+
+
+/* =========================================================
    SERVICES
-========================= */
+========================================================= */
 
 .services-grid{
     display:grid;
@@ -454,11 +719,12 @@ section{
 }
 
 .service{
-    min-height:270px;
+    min-height:280px;
 
     padding:30px;
 
-    border:1px solid rgba(255,255,255,.08);
+    border:
+        1px solid rgba(255,255,255,.08);
 
     background:
         linear-gradient(
@@ -474,9 +740,9 @@ section{
     overflow:hidden;
 
     transition:
-        transform .35s,
-        border-color .35s,
-        box-shadow .35s;
+        transform .4s ease,
+        border-color .4s ease,
+        box-shadow .4s ease;
 }
 
 .service::before{
@@ -484,38 +750,69 @@ section{
 
     position:absolute;
 
-    width:180px;
-    height:180px;
+    width:190px;
+    height:190px;
 
-    right:-80px;
-    top:-80px;
+    right:-90px;
+    top:-90px;
 
     background:
         radial-gradient(
             circle,
-            rgba(168,85,247,.25),
+            rgba(168,85,247,.28),
             transparent 70%
         );
 
-    transition:.4s;
+    transition:
+        transform .5s ease;
+}
+
+.service::after{
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    bottom:0;
+
+    width:0;
+    height:2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #7c3aed,
+            #ec4899
+        );
+
+    transition:
+        width .4s ease;
 }
 
 .service:hover{
-    transform:translateY(-8px);
+    transform:
+        translateY(-9px);
 
     border-color:
         rgba(192,132,252,.35);
 
     box-shadow:
-        0 20px 60px rgba(0,0,0,.3),
-        0 0 40px rgba(124,58,237,.07);
+        0 20px 60px rgba(0,0,0,.30),
+        0 0 40px rgba(124,58,237,.08);
 }
 
 .service:hover::before{
-    transform:scale(1.4);
+    transform:scale(1.45);
+}
+
+.service:hover::after{
+    width:100%;
 }
 
 .service-number{
+    position:relative;
+    z-index:2;
+
     font-size:11px;
 
     color:#8b5cf6;
@@ -524,14 +821,20 @@ section{
 }
 
 .service h3{
+    position:relative;
+    z-index:2;
+
     font-size:23px;
 
-    margin-top:70px;
+    margin-top:75px;
 
     margin-bottom:14px;
 }
 
 .service p{
+    position:relative;
+    z-index:2;
+
     color:#85828b;
 
     line-height:1.6;
@@ -540,9 +843,9 @@ section{
 }
 
 
-/* =========================
-   BRAND BLOCKS
-========================= */
+/* =========================================================
+   ROMERO ADS / ROMERO WEB
+========================================================= */
 
 .brand-grid{
     display:grid;
@@ -554,13 +857,14 @@ section{
 }
 
 .brand-card{
-    min-height:390px;
+    min-height:410px;
 
     padding:45px;
 
     border-radius:22px;
 
-    border:1px solid rgba(255,255,255,.08);
+    border:
+        1px solid rgba(255,255,255,.08);
 
     background:
         radial-gradient(
@@ -578,7 +882,10 @@ section{
 
     overflow:hidden;
 
-    transition:.4s;
+    transition:
+        transform .4s ease,
+        border-color .4s ease,
+        box-shadow .4s ease;
 }
 
 .brand-card:nth-child(2){
@@ -600,6 +907,9 @@ section{
 
     border-color:
         rgba(255,255,255,.17);
+
+    box-shadow:
+        0 25px 80px rgba(0,0,0,.28);
 }
 
 .brand-card .small{
@@ -613,11 +923,12 @@ section{
 }
 
 .brand-card h3{
-    font-size:clamp(45px,6vw,80px);
+    font-size:
+        clamp(45px,6vw,80px);
 
     letter-spacing:-5px;
 
-    margin-top:100px;
+    margin-top:105px;
 
     margin-bottom:20px;
 }
@@ -648,19 +959,24 @@ section{
 
     border-radius:50%;
 
-    border:1px solid rgba(255,255,255,.1);
+    border:
+        1px solid rgba(255,255,255,.1);
 
     color:#c084fc;
 
-    transition:.3s;
+    transition:
+        transform .35s ease,
+        background .35s ease,
+        color .35s ease;
 }
 
 .brand-card:hover .arrow{
-    background:linear-gradient(
-        135deg,
-        #7c3aed,
-        #ec4899
-    );
+    background:
+        linear-gradient(
+            135deg,
+            #7c3aed,
+            #ec4899
+        );
 
     color:#fff;
 
@@ -668,9 +984,9 @@ section{
 }
 
 
-/* =========================
+/* =========================================================
    CLIENTS
-========================= */
+========================================================= */
 
 .clients{
     display:grid;
@@ -682,7 +998,7 @@ section{
 }
 
 .client{
-    min-height:130px;
+    min-height:135px;
 
     display:flex;
 
@@ -693,9 +1009,11 @@ section{
 
     padding:20px;
 
-    border:1px solid rgba(255,255,255,.07);
+    border:
+        1px solid rgba(255,255,255,.07);
 
-    background:rgba(255,255,255,.018);
+    background:
+        rgba(255,255,255,.018);
 
     border-radius:15px;
 
@@ -707,7 +1025,12 @@ section{
 
     letter-spacing:1px;
 
-    transition:.3s;
+    transition:
+        transform .35s ease,
+        color .35s ease,
+        border-color .35s ease,
+        background .35s ease,
+        box-shadow .35s ease;
 }
 
 .client:hover{
@@ -719,17 +1042,33 @@ section{
     background:
         linear-gradient(
             135deg,
-            rgba(124,58,237,.08),
-            rgba(236,72,153,.05)
+            rgba(124,58,237,.09),
+            rgba(236,72,153,.055)
         );
 
-    transform:translateY(-4px);
+    transform:
+        translateY(-5px);
+
+    box-shadow:
+        0 15px 45px rgba(0,0,0,.20);
+}
+
+.client-note{
+    color:#666;
+
+    font-size:12px;
+
+    line-height:1.7;
+
+    max-width:650px;
+
+    margin-top:25px;
 }
 
 
-/* =========================
+/* =========================================================
    ABOUT
-========================= */
+========================================================= */
 
 .about{
     display:grid;
@@ -743,7 +1082,8 @@ section{
 }
 
 .about-text{
-    font-size:clamp(24px,3vw,42px);
+    font-size:
+        clamp(24px,3vw,42px);
 
     line-height:1.2;
 
@@ -751,11 +1091,22 @@ section{
 }
 
 .about-text span{
-    color:#777;
+    background:
+        linear-gradient(
+            90deg,
+            #c084fc,
+            #f472b6
+        );
+
+    -webkit-background-clip:text;
+    background-clip:text;
+
+    color:transparent;
 }
 
 .about-info{
-    border-top:1px solid rgba(255,255,255,.1);
+    border-top:
+        1px solid rgba(255,255,255,.1);
 }
 
 .info-row{
@@ -763,9 +1114,12 @@ section{
 
     justify-content:space-between;
 
+    gap:25px;
+
     padding:18px 0;
 
-    border-bottom:1px solid rgba(255,255,255,.07);
+    border-bottom:
+        1px solid rgba(255,255,255,.07);
 
     font-size:12px;
 }
@@ -779,9 +1133,9 @@ section{
 }
 
 
-/* =========================
+/* =========================================================
    CONTACT
-========================= */
+========================================================= */
 
 .contact{
     position:relative;
@@ -789,7 +1143,7 @@ section{
     overflow:hidden;
 
     padding:
-        120px
+        130px
         max(7vw,30px);
 }
 
@@ -798,8 +1152,8 @@ section{
 
     position:absolute;
 
-    width:600px;
-    height:600px;
+    width:700px;
+    height:700px;
 
     left:50%;
     top:50%;
@@ -810,7 +1164,7 @@ section{
     background:
         radial-gradient(
             circle,
-            rgba(124,58,237,.18),
+            rgba(124,58,237,.20),
             rgba(236,72,153,.08),
             transparent 65%
         );
@@ -821,15 +1175,18 @@ section{
 .contact-inner{
     position:relative;
 
+    z-index:2;
+
     text-align:center;
 
-    max-width:900px;
+    max-width:950px;
 
     margin:auto;
 }
 
 .contact h2{
-    font-size:clamp(45px,8vw,100px);
+    font-size:
+        clamp(45px,8vw,100px);
 
     line-height:.95;
 
@@ -839,11 +1196,12 @@ section{
 }
 
 .contact h2 span{
-    background:linear-gradient(
-        90deg,
-        #a78bfa,
-        #f472b6
-    );
+    background:
+        linear-gradient(
+            90deg,
+            #a78bfa,
+            #f472b6
+        );
 
     -webkit-background-clip:text;
     background-clip:text;
@@ -856,7 +1214,8 @@ section{
 
     max-width:550px;
 
-    margin:0 auto 35px;
+    margin:
+        0 auto 35px;
 
     line-height:1.7;
 }
@@ -872,20 +1231,24 @@ section{
 }
 
 
-/* =========================
+/* =========================================================
    FOOTER
-========================= */
+========================================================= */
 
 footer{
-    padding:30px max(7vw,30px);
+    padding:
+        40px
+        max(7vw,30px);
 
-    border-top:1px solid rgba(255,255,255,.06);
+    border-top:
+        1px solid rgba(255,255,255,.06);
 
     display:flex;
 
+    align-items:center;
     justify-content:space-between;
 
-    gap:20px;
+    gap:30px;
 
     color:#555;
 
@@ -894,54 +1257,95 @@ footer{
     letter-spacing:1px;
 }
 
+.footer-brand{
+    display:flex;
 
-/* =========================
-   ANIMATIONS
-========================= */
+    align-items:center;
 
-@keyframes fadeUp{
+    gap:18px;
+}
+
+.footer-brand img{
+    width:80px;
+    height:55px;
+
+    object-fit:cover;
+
+    border-radius:10px;
+}
+
+.footer-name{
+    color:#aaa;
+
+    font-weight:700;
+
+    letter-spacing:1.5px;
+}
+
+
+/* =========================================================
+   HERO INITIAL ANIMATION
+========================================================= */
+
+.hero-label{
+    animation:
+        heroUp .8s .05s both;
+}
+
+.hero h1{
+    animation:
+        heroUp .9s .15s both;
+}
+
+.hero-description{
+    animation:
+        heroUp .9s .30s both;
+}
+
+.hero .buttons{
+    animation:
+        heroUp .9s .42s both;
+}
+
+@keyframes heroUp{
 
     from{
         opacity:0;
-        transform:translateY(25px);
+
+        transform:
+            translateY(28px);
     }
 
     to{
         opacity:1;
-        transform:translateY(0);
+
+        transform:
+            translateY(0);
     }
-
-}
-
-.hero-content{
-    animation:fadeUp 1s ease forwards;
-}
-
-.hero-label{
-    animation:fadeUp 1s .1s ease both;
-}
-
-.hero h1{
-    animation:fadeUp 1s .2s ease both;
-}
-
-.hero-description{
-    animation:fadeUp 1s .35s ease both;
-}
-
-.buttons{
-    animation:fadeUp 1s .45s ease both;
 }
 
 
-/* =========================
+/* =========================================================
    RESPONSIVE
-========================= */
+========================================================= */
 
 @media(max-width:900px){
 
     .nav-links{
         display:none;
+    }
+
+    nav{
+        height:68px;
+    }
+
+    .logo{
+        height:52px;
+    }
+
+    .logo img{
+        height:52px;
+        width:100px;
     }
 
     .services-grid{
@@ -951,21 +1355,36 @@ footer{
 
     .about{
         grid-template-columns:1fr;
+
         gap:50px;
     }
 
+    .cursor-glow{
+        display:none;
+    }
+
 }
+
 
 @media(max-width:600px){
 
     nav{
         top:10px;
-        padding:14px 17px;
+
+        padding:7px 14px;
+
+        width:94%;
+
+        border-radius:17px;
+    }
+
+    nav.scrolled{
+        top:7px;
     }
 
     .hero{
         padding:
-            140px
+            135px
             25px
             90px;
     }
@@ -974,8 +1393,18 @@ footer{
         letter-spacing:-4px;
     }
 
+    .hero-description{
+        font-size:15px;
+    }
+
     section{
-        padding:90px 25px;
+        padding:
+            90px
+            25px;
+    }
+
+    .section-title{
+        margin-bottom:40px;
     }
 
     .services-grid,
@@ -985,20 +1414,27 @@ footer{
     }
 
     .service{
-        min-height:230px;
+        min-height:235px;
+    }
+
+    .service h3{
+        margin-top:55px;
     }
 
     .brand-card{
-        min-height:330px;
+        min-height:340px;
+
         padding:30px;
     }
 
     .brand-card h3{
-        margin-top:80px;
+        margin-top:75px;
     }
 
     .contact{
-        padding:90px 25px;
+        padding:
+            100px
+            25px;
     }
 
     .contact h2{
@@ -1007,7 +1443,42 @@ footer{
 
     footer{
         flex-direction:column;
+
         text-align:center;
+    }
+
+    .footer-brand{
+        flex-direction:column;
+    }
+
+    .scroll{
+        display:none;
+    }
+
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+========================================================= */
+
+@media(prefers-reduced-motion:reduce){
+
+    html{
+        scroll-behavior:auto;
+    }
+
+    *,
+    *::before,
+    *::after{
+        animation-duration:.01ms !important;
+        animation-iteration-count:1 !important;
+        transition-duration:.01ms !important;
+    }
+
+    .reveal{
+        opacity:1;
+        transform:none;
     }
 
 }
@@ -1019,15 +1490,28 @@ footer{
 <body>
 
 
-<!-- =========================
+<!-- BACKGROUND -->
+
+<div class="page-background"></div>
+<div class="grid-background"></div>
+<div class="cursor-glow" id="cursorGlow"></div>
+
+
+<!-- =====================================================
      NAV
-========================= -->
+===================================================== -->
 
-<nav>
+<nav id="navbar">
 
-    <a href="#" class="logo">
-        ROMERO ADS&WEV
+    <a href="#" class="logo" aria-label="ROMERO ADS&WEB">
+
+        <img
+            src="logo-romero.jpg"
+            alt="ROMERO ADS&WEB"
+        >
+
     </a>
+
 
     <div class="nav-links">
 
@@ -1056,9 +1540,9 @@ footer{
 </nav>
 
 
-<!-- =========================
+<!-- =====================================================
      HERO
-========================= -->
+===================================================== -->
 
 <header class="hero">
 
@@ -1067,6 +1551,7 @@ footer{
         <div class="hero-label">
             Marketing Digital • Publicidade • Web
         </div>
+
 
         <h1>
 
@@ -1085,13 +1570,15 @@ footer{
 
         </h1>
 
+
         <p class="hero-description">
 
             Estratégia, criatividade e presença digital
-            para transformar ideias em marcas que
-            chamam atenção e conectam pessoas.
+            para transformar ideias em marcas que chamam
+            atenção e conectam pessoas.
 
         </p>
+
 
         <div class="buttons">
 
@@ -1099,14 +1586,17 @@ footer{
                 class="btn btn-primary"
                 href="https://drive.google.com/file/d/1uDN8y_ABWFQvCc9g50rlhF3pa6CNWxaV/view?usp=drive_link"
                 target="_blank"
+                rel="noopener noreferrer"
             >
                 VER PORTFÓLIO
             </a>
+
 
             <a
                 class="btn btn-secondary"
                 href="https://wa.me/5511940361367"
                 target="_blank"
+                rel="noopener noreferrer"
             >
                 FALAR NO WHATSAPP
             </a>
@@ -1114,6 +1604,7 @@ footer{
         </div>
 
     </div>
+
 
     <div class="scroll">
 
@@ -1126,9 +1617,9 @@ footer{
 </header>
 
 
-<!-- =========================
+<!-- =====================================================
      MARQUEE
-========================= -->
+===================================================== -->
 
 <div class="marquee">
 
@@ -1148,6 +1639,7 @@ footer{
 
         <span>Web</span>
         <span class="highlight">✦</span>
+
 
         <span>Marketing Digital</span>
         <span class="highlight">✦</span>
@@ -1169,17 +1661,17 @@ footer{
 </div>
 
 
-<!-- =========================
+<!-- =====================================================
      SERVIÇOS
-========================= -->
+===================================================== -->
 
 <section id="servicos">
 
-    <div class="section-label">
+    <div class="section-label reveal">
         01 / Serviços
     </div>
 
-    <h2 class="section-title">
+    <h2 class="section-title reveal">
         O QUE FAZEMOS
     </h2>
 
@@ -1187,7 +1679,7 @@ footer{
     <div class="services-grid">
 
 
-        <div class="service">
+        <div class="service reveal">
 
             <div class="service-number">
                 01
@@ -1206,7 +1698,7 @@ footer{
         </div>
 
 
-        <div class="service">
+        <div class="service reveal reveal-delay-1">
 
             <div class="service-number">
                 02
@@ -1225,7 +1717,7 @@ footer{
         </div>
 
 
-        <div class="service">
+        <div class="service reveal reveal-delay-2">
 
             <div class="service-number">
                 03
@@ -1244,7 +1736,7 @@ footer{
         </div>
 
 
-        <div class="service">
+        <div class="service reveal reveal-delay-3">
 
             <div class="service-number">
                 04
@@ -1268,33 +1760,39 @@ footer{
 </section>
 
 
-<!-- =========================
-     ROMERO ADS / WEB
-========================= -->
+<!-- =====================================================
+     ROMERO ADS / ROMERO WEB
+===================================================== -->
 
 <section id="romero">
 
-    <div class="section-label">
+    <div class="section-label reveal">
         02 / Soluções
     </div>
 
-    <h2 class="section-title">
-        DUAS FRENTES.<br>
+    <h2 class="section-title reveal">
+
+        DUAS FRENTES.
+        <br>
+
         UMA PRESENÇA DIGITAL.
+
     </h2>
 
 
     <div class="brand-grid">
 
 
-        <div class="brand-card">
+        <div class="brand-card reveal">
 
             <div class="small">
                 Marketing & Publicidade
             </div>
 
             <h3>
-                ROMERO<br>ADS
+                ROMERO
+                <br>
+                ADS
             </h3>
 
             <p>
@@ -1310,14 +1808,16 @@ footer{
         </div>
 
 
-        <div class="brand-card">
+        <div class="brand-card reveal reveal-delay-1">
 
             <div class="small">
                 Desenvolvimento Web
             </div>
 
             <h3>
-                ROMERO<br>WEB
+                ROMERO
+                <br>
+                WEB
             </h3>
 
             <p>
@@ -1339,60 +1839,58 @@ footer{
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      CLIENTES
-========================= -->
+===================================================== -->
 
 <section id="clientes">
 
-    <div class="section-label">
+    <div class="section-label reveal">
         03 / Clientes
     </div>
 
-    <h2 class="section-title">
-        MARCAS QUE<br>
+    <h2 class="section-title reveal">
+
+        MARCAS QUE
+        <br>
+
         JÁ CONFIARAM
+
     </h2>
 
 
     <div class="clients">
 
-        <div class="client">
+        <div class="client reveal">
             Caio Autopeças
         </div>
 
-        <div class="client">
+        <div class="client reveal reveal-delay-1">
             Ventura Semijoias
         </div>
 
-        <div class="client">
+        <div class="client reveal reveal-delay-2">
             Gilvania Consultoria
         </div>
 
-        <div class="client">
+        <div class="client reveal">
             EverR
         </div>
 
-        <div class="client">
+        <div class="client reveal reveal-delay-1">
             Elétrica Perillo
         </div>
 
-        <div class="client">
+        <div class="client reveal reveal-delay-2">
             Cantinho da Jú
         </div>
 
     </div>
 
 
-    <p style="
-        color:#666;
-        font-size:12px;
-        line-height:1.7;
-        max-width:650px;
-        margin-top:25px;
-    ">
+    <p class="client-note reveal">
 
-        Além das marcas apresentadas, a Romero Ads&Wev
+        Além das marcas apresentadas, a ROMERO ADS&WEB
         já atendeu diversos outros clientes e projetos,
         respeitando a privacidade daqueles que optam
         por não divulgar sua identidade.
@@ -1402,22 +1900,24 @@ footer{
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      SOBRE
-========================= -->
+===================================================== -->
 
 <section id="sobre">
 
-    <div class="section-label">
+    <div class="section-label reveal">
         04 / Sobre
     </div>
 
+
     <div class="about">
 
-        <div class="about-text">
+
+        <div class="about-text reveal">
 
             Gabriel Romero é o empreendedor por trás
-            da <span>Romero Ads&Wev.</span>
+            da <span>ROMERO ADS&WEB.</span>
 
             <br><br>
 
@@ -1428,7 +1928,7 @@ footer{
         </div>
 
 
-        <div class="about-info">
+        <div class="about-info reveal reveal-delay-1">
 
             <div class="info-row">
 
@@ -1450,7 +1950,7 @@ footer{
                 </span>
 
                 <span>
-                    Marketing
+                    Marketing Digital
                 </span>
 
             </div>
@@ -1459,7 +1959,7 @@ footer{
             <div class="info-row">
 
                 <span>
-                    Digital
+                    Soluções
                 </span>
 
                 <span>
@@ -1470,22 +1970,27 @@ footer{
 
         </div>
 
+
     </div>
 
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      CONTATO
-========================= -->
+===================================================== -->
 
-<section id="contato" class="contact">
+<section
+    id="contato"
+    class="contact"
+>
 
-    <div class="contact-inner">
+    <div class="contact-inner reveal">
 
         <div class="section-label">
             05 / Contato
         </div>
+
 
         <h2>
 
@@ -1495,7 +2000,9 @@ footer{
             SUA MARCA
             <br>
 
-            <span>EM EVIDÊNCIA?</span>
+            <span>
+                EM EVIDÊNCIA?
+            </span>
 
         </h2>
 
@@ -1516,17 +2023,21 @@ footer{
                 class="btn btn-primary"
                 href="https://wa.me/5511940361367"
                 target="_blank"
+                rel="noopener noreferrer"
             >
                 WHATSAPP
             </a>
+
 
             <a
                 class="btn btn-secondary"
                 href="https://www.instagram.com/adsromero"
                 target="_blank"
+                rel="noopener noreferrer"
             >
                 INSTAGRAM
             </a>
+
 
             <a
                 class="btn btn-secondary"
@@ -1542,15 +2053,33 @@ footer{
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      FOOTER
-========================= -->
+===================================================== -->
 
 <footer>
 
-    <div>
-        © 2026 ROMERO ADS&WEV
+    <div class="footer-brand">
+
+        <img
+            src="logo-romero.jpg"
+            alt="ROMERO ADS&WEB"
+        >
+
+        <div>
+
+            <div class="footer-name">
+                ROMERO ADS&WEB
+            </div>
+
+            <br>
+
+            © 2026
+
+        </div>
+
     </div>
+
 
     <div>
         MARKETING DIGITAL • PUBLICIDADE • WEB
@@ -1559,6 +2088,175 @@ footer{
 </footer>
 
 
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script>
+
+/* =========================================================
+   NAVBAR
+========================================================= */
+
+const navbar =
+    document.getElementById("navbar");
+
+function updateNavbar(){
+
+    if(window.scrollY > 40){
+
+        navbar.classList.add("scrolled");
+
+    }else{
+
+        navbar.classList.remove("scrolled");
+
+    }
+
+}
+
+window.addEventListener(
+    "scroll",
+    updateNavbar,
+    { passive:true }
+);
+
+updateNavbar();
+
+
+
+/* =========================================================
+   SCROLL REVEAL
+========================================================= */
+
+const revealElements =
+    document.querySelectorAll(".reveal");
+
+const revealObserver =
+    new IntersectionObserver(
+
+        (entries, observer) => {
+
+            entries.forEach(entry => {
+
+                if(entry.isIntersecting){
+
+                    entry.target.classList.add(
+                        "visible"
+                    );
+
+                    observer.unobserve(
+                        entry.target
+                    );
+
+                }
+
+            });
+
+        },
+
+        {
+            threshold:0.12,
+            rootMargin:
+                "0px 0px -40px 0px"
+        }
+
+    );
+
+
+revealElements.forEach(element => {
+
+    revealObserver.observe(element);
+
+});
+
+
+
+/* =========================================================
+   CURSOR GLOW
+========================================================= */
+
+const cursorGlow =
+    document.getElementById("cursorGlow");
+
+
+if(
+    window.matchMedia(
+        "(pointer:fine)"
+    ).matches
+){
+
+    window.addEventListener(
+        "mousemove",
+        event => {
+
+            cursorGlow.style.left =
+                event.clientX + "px";
+
+            cursorGlow.style.top =
+                event.clientY + "px";
+
+        }
+    );
+
+}
+
+
+
+/* =========================================================
+   SMOOTH INTERNAL NAVIGATION
+========================================================= */
+
+document
+    .querySelectorAll(
+        'a[href^="#"]'
+    )
+    .forEach(link => {
+
+        link.addEventListener(
+            "click",
+            function(event){
+
+                const targetId =
+                    this.getAttribute("href");
+
+                if(targetId === "#"){
+
+                    event.preventDefault();
+
+                    window.scrollTo({
+                        top:0,
+                        behavior:"smooth"
+                    });
+
+                    return;
+
+                }
+
+
+                const target =
+                    document.querySelector(
+                        targetId
+                    );
+
+
+                if(target){
+
+                    event.preventDefault();
+
+                    target.scrollIntoView({
+                        behavior:"smooth"
+                    });
+
+                }
+
+            }
+        );
+
+    });
+
+</script>
+
+
 </body>
 </html>
-```
