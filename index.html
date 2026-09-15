@@ -2,7 +2,6 @@
 <html lang="pt-BR">
 
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -44,8 +43,7 @@ a{
     text-decoration:none;
 }
 
-button,
-a{
+button,a{
     -webkit-tap-highlight-color:transparent;
 }
 
@@ -156,11 +154,6 @@ nav.scrolled{
         0 0 35px rgba(124,58,237,.07);
 }
 
-
-/* =====================================================
-LOGO
-===================================================== */
-
 .logo{
     display:flex;
     align-items:center;
@@ -183,11 +176,6 @@ LOGO
     filter:drop-shadow(0 0 8px rgba(168,85,247,.35));
 }
 
-
-/* =====================================================
-NAV LINKS
-===================================================== */
-
 .nav-links{
     display:flex;
     gap:22px;
@@ -206,12 +194,9 @@ NAV LINKS
     position:absolute;
     left:0;
     bottom:-8px;
-
     width:0;
     height:1px;
-
     background:linear-gradient(90deg,#8b5cf6,#ec4899);
-
     transition:.3s;
 }
 
@@ -232,22 +217,17 @@ HERO
     min-height:100vh;
     display:flex;
     align-items:center;
-
     padding:160px max(7vw,30px) 100px;
-
     position:relative;
 }
 
 .hero::after{
     content:"";
     position:absolute;
-
     width:650px;
     height:650px;
-
     right:-220px;
     top:10%;
-
     border-radius:50%;
 
     background:
@@ -271,12 +251,12 @@ HERO
     display:inline-flex;
     align-items:center;
     gap:10px;
-
     font-size:10px;
     letter-spacing:3px;
     text-transform:uppercase;
     color:#bdb4ca;
     margin-bottom:30px;
+    animation:heroUp .8s .05s both;
 }
 
 .hero-label::before{
@@ -293,6 +273,7 @@ HERO
     font-weight:900;
     max-width:1100px;
     margin-bottom:40px;
+    animation:heroUp .9s .15s both;
 }
 
 .hero h1 .outline{
@@ -314,6 +295,22 @@ HERO
     font-size:17px;
     line-height:1.7;
     margin-bottom:40px;
+    animation:heroUp .9s .30s both;
+}
+
+.hero .buttons{
+    animation:heroUp .9s .42s both;
+}
+
+@keyframes heroUp{
+    from{
+        opacity:0;
+        transform:translateY(28px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
 }
 
 
@@ -337,7 +334,6 @@ BUTTONS
 
     min-height:48px;
     padding:15px 23px;
-
     border-radius:11px;
 
     font-size:11px;
@@ -349,14 +345,11 @@ BUTTONS
 
 .btn::before{
     content:"";
-
     position:absolute;
     top:-100%;
     left:-80%;
-
     width:60%;
     height:300%;
-
     transform:rotate(25deg);
 
     background:
@@ -400,18 +393,16 @@ BUTTONS
 
 
 /* =====================================================
-SCROLL
+SCROLL + MARQUEE
 ===================================================== */
 
 .scroll{
     position:absolute;
     bottom:35px;
     left:max(7vw,30px);
-
     display:flex;
     align-items:center;
     gap:12px;
-
     font-size:9px;
     letter-spacing:3px;
     color:#777;
@@ -425,29 +416,15 @@ SCROLL
 }
 
 @keyframes scrollPulse{
-    0%,100%{
-        width:25px;
-        opacity:.5;
-    }
-
-    50%{
-        width:45px;
-        opacity:1;
-    }
+    0%,100%{width:25px;opacity:.5;}
+    50%{width:45px;opacity:1;}
 }
-
-
-/* =====================================================
-MARQUEE
-===================================================== */
 
 .marquee{
     border-top:1px solid rgba(255,255,255,.06);
     border-bottom:1px solid rgba(255,255,255,.06);
-
     overflow:hidden;
     white-space:nowrap;
-
     padding:20px 0;
 
     background:
@@ -461,7 +438,6 @@ MARQUEE
 .marquee-track{
     display:inline-block;
     animation:marquee 25s linear infinite;
-
     color:#555;
     font-size:11px;
     letter-spacing:4px;
@@ -477,13 +453,8 @@ MARQUEE
 }
 
 @keyframes marquee{
-    from{
-        transform:translateX(0);
-    }
-
-    to{
-        transform:translateX(-50%);
-    }
+    from{transform:translateX(0);}
+    to{transform:translateX(-50%);}
 }
 
 
@@ -510,11 +481,6 @@ section{
     margin-bottom:55px;
 }
 
-
-/* =====================================================
-REVEAL
-===================================================== */
-
 .reveal{
     opacity:0;
     transform:translateY(35px);
@@ -529,17 +495,9 @@ REVEAL
     transform:translateY(0);
 }
 
-.reveal-delay-1{
-    transition-delay:.08s;
-}
-
-.reveal-delay-2{
-    transition-delay:.16s;
-}
-
-.reveal-delay-3{
-    transition-delay:.24s;
-}
+.reveal-delay-1{transition-delay:.08s;}
+.reveal-delay-2{transition-delay:.16s;}
+.reveal-delay-3{transition-delay:.24s;}
 
 
 /* =====================================================
@@ -555,7 +513,6 @@ SERVICES
 .service{
     min-height:280px;
     padding:30px;
-
     border:1px solid rgba(255,255,255,.08);
 
     background:
@@ -566,7 +523,6 @@ SERVICES
         );
 
     border-radius:18px;
-
     position:relative;
     overflow:hidden;
     isolation:isolate;
@@ -580,12 +536,9 @@ SERVICES
 
 .service::before{
     content:"";
-
     position:absolute;
-
     width:190px;
     height:190px;
-
     right:-90px;
     top:-90px;
 
@@ -597,21 +550,16 @@ SERVICES
         );
 
     z-index:0;
-
     transition:transform .5s ease;
 }
 
 .service::after{
     content:"";
-
     position:absolute;
-
     top:-130%;
     left:-100%;
-
     width:45%;
     height:370%;
-
     transform:rotate(25deg);
 
     background:
@@ -625,9 +573,7 @@ SERVICES
         );
 
     opacity:0;
-
     z-index:1;
-
     pointer-events:none;
 
     transition:
@@ -637,7 +583,6 @@ SERVICES
 
 .service:hover{
     transform:translateY(-9px);
-
     border-color:rgba(192,132,252,.35);
 
     background:
@@ -700,43 +645,24 @@ ROMERO ADS / WEB
 .brand-card{
     min-height:410px;
     padding:45px;
-
     border-radius:22px;
     border:1px solid rgba(255,255,255,.08);
 
     background:
-        radial-gradient(
-            circle at 80% 20%,
-            rgba(168,85,247,.14),
-            transparent 30%
-        ),
-        linear-gradient(
-            145deg,
-            rgba(255,255,255,.045),
-            rgba(255,255,255,.01)
-        );
+        radial-gradient(circle at 80% 20%,rgba(168,85,247,.14),transparent 30%),
+        linear-gradient(145deg,rgba(255,255,255,.045),rgba(255,255,255,.01));
 
     position:relative;
     overflow:hidden;
-
     transition:.4s ease;
-
     cursor:pointer;
     user-select:none;
 }
 
 .brand-card:nth-child(2){
     background:
-        radial-gradient(
-            circle at 80% 20%,
-            rgba(236,72,153,.13),
-            transparent 30%
-        ),
-        linear-gradient(
-            145deg,
-            rgba(255,255,255,.045),
-            rgba(255,255,255,.01)
-        );
+        radial-gradient(circle at 80% 20%,rgba(236,72,153,.13),transparent 30%),
+        linear-gradient(145deg,rgba(255,255,255,.045),rgba(255,255,255,.01));
 }
 
 .brand-card:hover{
@@ -785,7 +711,6 @@ ROMERO ADS / WEB
 
     border-radius:50%;
     border:1px solid rgba(255,255,255,.1);
-
     color:#c084fc;
     transition:.35s;
 }
@@ -798,13 +723,12 @@ ROMERO ADS / WEB
 
 
 /* =====================================================
-MODAL / GLASS WINDOW
+GLASS MODALS
 ===================================================== */
 
 .service-modal{
     position:fixed;
     inset:0;
-
     z-index:5000;
 
     display:flex;
@@ -834,14 +758,10 @@ MODAL / GLASS WINDOW
 .modal-window{
     width:min(1040px,100%);
     max-height:88vh;
-
     position:relative;
-
     overflow-y:auto;
     overflow-x:hidden;
-
     border-radius:30px;
-
     border:1px solid rgba(255,255,255,.13);
 
     background:
@@ -859,10 +779,7 @@ MODAL / GLASS WINDOW
         inset 0 1px 0 rgba(255,255,255,.08),
         0 0 80px rgba(124,58,237,.12);
 
-    transform:
-        translateY(35px)
-        scale(.965);
-
+    transform:translateY(35px) scale(.965);
     opacity:0;
 
     transition:
@@ -874,22 +791,14 @@ MODAL / GLASS WINDOW
 }
 
 .service-modal.active .modal-window{
-    transform:
-        translateY(0)
-        scale(1);
-
+    transform:translateY(0) scale(1);
     opacity:1;
 }
 
-
-/* efeito de vidro */
-
 .modal-window::before{
     content:"";
-
     position:absolute;
     inset:0;
-
     pointer-events:none;
 
     background:
@@ -904,20 +813,13 @@ MODAL / GLASS WINDOW
     z-index:0;
 }
 
-
-/* iluminação superior */
-
 .modal-window::after{
     content:"";
-
     position:absolute;
-
     width:600px;
     height:400px;
-
     left:-180px;
     top:-220px;
-
     border-radius:50%;
 
     background:
@@ -928,14 +830,9 @@ MODAL / GLASS WINDOW
         );
 
     filter:blur(5px);
-
     pointer-events:none;
-
     z-index:0;
 }
-
-
-/* WEB ganha rosa */
 
 #webModal .modal-window{
     box-shadow:
@@ -953,11 +850,6 @@ MODAL / GLASS WINDOW
         );
 }
 
-
-/* =====================================================
-MODAL CONTENT
-===================================================== */
-
 .modal-content{
     position:relative;
     z-index:2;
@@ -967,26 +859,17 @@ MODAL CONTENT
 .modal-close{
     position:absolute;
     z-index:10;
-
     top:24px;
     right:24px;
-
     width:46px;
     height:46px;
-
     border-radius:50%;
-
     border:1px solid rgba(255,255,255,.12);
-
     background:rgba(255,255,255,.035);
-
     backdrop-filter:blur(15px);
-
     color:#aaa;
-
     font-size:24px;
     font-weight:300;
-
     cursor:pointer;
 
     display:flex;
@@ -999,22 +882,16 @@ MODAL CONTENT
 .modal-close:hover{
     color:#fff;
     transform:rotate(90deg);
-
     border-color:rgba(192,132,252,.35);
-
     background:rgba(168,85,247,.10);
-
-    box-shadow:
-        0 0 30px rgba(168,85,247,.12);
+    box-shadow:0 0 30px rgba(168,85,247,.12);
 }
 
 .modal-eyebrow{
     color:#a78bfa;
-
     font-size:9px;
     letter-spacing:4px;
     text-transform:uppercase;
-
     margin-bottom:17px;
 }
 
@@ -1024,21 +901,13 @@ MODAL CONTENT
 
 .modal-title{
     font-size:clamp(45px,7vw,85px);
-
     line-height:.88;
     letter-spacing:-5px;
-
     margin-bottom:25px;
 }
 
 .modal-title span{
-    background:
-        linear-gradient(
-            90deg,
-            #c084fc,
-            #f472b6
-        );
-
+    background:linear-gradient(90deg,#c084fc,#f472b6);
     -webkit-background-clip:text;
     background-clip:text;
     color:transparent;
@@ -1046,19 +915,15 @@ MODAL CONTENT
 
 .modal-description{
     max-width:670px;
-
     color:#aaa6b0;
-
     font-size:15px;
     line-height:1.75;
-
     margin-bottom:40px;
 }
 
 .modal-divider{
     width:100%;
     height:1px;
-
     margin-bottom:35px;
 
     background:
@@ -1071,26 +936,17 @@ MODAL CONTENT
         );
 }
 
-
-/* =====================================================
-MODAL SERVICES
-===================================================== */
-
 .modal-services{
     display:grid;
     grid-template-columns:repeat(2,1fr);
     gap:12px;
-
     margin-bottom:38px;
 }
 
 .modal-service{
     min-height:145px;
-
     padding:23px;
-
     border-radius:17px;
-
     border:1px solid rgba(255,255,255,.07);
 
     background:
@@ -1102,21 +958,16 @@ MODAL SERVICES
 
     position:relative;
     overflow:hidden;
-
     transition:.35s;
 }
 
 .modal-service::before{
     content:"";
-
     position:absolute;
-
     width:110px;
     height:110px;
-
     right:-55px;
     top:-55px;
-
     border-radius:50%;
 
     background:
@@ -1140,7 +991,6 @@ MODAL SERVICES
 
 .modal-service:hover{
     transform:translateY(-4px);
-
     border-color:rgba(192,132,252,.22);
 
     background:
@@ -1169,14 +1019,10 @@ MODAL SERVICES
 .modal-service-number{
     position:relative;
     z-index:2;
-
     display:block;
-
     color:#8b5cf6;
-
     font-size:9px;
     letter-spacing:2px;
-
     margin-bottom:26px;
 }
 
@@ -1187,43 +1033,29 @@ MODAL SERVICES
 .modal-service h4{
     position:relative;
     z-index:2;
-
     font-size:17px;
-
     margin-bottom:8px;
 }
 
 .modal-service p{
     position:relative;
     z-index:2;
-
     color:#77737e;
-
     font-size:11px;
     line-height:1.6;
 }
 
-
-/* =====================================================
-MODAL FOOTER
-===================================================== */
-
 .modal-footer{
     display:flex;
-
     align-items:center;
     justify-content:space-between;
-
     gap:25px;
-
     padding-top:8px;
 }
 
 .modal-footer-text{
     color:#69666f;
-
     max-width:450px;
-
     font-size:11px;
     line-height:1.7;
 }
@@ -1234,39 +1066,36 @@ MODAL FOOTER
 
 
 /* =====================================================
-PROJECTS
+PROJECTS - MAIS COMPACTOS
 ===================================================== */
 
 .projects-grid{
     display:grid;
     grid-template-columns:repeat(2,1fr);
-    gap:20px;
+    gap:16px;
 }
 
 .project-card{
     position:relative;
-
     border:1px solid rgba(255,255,255,.08);
-    border-radius:24px;
+    border-radius:20px;
     overflow:hidden;
-
     background:#0c0c10;
 
     transition:.45s cubic-bezier(.2,.7,.2,1);
 }
 
 .project-card:hover{
-    transform:translateY(-8px);
+    transform:translateY(-7px);
     border-color:rgba(192,132,252,.30);
 
     box-shadow:
-        0 30px 80px rgba(0,0,0,.35),
-        0 0 45px rgba(124,58,237,.07);
+        0 25px 65px rgba(0,0,0,.35),
+        0 0 40px rgba(124,58,237,.07);
 }
 
 .project-image{
-    height:250px;
-
+    height:190px;
     position:relative;
     overflow:hidden;
 
@@ -1280,28 +1109,25 @@ PROJECTS
 .project-image img{
     width:100%;
     height:100%;
-
     object-fit:cover;
-
     transition:transform .7s cubic-bezier(.2,.7,.2,1);
 }
 
 .project-card:hover .project-image img{
-    transform:scale(1.04);
+    transform:scale(1.035);
 }
 
 .project-image::after{
     content:"";
-
     position:absolute;
     inset:0;
 
     background:
         linear-gradient(
             to bottom,
-            transparent 55%,
-            rgba(8,8,11,.15) 75%,
-            rgba(8,8,11,.65) 100%
+            transparent 60%,
+            rgba(8,8,11,.10) 78%,
+            rgba(8,8,11,.50) 100%
         );
 
     pointer-events:none;
@@ -1310,7 +1136,7 @@ PROJECTS
 .project-card:nth-child(2) .project-image img,
 .project-card:nth-child(3) .project-image img{
     object-fit:contain;
-    padding:22px;
+    padding:18px;
 }
 
 .project-card:nth-child(2) .project-image{
@@ -1323,7 +1149,7 @@ PROJECTS
 
 .project-content{
     position:relative;
-    padding:30px;
+    padding:24px;
 }
 
 .project-top{
@@ -1331,17 +1157,17 @@ PROJECTS
     align-items:center;
     justify-content:space-between;
     gap:20px;
-    margin-bottom:18px;
+    margin-bottom:14px;
 }
 
 .project-number{
-    font-size:10px;
+    font-size:9px;
     color:#8b5cf6;
     letter-spacing:3px;
 }
 
 .project-type{
-    font-size:9px;
+    font-size:8px;
     color:#666;
     letter-spacing:2px;
     text-transform:uppercase;
@@ -1349,39 +1175,34 @@ PROJECTS
 }
 
 .project-content h3{
-    font-size:clamp(25px,3vw,38px);
-    letter-spacing:-1.5px;
-    margin-bottom:14px;
+    font-size:clamp(22px,2.5vw,32px);
+    letter-spacing:-1.2px;
+    margin-bottom:11px;
 }
 
 .project-content p{
     color:#85828b;
-    font-size:13px;
-    line-height:1.7;
+    font-size:12px;
+    line-height:1.65;
     max-width:570px;
 }
 
 .project-tags{
     display:flex;
     flex-wrap:wrap;
-    gap:7px;
-    margin-top:22px;
+    gap:6px;
+    margin-top:18px;
 }
 
 .project-tag{
-    padding:7px 10px;
-
+    padding:6px 9px;
     border:1px solid rgba(255,255,255,.08);
     border-radius:50px;
-
     background:rgba(255,255,255,.025);
-
     color:#777;
-
-    font-size:8px;
-    letter-spacing:1.5px;
+    font-size:7px;
+    letter-spacing:1.3px;
     text-transform:uppercase;
-
     transition:.3s;
 }
 
@@ -1393,38 +1214,37 @@ PROJECTS
 
 .project-big-number{
     position:absolute;
-    right:20px;
-    bottom:-20px;
-
-    font-size:110px;
+    right:16px;
+    bottom:-15px;
+    font-size:85px;
     font-weight:900;
-
     color:rgba(255,255,255,.018);
     line-height:1;
-
     pointer-events:none;
 }
+
+/* Ventura */
 
 .project-card:nth-child(1){
     grid-row:span 2;
 }
 
 .project-card:nth-child(1) .project-image{
-    height:360px;
+    height:260px;
 }
+
+/* Lu Sobremesas */
 
 .project-card:nth-child(4){
     grid-column:span 2;
-
     display:grid;
     grid-template-columns:1.05fr .95fr;
-
-    min-height:300px;
+    min-height:220px;
 }
 
 .project-card:nth-child(4) .project-image{
-    height:300px;
-    min-height:300px;
+    height:220px;
+    min-height:220px;
 }
 
 
@@ -1433,16 +1253,12 @@ PORTFOLIO CTA
 ===================================================== */
 
 .portfolio-bottom{
-    margin-top:45px;
-
+    margin-top:40px;
     display:flex;
     align-items:center;
     justify-content:space-between;
-
     gap:30px;
-
-    padding-top:30px;
-
+    padding-top:28px;
     border-top:1px solid rgba(255,255,255,.07);
 }
 
@@ -1466,31 +1282,23 @@ CLIENTS
 
 .client{
     min-height:135px;
-
     display:flex;
     align-items:center;
     justify-content:center;
-
     text-align:center;
     padding:20px;
-
     border:1px solid rgba(255,255,255,.07);
-
     background:rgba(255,255,255,.018);
-
     border-radius:15px;
-
     color:#777;
     font-size:14px;
     font-weight:700;
     letter-spacing:1px;
-
     transition:.35s;
 }
 
 .client:hover{
     color:#fff;
-
     border-color:rgba(192,132,252,.35);
 
     background:
@@ -1501,7 +1309,6 @@ CLIENTS
         );
 
     transform:translateY(-5px);
-
     box-shadow:0 15px 45px rgba(0,0,0,.20);
 }
 
@@ -1515,52 +1322,232 @@ CLIENTS
 
 
 /* =====================================================
-ABOUT
+NEW ABOUT
 ===================================================== */
 
-.about{
+.about-intro{
     display:grid;
-    grid-template-columns:1.4fr .6fr;
-    gap:80px;
-    align-items:end;
+    grid-template-columns:1.15fr .85fr;
+    gap:55px;
+    align-items:start;
 }
 
-.about-text{
-    font-size:clamp(24px,3vw,42px);
-    line-height:1.2;
-    letter-spacing:-1.5px;
+.about-heading{
+    font-size:clamp(42px,6vw,82px);
+    line-height:.92;
+    letter-spacing:-4px;
+    margin-bottom:30px;
 }
 
-.about-text span{
+.about-heading span{
     background:linear-gradient(90deg,#c084fc,#f472b6);
-
     -webkit-background-clip:text;
     background-clip:text;
     color:transparent;
 }
 
-.about-info{
-    border-top:1px solid rgba(255,255,255,.1);
+.about-description{
+    max-width:650px;
+    color:#918d98;
+    font-size:15px;
+    line-height:1.8;
 }
 
-.info-row{
-    display:flex;
-    justify-content:space-between;
-    gap:25px;
-
-    padding:18px 0;
-
-    border-bottom:1px solid rgba(255,255,255,.07);
-
-    font-size:12px;
-}
-
-.info-row span:first-child{
-    color:#666;
-}
-
-.info-row span:last-child{
+.about-description strong{
     color:#ddd;
+    font-weight:500;
+}
+
+.about-stats{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px;
+}
+
+.about-stat{
+    min-height:145px;
+    padding:22px;
+    border-radius:18px;
+    border:1px solid rgba(255,255,255,.08);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.045),
+            rgba(255,255,255,.012)
+        );
+
+    position:relative;
+    overflow:hidden;
+    transition:.35s ease;
+}
+
+.about-stat::before{
+    content:"";
+    position:absolute;
+    width:100px;
+    height:100px;
+    top:-50px;
+    right:-50px;
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(168,85,247,.16),
+            transparent 70%
+        );
+}
+
+.about-stat:hover{
+    transform:translateY(-5px);
+    border-color:rgba(192,132,252,.25);
+    background:rgba(168,85,247,.045);
+}
+
+.about-stat-number{
+    position:relative;
+    z-index:2;
+    color:#a78bfa;
+    font-size:9px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+}
+
+.about-stat h4{
+    position:relative;
+    z-index:2;
+    font-size:17px;
+    line-height:1.2;
+    margin-top:48px;
+}
+
+.about-highlight{
+    margin-top:22px;
+    min-height:300px;
+    padding:45px;
+    border-radius:24px;
+    border:1px solid rgba(255,255,255,.09);
+    position:relative;
+    overflow:hidden;
+
+    background:
+        radial-gradient(circle at 15% 15%,rgba(124,58,237,.15),transparent 30%),
+        radial-gradient(circle at 90% 80%,rgba(236,72,153,.10),transparent 30%),
+        linear-gradient(145deg,rgba(255,255,255,.04),rgba(255,255,255,.01));
+
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+
+    transition:.45s ease;
+}
+
+.about-highlight::before{
+    content:"";
+    position:absolute;
+    top:-160%;
+    left:-80%;
+    width:35%;
+    height:450%;
+    transform:rotate(25deg);
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.02),
+            rgba(192,132,252,.10),
+            rgba(255,255,255,.08),
+            transparent
+        );
+
+    opacity:0;
+
+    transition:
+        left 1s ease,
+        opacity .3s ease;
+}
+
+.about-highlight:hover{
+    transform:translateY(-5px);
+    border-color:rgba(192,132,252,.25);
+
+    box-shadow:
+        0 30px 90px rgba(0,0,0,.25),
+        0 0 60px rgba(124,58,237,.07);
+}
+
+.about-highlight:hover::before{
+    left:145%;
+    opacity:1;
+}
+
+.about-highlight-small{
+    position:relative;
+    z-index:2;
+    color:#777;
+    font-size:9px;
+    letter-spacing:4px;
+    text-transform:uppercase;
+}
+
+.about-highlight h3{
+    position:relative;
+    z-index:2;
+
+    max-width:1000px;
+
+    font-size:clamp(34px,5vw,70px);
+    line-height:.95;
+    letter-spacing:-3px;
+}
+
+.about-highlight h3 span{
+    background:linear-gradient(90deg,#a78bfa,#f472b6);
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+}
+
+.skills-area{
+    margin-top:40px;
+}
+
+.skills-label{
+    color:#666;
+    font-size:9px;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    margin-bottom:17px;
+}
+
+.skills{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+}
+
+.skill{
+    padding:10px 14px;
+    border:1px solid rgba(255,255,255,.08);
+    background:rgba(255,255,255,.018);
+    border-radius:50px;
+
+    color:#7f7b85;
+
+    font-size:9px;
+    letter-spacing:1.3px;
+    text-transform:uppercase;
+
+    transition:.3s ease;
+}
+
+.skill:hover{
+    color:#fff;
+    border-color:rgba(192,132,252,.30);
+    background:rgba(168,85,247,.06);
+    transform:translateY(-2px);
 }
 
 
@@ -1571,21 +1558,16 @@ CONTACT
 .contact{
     position:relative;
     overflow:hidden;
-
     padding:130px max(7vw,30px);
 }
 
 .contact::before{
     content:"";
-
     position:absolute;
-
     width:700px;
     height:700px;
-
     left:50%;
     top:50%;
-
     transform:translate(-50%,-50%);
 
     background:
@@ -1602,9 +1584,7 @@ CONTACT
 .contact-inner{
     position:relative;
     z-index:2;
-
     text-align:center;
-
     max-width:950px;
     margin:auto;
 }
@@ -1618,7 +1598,6 @@ CONTACT
 
 .contact h2 span{
     background:linear-gradient(90deg,#a78bfa,#f472b6);
-
     -webkit-background-clip:text;
     background-clip:text;
     color:transparent;
@@ -1645,7 +1624,6 @@ FOOTER
 
 footer{
     padding:40px max(7vw,30px);
-
     border-top:1px solid rgba(255,255,255,.06);
 
     display:flex;
@@ -1676,39 +1654,6 @@ footer{
     color:#aaa;
     font-weight:700;
     letter-spacing:1.5px;
-}
-
-
-/* =====================================================
-HERO ANIMATION
-===================================================== */
-
-.hero-label{
-    animation:heroUp .8s .05s both;
-}
-
-.hero h1{
-    animation:heroUp .9s .15s both;
-}
-
-.hero-description{
-    animation:heroUp .9s .30s both;
-}
-
-.hero .buttons{
-    animation:heroUp .9s .42s both;
-}
-
-@keyframes heroUp{
-    from{
-        opacity:0;
-        transform:translateY(28px);
-    }
-
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
 }
 
 
@@ -1748,7 +1693,7 @@ RESPONSIVE
     }
 
     .project-card:nth-child(1) .project-image{
-        height:300px;
+        height:230px;
     }
 
     .project-card:nth-child(4){
@@ -1758,21 +1703,17 @@ RESPONSIVE
     }
 
     .project-card:nth-child(4) .project-image{
-        height:260px;
+        height:200px;
         min-height:0;
     }
 
-    .about{
+    .about-intro{
         grid-template-columns:1fr;
-        gap:50px;
+        gap:40px;
     }
 
     .cursor-glow{
         display:none;
-    }
-
-    .modal-services{
-        grid-template-columns:1fr 1fr;
     }
 
 }
@@ -1834,25 +1775,32 @@ RESPONSIVE
         margin-top:75px;
     }
 
+
+    /* PROJETOS MOBILE */
+
     .project-card{
         min-height:auto;
-        border-radius:19px;
+        border-radius:17px;
     }
 
     .project-image,
     .project-card:nth-child(1) .project-image,
     .project-card:nth-child(4) .project-image{
-        height:230px;
-        min-height:230px;
+        height:180px;
+        min-height:180px;
     }
 
     .project-card:nth-child(2) .project-image img,
     .project-card:nth-child(3) .project-image img{
-        padding:16px;
+        padding:13px;
     }
 
     .project-content{
-        padding:24px;
+        padding:20px;
+    }
+
+    .project-content h3{
+        font-size:23px;
     }
 
     .project-top{
@@ -1864,25 +1812,34 @@ RESPONSIVE
         align-items:flex-start;
     }
 
-    .contact{
-        padding:100px 25px;
+
+    /* ABOUT MOBILE */
+
+    .about-heading{
+        letter-spacing:-3px;
     }
 
-    .contact h2{
-        letter-spacing:-4px;
+    .about-stats{
+        grid-template-columns:1fr 1fr;
     }
 
-    footer{
-        flex-direction:column;
-        text-align:center;
+    .about-stat{
+        min-height:125px;
+        padding:18px;
     }
 
-    .footer-brand{
-        flex-direction:column;
+    .about-stat h4{
+        margin-top:35px;
+        font-size:14px;
     }
 
-    .scroll{
-        display:none;
+    .about-highlight{
+        min-height:270px;
+        padding:28px 22px;
+    }
+
+    .about-highlight h3{
+        letter-spacing:-2px;
     }
 
 
@@ -1890,7 +1847,6 @@ RESPONSIVE
 
     .service-modal{
         padding:12px;
-        align-items:center;
     }
 
     .modal-window{
@@ -1905,10 +1861,8 @@ RESPONSIVE
     .modal-close{
         top:15px;
         right:15px;
-
         width:40px;
         height:40px;
-
         font-size:20px;
     }
 
@@ -1944,6 +1898,27 @@ RESPONSIVE
     .modal-whatsapp{
         width:100%;
         text-align:center;
+    }
+
+    .contact{
+        padding:100px 25px;
+    }
+
+    .contact h2{
+        letter-spacing:-4px;
+    }
+
+    footer{
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .footer-brand{
+        flex-direction:column;
+    }
+
+    .scroll{
+        display:none;
     }
 
 }
@@ -1982,36 +1957,27 @@ RESPONSIVE
 <div class="cursor-glow" id="cursorGlow"></div>
 
 
-<!-- =====================================================
-NAV
-===================================================== -->
+<!-- NAV -->
 
 <nav id="navbar">
 
 <a href="#" class="logo" aria-label="ROMERO ADS&WEB">
-
 <img src="logo-romero.jpg" alt="ROMERO ADS&WEB">
-
 </a>
 
-
 <div class="nav-links">
-
 <a href="#servicos">Serviços</a>
 <a href="#romero">Soluções</a>
 <a href="#projetos">Projetos</a>
 <a href="#clientes">Clientes</a>
 <a href="#sobre">Sobre</a>
 <a href="#contato">Contato</a>
-
 </div>
 
 </nav>
 
 
-<!-- =====================================================
-HERO
-===================================================== -->
+<!-- HERO -->
 
 <header class="hero">
 
@@ -2022,32 +1988,18 @@ Marketing Digital • Publicidade • Web
 </div>
 
 <h1>
-
 SUA MARCA
-
 <br>
-
-<span class="outline">
-EM
-</span>
-
+<span class="outline">EM</span>
 <br>
-
-<span class="gradient">
-EVIDÊNCIA.
-</span>
-
+<span class="gradient">EVIDÊNCIA.</span>
 </h1>
 
-
 <p class="hero-description">
-
 Estratégia, criatividade e presença digital
 para transformar ideias em marcas que chamam
 atenção e conectam pessoas.
-
 </p>
-
 
 <div class="buttons">
 
@@ -2056,41 +2008,30 @@ class="btn btn-primary"
 href="https://drive.google.com/file/d/1uDN8y_ABWFQvCc9g50rlhF3pa6CNWxaV/view?usp=drive_link"
 target="_blank"
 rel="noopener noreferrer">
-
 VER PORTFÓLIO
-
 </a>
-
 
 <a
 class="btn btn-secondary"
 href="https://wa.me/5511940361367"
 target="_blank"
 rel="noopener noreferrer">
-
 FALAR NO WHATSAPP
-
 </a>
 
 </div>
 
 </div>
 
-
 <div class="scroll">
-
 <div class="scroll-line"></div>
-
 SCROLL
-
 </div>
 
 </header>
 
 
-<!-- =====================================================
-MARQUEE
-===================================================== -->
+<!-- MARQUEE -->
 
 <div class="marquee">
 
@@ -2098,37 +2039,27 @@ MARQUEE
 
 <span>Marketing Digital</span>
 <span class="highlight">✦</span>
-
 <span>Publicidade</span>
 <span class="highlight">✦</span>
-
 <span>Social Media</span>
 <span class="highlight">✦</span>
-
 <span>Tráfego Pago</span>
 <span class="highlight">✦</span>
-
 <span>Identidade Visual</span>
 <span class="highlight">✦</span>
-
 <span>Web</span>
 <span class="highlight">✦</span>
 
 <span>Marketing Digital</span>
 <span class="highlight">✦</span>
-
 <span>Publicidade</span>
 <span class="highlight">✦</span>
-
 <span>Social Media</span>
 <span class="highlight">✦</span>
-
 <span>Tráfego Pago</span>
 <span class="highlight">✦</span>
-
 <span>Identidade Visual</span>
 <span class="highlight">✦</span>
-
 <span>Web</span>
 <span class="highlight">✦</span>
 
@@ -2137,9 +2068,7 @@ MARQUEE
 </div>
 
 
-<!-- =====================================================
-SERVIÇOS
-===================================================== -->
+<!-- SERVIÇOS -->
 
 <section id="servicos">
 
@@ -2151,78 +2080,50 @@ SERVIÇOS
 O QUE FAZEMOS
 </h2>
 
-
 <div class="services-grid">
 
-
 <div class="service reveal">
-
 <div class="service-number">01</div>
-
 <h3>Marketing Digital</h3>
-
 <p>
-Estratégias digitais pensadas para
-fortalecer sua marca, alcançar o público
-certo e gerar novas oportunidades.
+Estratégias digitais pensadas para fortalecer sua marca,
+alcançar o público certo e gerar novas oportunidades.
 </p>
-
 </div>
-
 
 <div class="service reveal reveal-delay-1">
-
 <div class="service-number">02</div>
-
 <h3>Tráfego Pago</h3>
-
 <p>
-Campanhas estratégicas para aumentar
-alcance, gerar tráfego e colocar sua
-marca diante das pessoas certas.
+Campanhas estratégicas para aumentar alcance, gerar tráfego
+e colocar sua marca diante das pessoas certas.
 </p>
-
 </div>
-
 
 <div class="service reveal reveal-delay-2">
-
 <div class="service-number">03</div>
-
 <h3>Redes Sociais</h3>
-
 <p>
-Gestão, planejamento e conteúdo para
-transformar suas redes sociais em canais
-de comunicação com seu público.
+Gestão, planejamento e conteúdo para transformar suas redes
+sociais em canais de comunicação com seu público.
 </p>
-
 </div>
-
 
 <div class="service reveal reveal-delay-3">
-
 <div class="service-number">04</div>
-
 <h3>Criação de Conteúdo</h3>
-
 <p>
-Artes, campanhas e conteúdos desenvolvidos
-para comunicar sua marca de maneira
-profissional e estratégica.
+Artes, campanhas e conteúdos desenvolvidos para comunicar
+sua marca de maneira profissional e estratégica.
 </p>
-
 </div>
-
 
 </div>
 
 </section>
 
 
-<!-- =====================================================
-SOLUÇÕES ROMERO ADS / WEB
-===================================================== -->
+<!-- SOLUÇÕES -->
 
 <section id="romero">
 
@@ -2231,49 +2132,36 @@ SOLUÇÕES ROMERO ADS / WEB
 </div>
 
 <h2 class="section-title reveal">
-
 DUAS FRENTES.
-
 <br>
-
 UMA PRESENÇA DIGITAL.
-
 </h2>
 
-
 <div class="brand-grid">
-
 
 <div
 class="brand-card reveal"
 role="button"
 tabindex="0"
-data-modal="adsModal"
-aria-label="Conhecer serviços ROMERO ADS">
+data-modal="adsModal">
 
 <div class="small">
 Marketing & Publicidade
 </div>
 
 <h3>
-
 ROMERO
-
 <br>
-
 ADS
-
 </h3>
 
 <p>
-Estratégias de marketing e publicidade
-digital para conectar marcas ao público
-certo e gerar presença, alcance e resultados.
+Estratégias de marketing e publicidade digital para
+conectar marcas ao público certo e gerar presença,
+alcance e resultados.
 </p>
 
-<div class="arrow">
-↗
-</div>
+<div class="arrow">↗</div>
 
 </div>
 
@@ -2282,286 +2170,153 @@ certo e gerar presença, alcance e resultados.
 class="brand-card reveal reveal-delay-1"
 role="button"
 tabindex="0"
-data-modal="webModal"
-aria-label="Conhecer serviços ROMERO WEB">
+data-modal="webModal">
 
 <div class="small">
 Desenvolvimento Web
 </div>
 
 <h3>
-
 ROMERO
-
 <br>
-
 WEB
-
 </h3>
 
 <p>
-Soluções digitais para fortalecer a presença
-online de marcas e negócios, com criação,
-desenvolvimento e experiências pensadas
-para cada projeto.
+Soluções digitais para fortalecer a presença online
+de marcas e negócios, com criação, desenvolvimento
+e experiências pensadas para cada projeto.
 </p>
 
-<div class="arrow">
-↗
-</div>
+<div class="arrow">↗</div>
 
 </div>
-
 
 </div>
 
 </section>
 
 
-<!-- =====================================================
-MODAL ROMERO ADS
-===================================================== -->
+<!-- ROMERO ADS MODAL -->
 
-<div
-class="service-modal"
-id="adsModal"
-aria-hidden="true">
+<div class="service-modal" id="adsModal" aria-hidden="true">
 
-<div
-class="modal-window"
-role="dialog"
-aria-modal="true"
-aria-labelledby="adsModalTitle">
+<div class="modal-window">
 
-<button
-class="modal-close"
-type="button"
-aria-label="Fechar">
-
-×
-</button>
-
+<button class="modal-close" type="button">×</button>
 
 <div class="modal-content">
 
-
 <div class="modal-eyebrow">
-
 ROMERO ADS / MARKETING & PUBLICIDADE
-
 </div>
 
-
-<h2
-class="modal-title"
-id="adsModalTitle">
-
+<h2 class="modal-title">
 COLOQUE SUA MARCA
-
 <br>
-
-<span>
-EM EVIDÊNCIA.
-</span>
-
+<span>EM EVIDÊNCIA.</span>
 </h2>
 
-
 <p class="modal-description">
-
-Soluções de marketing, publicidade e comunicação
-visual desenvolvidas para fortalecer a presença
-da sua marca, alcançar o público certo e construir
-uma comunicação profissional.
-
+Soluções de marketing, publicidade e comunicação visual
+desenvolvidas para fortalecer a presença da sua marca,
+alcançar o público certo e construir uma comunicação profissional.
 </p>
-
 
 <div class="modal-divider"></div>
 
-
 <div class="modal-services">
 
+<div class="modal-service">
+<span class="modal-service-number">01</span>
+<h4>Identidade Visual</h4>
+<p>
+Criação de logomarcas e desenvolvimento da identidade
+visual para fortalecer a apresentação da sua marca.
+</p>
+</div>
 
 <div class="modal-service">
-
-<span class="modal-service-number">
-01
-</span>
-
-<h4>
-Identidade Visual
-</h4>
-
+<span class="modal-service-number">02</span>
+<h4>Publicidade Online</h4>
 <p>
-Criação de logomarcas e desenvolvimento
-da identidade visual para fortalecer
-a apresentação da sua marca.
+Criação e gerenciamento de campanhas publicitárias
+em plataformas como Google Ads e Meta Ads.
 </p>
-
 </div>
-
 
 <div class="modal-service">
-
-<span class="modal-service-number">
-02
-</span>
-
-<h4>
-Publicidade Online
-</h4>
-
+<span class="modal-service-number">03</span>
+<h4>Gestão de Redes Sociais</h4>
 <p>
-Criação e gerenciamento de campanhas
-publicitárias em plataformas como
-Google Ads e Meta Ads.
+Criação e estruturação de perfis, programação de
+conteúdos e desenvolvimento de materiais para redes sociais.
 </p>
-
 </div>
-
 
 <div class="modal-service">
-
-<span class="modal-service-number">
-03
-</span>
-
-<h4>
-Gestão de Redes Sociais
-</h4>
-
+<span class="modal-service-number">04</span>
+<h4>Tráfego Pago</h4>
 <p>
-Criação e estruturação de perfis,
-programação de conteúdos e desenvolvimento
-de materiais para redes sociais.
+Estratégias de mídia paga focadas em Instagram
+e outras plataformas digitais.
 </p>
-
 </div>
-
 
 <div class="modal-service">
-
-<span class="modal-service-number">
-04
-</span>
-
-<h4>
-Tráfego Pago
-</h4>
-
+<span class="modal-service-number">05</span>
+<h4>Design Publicitário</h4>
 <p>
-Estratégias de mídia paga focadas
-em Instagram e outras plataformas
-digitais.
+Criação de materiais visuais para banners, outdoors,
+campanhas e outras ações publicitárias.
 </p>
-
 </div>
-
 
 <div class="modal-service">
-
-<span class="modal-service-number">
-05
-</span>
-
-<h4>
-Design Publicitário
-</h4>
-
+<span class="modal-service-number">06</span>
+<h4>Artes Gráficas</h4>
 <p>
-Criação de materiais visuais para
-banners, outdoors, campanhas e outras
-ações publicitárias.
+Desenvolvimento de peças gráficas personalizadas
+de acordo com o ramo de atuação de cada cliente.
 </p>
-
 </div>
-
 
 <div class="modal-service">
-
-<span class="modal-service-number">
-06
-</span>
-
-<h4>
-Artes Gráficas
-</h4>
-
+<span class="modal-service-number">07</span>
+<h4>Comunicação Empresarial</h4>
 <p>
-Desenvolvimento de peças gráficas
-personalizadas de acordo com o ramo
-de atuação de cada cliente.
+Criação de e-mails empresariais com conteúdos,
+informações e links personalizados.
 </p>
-
 </div>
-
 
 <div class="modal-service">
-
-<span class="modal-service-number">
-07
-</span>
-
-<h4>
-Comunicação Empresarial
-</h4>
-
+<span class="modal-service-number">08</span>
+<h4>Conteúdo Digital</h4>
 <p>
-Criação de e-mails empresariais com
-conteúdos, informações e links
-personalizados.
+Criação de artes profissionais para Instagram,
+WhatsApp, campanhas e comunicação digital.
 </p>
-
 </div>
 
-
-<div class="modal-service">
-
-<span class="modal-service-number">
-08
-</span>
-
-<h4>
-Conteúdo Digital
-</h4>
-
-<p>
-Criação de artes profissionais para
-Instagram, WhatsApp, campanhas e
-comunicação digital.
-</p>
-
 </div>
-
-
-</div>
-
 
 <div class="modal-footer">
 
 <p class="modal-footer-text">
-
-Cada projeto é desenvolvido de acordo com
-as necessidades, identidade e objetivos
-de cada cliente.
-
+Cada projeto é desenvolvido de acordo com as necessidades,
+identidade e objetivos de cada cliente.
 </p>
-
 
 <a
 class="btn btn-primary modal-whatsapp"
 href="https://wa.me/5511940361367?text=Olá%2C%20vim%20pelo%20site%20da%20ROMERO%20ADS%26WEB%20e%20gostaria%20de%20solicitar%20um%20orçamento%20para%20os%20serviços%20da%20ROMERO%20ADS."
-target="_blank"
-rel="noopener noreferrer">
-
+target="_blank">
 SOLICITAR ORÇAMENTO ↗
-
 </a>
 
 </div>
 
-
 </div>
 
 </div>
@@ -2569,213 +2324,108 @@ SOLICITAR ORÇAMENTO ↗
 </div>
 
 
-<!-- =====================================================
-MODAL ROMERO WEB
-===================================================== -->
+<!-- ROMERO WEB MODAL -->
 
-<div
-class="service-modal"
-id="webModal"
-aria-hidden="true">
+<div class="service-modal" id="webModal" aria-hidden="true">
 
-<div
-class="modal-window"
-role="dialog"
-aria-modal="true"
-aria-labelledby="webModalTitle">
+<div class="modal-window">
 
-<button
-class="modal-close"
-type="button"
-aria-label="Fechar">
-
-×
-
-</button>
-
+<button class="modal-close" type="button">×</button>
 
 <div class="modal-content">
 
-
 <div class="modal-eyebrow">
-
 ROMERO WEB / DESENVOLVIMENTO
-
 </div>
 
-
-<h2
-class="modal-title"
-id="webModalTitle">
-
+<h2 class="modal-title">
 SUA PRESENÇA
-
 <br>
-
-<span>
-ALÉM DAS REDES.
-</span>
-
+<span>ALÉM DAS REDES.</span>
 </h2>
 
-
 <p class="modal-description">
-
-Soluções digitais desenvolvidas para criar
-uma presença online profissional, moderna
-e adaptada às necessidades específicas
-da sua marca ou negócio.
-
+Soluções digitais desenvolvidas para criar uma presença
+online profissional, moderna e adaptada às necessidades
+específicas da sua marca ou negócio.
 </p>
-
 
 <div class="modal-divider"></div>
 
-
 <div class="modal-services">
 
+<div class="modal-service">
+<span class="modal-service-number">01</span>
+<h4>Sites Personalizados</h4>
+<p>
+Desenvolvimento de sites pensados sob medida para
+a identidade e as necessidades de cada projeto.
+</p>
+</div>
 
 <div class="modal-service">
-
-<span class="modal-service-number">
-01
-</span>
-
-<h4>
-Sites Personalizados
-</h4>
-
+<span class="modal-service-number">02</span>
+<h4>Portfólios</h4>
 <p>
-Desenvolvimento de sites pensados
-sob medida para a identidade e as
-necessidades de cada projeto.
+Sites para apresentação profissional de trabalhos,
+projetos, serviços, marcas e profissionais.
 </p>
-
 </div>
-
 
 <div class="modal-service">
-
-<span class="modal-service-number">
-02
-</span>
-
-<h4>
-Portfólios
-</h4>
-
+<span class="modal-service-number">03</span>
+<h4>Sites de Vendas</h4>
 <p>
-Sites para apresentação profissional
-de trabalhos, projetos, serviços,
-marcas e profissionais.
+Desenvolvimento de presença digital voltada à
+apresentação e comercialização de produtos e serviços.
 </p>
-
 </div>
-
 
 <div class="modal-service">
-
-<span class="modal-service-number">
-03
-</span>
-
-<h4>
-Sites de Vendas
-</h4>
-
+<span class="modal-service-number">04</span>
+<h4>Sites Artísticos</h4>
 <p>
-Desenvolvimento de presença digital
-voltada à apresentação e comercialização
-de produtos e serviços.
+Projetos digitais para artistas, criadores e profissionais
+que precisam apresentar seu trabalho online.
 </p>
-
 </div>
-
 
 <div class="modal-service">
-
-<span class="modal-service-number">
-04
-</span>
-
-<h4>
-Sites Artísticos
-</h4>
-
+<span class="modal-service-number">05</span>
+<h4>Sites Responsivos</h4>
 <p>
-Projetos digitais para artistas,
-criadores e profissionais que precisam
-apresentar seu trabalho online.
+Experiências desenvolvidas para funcionar adequadamente
+em computadores, tablets e dispositivos móveis.
 </p>
-
 </div>
-
 
 <div class="modal-service">
-
-<span class="modal-service-number">
-05
-</span>
-
-<h4>
-Sites Responsivos
-</h4>
-
+<span class="modal-service-number">06</span>
+<h4>Aplicativos de Contato</h4>
 <p>
-Experiências desenvolvidas para funcionar
-de forma adequada em computadores,
-tablets e dispositivos móveis.
+Desenvolvimento de aplicativos de contato personalizados
+de acordo com a necessidade do projeto.
 </p>
-
 </div>
 
-
-<div class="modal-service">
-
-<span class="modal-service-number">
-06
-</span>
-
-<h4>
-Aplicativos de Contato
-</h4>
-
-<p>
-Desenvolvimento de aplicativos de
-contato personalizados de acordo
-com a necessidade do projeto.
-</p>
-
 </div>
-
-
-</div>
-
 
 <div class="modal-footer">
 
 <p class="modal-footer-text">
-
-Projetos modernos, personalizados e
-desenvolvidos para fortalecer a presença
-online da sua marca.
-
+Projetos modernos, personalizados e desenvolvidos
+para fortalecer a presença online da sua marca.
 </p>
-
 
 <a
 class="btn btn-primary modal-whatsapp"
 href="https://wa.me/5511940361367?text=Olá%2C%20vim%20pelo%20site%20da%20ROMERO%20ADS%26WEB%20e%20gostaria%20de%20solicitar%20um%20orçamento%20para%20os%20serviços%20da%20ROMERO%20WEB."
-target="_blank"
-rel="noopener noreferrer">
-
+target="_blank">
 SOLICITAR ORÇAMENTO ↗
-
 </a>
 
 </div>
 
-
 </div>
 
 </div>
@@ -2783,9 +2433,7 @@ SOLICITAR ORÇAMENTO ↗
 </div>
 
 
-<!-- =====================================================
-PROJETOS
-===================================================== -->
+<!-- PROJETOS -->
 
 <section id="projetos">
 
@@ -2794,15 +2442,10 @@ PROJETOS
 </div>
 
 <h2 class="section-title reveal">
-
 PROJETOS
-
 <br>
-
 SELECIONADOS
-
 </h2>
-
 
 <div class="projects-grid">
 
@@ -2812,63 +2455,31 @@ SELECIONADOS
 <article class="project-card reveal">
 
 <div class="project-image">
-
-<img
-src="ventura.jpg"
-alt="Ventura Semijoias"
-loading="lazy">
-
+<img src="ventura.jpg" alt="Ventura Semijoias" loading="lazy">
 </div>
-
 
 <div class="project-content">
 
 <div class="project-top">
-
-<span class="project-number">
-01
-</span>
-
-<span class="project-type">
-Registro de Marca
-</span>
-
+<span class="project-number">01</span>
+<span class="project-type">Registro de Marca</span>
 </div>
 
-
-<h3>
-Ventura Semijoias
-</h3>
-
+<h3>Ventura Semijoias</h3>
 
 <p>
-Assessoria no processo de registro
-da marca, acompanhando as etapas
-necessárias para a proteção da
-identidade da empresa.
+Assessoria no processo de registro da marca,
+acompanhando as etapas necessárias para a
+proteção da identidade da empresa.
 </p>
 
-
 <div class="project-tags">
-
-<span class="project-tag">
-Registro de Marca
-</span>
-
-<span class="project-tag">
-INPI
-</span>
-
-<span class="project-tag">
-Assessoria
-</span>
-
+<span class="project-tag">Registro de Marca</span>
+<span class="project-tag">INPI</span>
+<span class="project-tag">Assessoria</span>
 </div>
 
-
-<span class="project-big-number">
-01
-</span>
+<span class="project-big-number">01</span>
 
 </div>
 
@@ -2880,67 +2491,32 @@ Assessoria
 <article class="project-card reveal reveal-delay-1">
 
 <div class="project-image">
-
-<img
-src="caio.png"
-alt="Caio Autopeças"
-loading="lazy">
-
+<img src="caio.png" alt="Caio Autopeças" loading="lazy">
 </div>
-
 
 <div class="project-content">
 
 <div class="project-top">
-
-<span class="project-number">
-02
-</span>
-
-<span class="project-type">
-Presença Digital
-</span>
-
+<span class="project-number">02</span>
+<span class="project-type">Presença Digital</span>
 </div>
 
-
-<h3>
-Caio Autopeças
-</h3>
-
+<h3>Caio Autopeças</h3>
 
 <p>
-Estruturação da presença da empresa
-no Instagram, criação dos primeiros
-conteúdos e configuração do
-WhatsApp corporativo.
+Estruturação da presença da empresa no Instagram,
+criação dos primeiros conteúdos e configuração
+do WhatsApp corporativo.
 </p>
 
-
 <div class="project-tags">
-
-<span class="project-tag">
-Instagram
-</span>
-
-<span class="project-tag">
-Social Media
-</span>
-
-<span class="project-tag">
-Conteúdo
-</span>
-
-<span class="project-tag">
-WhatsApp
-</span>
-
+<span class="project-tag">Instagram</span>
+<span class="project-tag">Social Media</span>
+<span class="project-tag">Conteúdo</span>
+<span class="project-tag">WhatsApp</span>
 </div>
 
-
-<span class="project-big-number">
-02
-</span>
+<span class="project-big-number">02</span>
 
 </div>
 
@@ -2952,62 +2528,31 @@ WhatsApp
 <article class="project-card reveal reveal-delay-2">
 
 <div class="project-image">
-
-<img
-src="construtec.png"
-alt="Construtec"
-loading="lazy">
-
+<img src="construtec.png" alt="Construtec" loading="lazy">
 </div>
-
 
 <div class="project-content">
 
 <div class="project-top">
-
-<span class="project-number">
-03
-</span>
-
-<span class="project-type">
-Identidade Visual
-</span>
-
+<span class="project-number">03</span>
+<span class="project-type">Identidade Visual</span>
 </div>
 
-
-<h3>
-Construtec
-</h3>
-
+<h3>Construtec</h3>
 
 <p>
-Desenvolvimento da logomarca da
-empresa, criando a base visual para
-sua comunicação e posicionamento.
+Desenvolvimento da logomarca da empresa,
+criando a base visual para sua comunicação
+e posicionamento.
 </p>
 
-
 <div class="project-tags">
-
-<span class="project-tag">
-Logomarca
-</span>
-
-<span class="project-tag">
-Branding
-</span>
-
-<span class="project-tag">
-Identidade Visual
-</span>
-
+<span class="project-tag">Logomarca</span>
+<span class="project-tag">Branding</span>
+<span class="project-tag">Identidade Visual</span>
 </div>
 
-
-<span class="project-big-number">
-03
-</span>
+<span class="project-big-number">03</span>
 
 </div>
 
@@ -3019,72 +2564,36 @@ Identidade Visual
 <article class="project-card reveal">
 
 <div class="project-image">
-
-<img
-src="lu-sobremesas.png"
-alt="Lu Sobremesas Caseiras"
-loading="lazy">
-
+<img src="lu-sobremesas.png" alt="Lu Sobremesas Caseiras" loading="lazy">
 </div>
-
 
 <div class="project-content">
 
 <div class="project-top">
-
-<span class="project-number">
-04
-</span>
-
-<span class="project-type">
-Identidade & Materiais
-</span>
-
+<span class="project-number">04</span>
+<span class="project-type">Identidade & Materiais</span>
 </div>
 
-
-<h3>
-Lu Sobremesas Caseiras
-</h3>
-
+<h3>Lu Sobremesas Caseiras</h3>
 
 <p>
-Desenvolvimento da logomarca e
-criação de materiais para aplicação
-física da identidade, incluindo
+Desenvolvimento da logomarca e criação de materiais
+para aplicação física da identidade, incluindo
 banner para fachada e adesivos.
 </p>
 
-
 <div class="project-tags">
-
-<span class="project-tag">
-Logomarca
-</span>
-
-<span class="project-tag">
-Banner
-</span>
-
-<span class="project-tag">
-Adesivos
-</span>
-
-<span class="project-tag">
-Identidade Visual
-</span>
-
+<span class="project-tag">Logomarca</span>
+<span class="project-tag">Banner</span>
+<span class="project-tag">Adesivos</span>
+<span class="project-tag">Identidade Visual</span>
 </div>
 
-
-<span class="project-big-number">
-04
-</span>
+<span class="project-big-number">04</span>
 
 </div>
 
 </article>
-
 
 </div>
 
@@ -3092,20 +2601,16 @@ Identidade Visual
 <div class="portfolio-bottom reveal">
 
 <p>
-Estes são alguns dos projetos desenvolvidos
-pela ROMERO ADS&WEB. Conheça outros trabalhos,
-soluções e materiais no portfólio completo.
+Estes são alguns dos projetos desenvolvidos pela
+ROMERO ADS&WEB. Conheça outros trabalhos, soluções
+e materiais no portfólio completo.
 </p>
-
 
 <a
 class="btn btn-primary"
 href="https://drive.google.com/file/d/1uDN8y_ABWFQvCc9g50rlhF3pa6CNWxaV/view?usp=drive_link"
-target="_blank"
-rel="noopener noreferrer">
-
+target="_blank">
 VER PORTFÓLIO COMPLETO ↗
-
 </a>
 
 </div>
@@ -3113,9 +2618,7 @@ VER PORTFÓLIO COMPLETO ↗
 </section>
 
 
-<!-- =====================================================
-CLIENTES
-===================================================== -->
+<!-- CLIENTES -->
 
 <section id="clientes">
 
@@ -3124,67 +2627,37 @@ CLIENTES
 </div>
 
 <h2 class="section-title reveal">
-
 MARCAS QUE
-
 <br>
-
 JÁ CONFIARAM
-
 </h2>
-
 
 <div class="clients">
 
-<div class="client reveal">
-Caio Autopeças
-</div>
+<div class="client reveal">Caio Autopeças</div>
+<div class="client reveal reveal-delay-1">Ventura Semijoias</div>
+<div class="client reveal reveal-delay-2">Gilvania Consultoria</div>
 
-<div class="client reveal reveal-delay-1">
-Ventura Semijoias
-</div>
+<div class="client reveal">EverR</div>
+<div class="client reveal reveal-delay-1">Elétrica Perillo</div>
+<div class="client reveal reveal-delay-2">Cantinho da Jú</div>
 
-<div class="client reveal reveal-delay-2">
-Gilvania Consultoria
-</div>
-
-<div class="client reveal">
-EverR
-</div>
-
-<div class="client reveal reveal-delay-1">
-Elétrica Perillo
-</div>
-
-<div class="client reveal reveal-delay-2">
-Cantinho da Jú
-</div>
-
-<div class="client reveal">
-Construtec
-</div>
-
-<div class="client reveal reveal-delay-1">
-Lu Sobremesas Caseiras
-</div>
+<div class="client reveal">Construtec</div>
+<div class="client reveal reveal-delay-1">Lu Sobremesas Caseiras</div>
 
 </div>
-
 
 <p class="client-note reveal">
-
-Além das marcas apresentadas, a ROMERO ADS&WEB
-já atendeu diversos outros clientes e projetos,
-respeitando a privacidade daqueles que optam
-por não divulgar sua identidade.
-
+Além das marcas apresentadas, a ROMERO ADS&WEB já atendeu
+diversos outros clientes e projetos, respeitando a privacidade
+daqueles que optam por não divulgar sua identidade.
 </p>
 
 </section>
 
 
 <!-- =====================================================
-SOBRE
+SOBRE - NOVA VERSÃO
 ===================================================== -->
 
 <section id="sobre">
@@ -3194,49 +2667,110 @@ SOBRE
 </div>
 
 
-<div class="about">
+<div class="about-intro">
 
+<div class="reveal">
 
-<div class="about-text reveal">
+<h2 class="about-heading">
+POR TRÁS
+<br>
+DA <span>ROMERO.</span>
+</h2>
 
-Gabriel Romero é o empreendedor por trás
-da <span>ROMERO ADS&WEB.</span>
+<p class="about-description">
+
+<strong>Gabriel Romero</strong> é o empreendedor por trás
+da ROMERO ADS&WEB.
 
 <br><br>
 
-Desde 2023, transformando ideias em
-estratégias, conteúdos e experiências
-digitais.
+Desde 2023, desenvolvendo soluções em marketing,
+publicidade, comunicação e presença digital para
+marcas, empresas e profissionais.
+
+<br><br>
+
+A proposta da ROMERO ADS&WEB é unir estratégia,
+criatividade e execução para transformar ideias
+em uma presença digital profissional, atrativa
+e preparada para se conectar com o público.
+
+</p>
 
 </div>
 
 
-<div class="about-info reveal reveal-delay-1">
+<div class="about-stats reveal reveal-delay-1">
 
+<div class="about-stat">
+<span class="about-stat-number">01 / TRAJETÓRIA</span>
+<h4>Desde<br>2023</h4>
+</div>
 
-<div class="info-row">
+<div class="about-stat">
+<span class="about-stat-number">02 / SOLUÇÕES</span>
+<h4>Marketing<br>+ Web</h4>
+</div>
 
-<span>Desde</span>
-<span>2023</span>
+<div class="about-stat">
+<span class="about-stat-number">03 / CLIENTES</span>
+<h4>Pessoas<br>+ Empresas</h4>
+</div>
+
+<div class="about-stat">
+<span class="about-stat-number">04 / ATUAÇÃO</span>
+<h4>Atendimento<br>em todo o Brasil</h4>
+</div>
+
+</div>
 
 </div>
 
 
-<div class="info-row">
+<div class="about-highlight reveal">
 
-<span>Especialidade</span>
-<span>Marketing Digital</span>
+<div class="about-highlight-small">
+NOSSO DIFERENCIAL
+</div>
+
+<h3>
+
+<span>AGILIDADE</span> PARA EXECUTAR.
+
+<br>
+
+CRIATIVIDADE PARA COMUNICAR.
+
+<br>
+
+<span>ESTRATÉGIA</span> PARA CRESCER.
+
+</h3>
 
 </div>
 
 
-<div class="info-row">
+<div class="skills-area reveal">
 
-<span>Soluções</span>
-<span>Ads + Web</span>
-
+<div class="skills-label">
+COMPETÊNCIAS & SOLUÇÕES
 </div>
 
+<div class="skills">
+
+<span class="skill">Marketing Digital</span>
+<span class="skill">Social Media</span>
+<span class="skill">Publicidade</span>
+<span class="skill">Tráfego Pago</span>
+<span class="skill">Criação de Conteúdo</span>
+<span class="skill">Gestão de Redes Sociais</span>
+<span class="skill">Identidade Visual</span>
+<span class="skill">Desenvolvimento Web</span>
+<span class="skill">Planejamento de Campanhas</span>
+<span class="skill">Engajamento</span>
+<span class="skill">Comunicação</span>
+<span class="skill">Atendimento ao Cliente</span>
+<span class="skill">Registro de Marca</span>
 
 </div>
 
@@ -3245,9 +2779,7 @@ digitais.
 </section>
 
 
-<!-- =====================================================
-CONTATO
-===================================================== -->
+<!-- CONTATO -->
 
 <section id="contato" class="contact">
 
@@ -3257,64 +2789,41 @@ CONTATO
 06 / Contato
 </div>
 
-
 <h2>
-
 VAMOS COLOCAR
-
 <br>
-
 SUA MARCA
-
 <br>
-
-<span>
-EM EVIDÊNCIA?
-</span>
-
+<span>EM EVIDÊNCIA?</span>
 </h2>
 
-
 <p>
-
 Tem uma ideia, projeto ou negócio que precisa
 de uma presença digital mais forte?
 
 Vamos conversar.
-
 </p>
-
 
 <div class="contact-links">
 
 <a
 class="btn btn-primary"
 href="https://wa.me/5511940361367"
-target="_blank"
-rel="noopener noreferrer">
-
+target="_blank">
 WHATSAPP
-
 </a>
-
 
 <a
 class="btn btn-secondary"
 href="https://www.instagram.com/adsromero"
-target="_blank"
-rel="noopener noreferrer">
-
+target="_blank">
 INSTAGRAM
-
 </a>
-
 
 <a
 class="btn btn-secondary"
 href="mailto:RomeroAds@proton.me">
-
 E-MAIL
-
 </a>
 
 </div>
@@ -3324,18 +2833,13 @@ E-MAIL
 </section>
 
 
-<!-- =====================================================
-FOOTER
-===================================================== -->
+<!-- FOOTER -->
 
 <footer>
 
 <div class="footer-brand">
 
-<img
-src="logo-romero.jpg"
-alt="ROMERO ADS&WEB">
-
+<img src="logo-romero.jpg" alt="ROMERO ADS&WEB">
 
 <div>
 
@@ -3351,7 +2855,6 @@ ROMERO ADS&WEB
 
 </div>
 
-
 <div>
 MARKETING DIGITAL • PUBLICIDADE • WEB
 </div>
@@ -3359,16 +2862,9 @@ MARKETING DIGITAL • PUBLICIDADE • WEB
 </footer>
 
 
-<!-- =====================================================
-JAVASCRIPT
-===================================================== -->
-
 <script>
 
-
-/* =====================================================
-NAVBAR
-===================================================== */
+/* NAVBAR */
 
 const navbar =
 document.getElementById("navbar");
@@ -3376,13 +2872,9 @@ document.getElementById("navbar");
 function updateNavbar(){
 
     if(window.scrollY > 40){
-
         navbar.classList.add("scrolled");
-
     }else{
-
         navbar.classList.remove("scrolled");
-
     }
 
 }
@@ -3396,10 +2888,7 @@ window.addEventListener(
 updateNavbar();
 
 
-
-/* =====================================================
-SCROLL REVEAL
-===================================================== */
+/* REVEAL */
 
 const revealElements =
 document.querySelectorAll(".reveal");
@@ -3413,13 +2902,9 @@ new IntersectionObserver(
 
             if(entry.isIntersecting){
 
-                entry.target.classList.add(
-                    "visible"
-                );
+                entry.target.classList.add("visible");
 
-                observer.unobserve(
-                    entry.target
-                );
+                observer.unobserve(entry.target);
 
             }
 
@@ -3435,24 +2920,17 @@ new IntersectionObserver(
 );
 
 revealElements.forEach(element=>{
-
     revealObserver.observe(element);
-
 });
 
 
-
-/* =====================================================
-CURSOR GLOW
-===================================================== */
+/* CURSOR GLOW */
 
 const cursorGlow =
 document.getElementById("cursorGlow");
 
 if(
-    window.matchMedia(
-        "(pointer:fine)"
-    ).matches
+    window.matchMedia("(pointer:fine)").matches
 ){
 
     window.addEventListener(
@@ -3471,10 +2949,7 @@ if(
 }
 
 
-
-/* =====================================================
-INTERNAL LINKS
-===================================================== */
+/* INTERNAL LINKS */
 
 document
 .querySelectorAll('a[href^="#"]')
@@ -3519,9 +2994,8 @@ document
 });
 
 
-
 /* =====================================================
-ROMERO ADS / WEB MODALS
+MODALS
 ===================================================== */
 
 const brandCards =
@@ -3540,14 +3014,14 @@ let lastFocusedElement = null;
 function openModal(modalId){
 
     const modal =
-    document.getElementById(modalId);
+        document.getElementById(modalId);
 
     if(!modal){
         return;
     }
 
     lastFocusedElement =
-    document.activeElement;
+        document.activeElement;
 
     modal.classList.add("active");
 
@@ -3561,9 +3035,7 @@ function openModal(modalId){
     );
 
     const closeButton =
-    modal.querySelector(
-        ".modal-close"
-    );
+        modal.querySelector(".modal-close");
 
     setTimeout(()=>{
 
@@ -3594,9 +3066,7 @@ function closeModal(modal){
     );
 
     if(lastFocusedElement){
-
         lastFocusedElement.focus();
-
     }
 
 }
@@ -3607,14 +3077,9 @@ brandCards.forEach(card=>{
     card.addEventListener(
         "click",
         ()=>{
-
-            openModal(
-                card.dataset.modal
-            );
-
+            openModal(card.dataset.modal);
         }
     );
-
 
     card.addEventListener(
         "keydown",
@@ -3642,29 +3107,21 @@ brandCards.forEach(card=>{
 serviceModals.forEach(modal=>{
 
     const closeButton =
-    modal.querySelector(
-        ".modal-close"
-    );
-
+        modal.querySelector(".modal-close");
 
     closeButton.addEventListener(
         "click",
         ()=>{
-
             closeModal(modal);
-
         }
     );
-
 
     modal.addEventListener(
         "click",
         event=>{
 
             if(event.target===modal){
-
                 closeModal(modal);
-
             }
 
         }
@@ -3680,16 +3137,12 @@ document.addEventListener(
         if(event.key==="Escape"){
 
             const activeModal =
-            document.querySelector(
-                ".service-modal.active"
-            );
-
-            if(activeModal){
-
-                closeModal(
-                    activeModal
+                document.querySelector(
+                    ".service-modal.active"
                 );
 
+            if(activeModal){
+                closeModal(activeModal);
             }
 
         }
@@ -3697,9 +3150,7 @@ document.addEventListener(
     }
 );
 
-
 </script>
 
 </body>
-
 </html>
