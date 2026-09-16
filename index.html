@@ -2457,10 +2457,56 @@ CLIENTES 4 COLUNAS + MODAL SOBRE + BORDA ANIMADA
 }
 </style>
 
+
+<style id="romero-entry-banner-v15">
+  .entry-overlay{position:fixed;inset:0;z-index:9000;display:flex;align-items:center;justify-content:center;padding:24px;background:rgba(5,5,10,.46);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);opacity:1;visibility:visible;transition:opacity .45s ease,visibility .45s ease}
+  .entry-overlay.is-closing{opacity:0;visibility:hidden}
+  .entry-card{position:relative;width:min(920px,92vw);min-height:430px;overflow:hidden;border-radius:34px;background:linear-gradient(135deg,rgba(255,255,255,.98),rgba(247,243,252,.96));border:1px solid rgba(255,255,255,.78);box-shadow:0 35px 100px rgba(0,0,0,.42),0 0 60px rgba(168,85,247,.12);color:#17121f;display:grid;grid-template-columns:1.12fr .88fr;transform:translateY(0) scale(1);transition:transform .45s cubic-bezier(.2,.8,.2,1),opacity .4s ease}
+  .entry-overlay.is-closing .entry-card{transform:translateY(12px) scale(.97);opacity:0}
+  .entry-copy{padding:58px 28px 50px 58px;position:relative;z-index:2;display:flex;flex-direction:column;justify-content:center}
+  .entry-eyebrow{font-size:11px;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:#7c3aed;margin-bottom:18px}
+  .entry-title{margin:0;max-width:590px;font-size:clamp(42px,5vw,70px);line-height:.92;letter-spacing:-.055em;font-weight:900;color:#17121f}
+  .entry-title span{background:linear-gradient(90deg,#7c3aed,#b14ee8 52%,#ec4899);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .entry-text{max-width:540px;margin:22px 0 20px;font-size:15px;line-height:1.65;color:#62596b}
+  .entry-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:26px}
+  .entry-tags span{font-size:10px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:8px 11px;border-radius:999px;background:rgba(124,58,237,.07);border:1px solid rgba(124,58,237,.13);color:#5c3a83}
+  .entry-button{width:max-content;border:0;border-radius:999px;padding:14px 20px;background:linear-gradient(90deg,#7c3aed,#ec4899);color:#fff;font-weight:800;font-size:12px;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;box-shadow:0 12px 28px rgba(124,58,237,.24);transition:transform .25s ease,box-shadow .25s ease}
+  .entry-button:hover{transform:translateY(-2px);box-shadow:0 16px 34px rgba(236,72,153,.26)}
+  .entry-hint{margin-top:15px;font-size:10px;color:#958a9e;letter-spacing:.03em}
+  .entry-art{position:relative;min-height:430px;overflow:hidden}
+  .entry-orb{position:absolute;border-radius:50%;filter:blur(1px);animation:entryFloat 7s ease-in-out infinite}
+  .entry-orb.one{width:280px;height:280px;right:-25px;top:36px;background:radial-gradient(circle at 35% 30%,rgba(255,255,255,.95),rgba(192,132,252,.72) 30%,rgba(124,58,237,.78) 58%,rgba(124,58,237,0) 72%);box-shadow:0 0 80px rgba(124,58,237,.22)}
+  .entry-orb.two{width:190px;height:190px;left:30px;bottom:-32px;background:radial-gradient(circle at 35% 30%,rgba(255,255,255,.9),rgba(244,114,182,.68) 34%,rgba(236,72,153,.72) 60%,rgba(236,72,153,0) 73%);animation-delay:-2.4s}
+  .entry-ring{position:absolute;width:280px;height:280px;right:40px;top:95px;border:1px solid rgba(124,58,237,.28);border-radius:50%;animation:entrySpin 14s linear infinite}
+  .entry-ring:before,.entry-ring:after{content:"";position:absolute;border-radius:50%;background:#ec4899;box-shadow:0 0 18px rgba(236,72,153,.7)}
+  .entry-ring:before{width:9px;height:9px;top:20px;left:52px}.entry-ring:after{width:6px;height:6px;right:15px;bottom:70px;background:#7c3aed}
+  .entry-grid{position:absolute;inset:0;opacity:.28;background-image:linear-gradient(rgba(124,58,237,.13) 1px,transparent 1px),linear-gradient(90deg,rgba(124,58,237,.13) 1px,transparent 1px);background-size:34px 34px;mask-image:linear-gradient(to left,#000,transparent)}
+  .entry-mark{position:absolute;right:53px;bottom:46px;font-size:11px;font-weight:900;letter-spacing:.24em;color:rgba(48,31,61,.55);text-transform:uppercase}
+  @keyframes entryFloat{0%,100%{transform:translate3d(0,0,0) scale(1)}50%{transform:translate3d(-10px,-14px,0) scale(1.04)}}
+  @keyframes entrySpin{to{transform:rotate(360deg)}}
+  @media(max-width:720px){.entry-overlay{padding:18px}.entry-card{width:min(90vw,440px);min-height:auto;grid-template-columns:1fr;border-radius:27px}.entry-copy{padding:38px 27px 32px;text-align:left}.entry-title{font-size:clamp(37px,11.5vw,52px)}.entry-text{font-size:13px;margin:17px 0}.entry-tags{gap:6px;margin-bottom:20px}.entry-tags span{font-size:8.5px;padding:7px 9px}.entry-art{position:absolute;inset:0;min-height:0;opacity:.34;pointer-events:none}.entry-orb.one{width:220px;height:220px;right:-75px;top:-30px}.entry-orb.two{width:150px;height:150px;left:-65px;bottom:-50px}.entry-ring{width:210px;height:210px;right:-65px;top:120px}.entry-grid{opacity:.17}.entry-mark{display:none}.entry-button{position:relative;z-index:3}.entry-hint{position:relative;z-index:3}}
+  @media(prefers-reduced-motion:reduce){.entry-orb,.entry-ring{animation:none}}
+</style>
+
 </head>
 
 
 <body>
+
+<div class="entry-overlay" id="entryOverlay" role="dialog" aria-modal="true" aria-labelledby="entryTitle">
+  <div class="entry-card" id="entryCard">
+    <div class="entry-copy">
+      <div class="entry-eyebrow">ROMERO ADS&WEB • Marketing & Criação</div>
+      <h2 class="entry-title" id="entryTitle">SUA MARCA PODE<br><span>CHAMAR MAIS ATENÇÃO.</span></h2>
+      <p class="entry-text">Design, conteúdo e estratégias digitais para transformar presença em percepção.</p>
+      <div class="entry-tags"><span>Marketing Digital</span><span>Social Media</span><span>Design</span><span>ADS</span></div>
+      <button class="entry-button" id="entryExplore" type="button">Conheça a ROMERO →</button>
+      <div class="entry-hint">Clique fora desta janela para explorar o site.</div>
+    </div>
+    <div class="entry-art" aria-hidden="true"><div class="entry-grid"></div><div class="entry-orb one"></div><div class="entry-orb two"></div><div class="entry-ring"></div><div class="entry-mark">Criatividade • Estratégia</div></div>
+  </div>
+</div>
+
 
 <div class="page-background"></div>
 <div class="grid-background"></div>
@@ -3865,6 +3911,28 @@ if(toolsClose)toolsClose.addEventListener("click",closeTools);
 if(toolsModal)toolsModal.addEventListener("click",e=>{if(e.target===toolsModal)closeTools()});
 document.addEventListener("keydown",e=>{if(e.key==="Escape"&&toolsModal&&toolsModal.classList.contains("active"))closeTools()});
 
+</script>
+
+
+<script id="romero-entry-banner-script-v15">
+(function(){
+  const overlay=document.getElementById('entryOverlay');
+  const card=document.getElementById('entryCard');
+  const button=document.getElementById('entryExplore');
+  if(!overlay||!card||!button) return;
+  try{if(sessionStorage.getItem('romeroEntrySeen')==='1'){overlay.remove();return;}}catch(e){}
+  document.body.style.overflow='hidden';
+  function closeEntry(){
+    if(overlay.classList.contains('is-closing')) return;
+    overlay.classList.add('is-closing');
+    document.body.style.overflow='';
+    try{sessionStorage.setItem('romeroEntrySeen','1')}catch(e){}
+    setTimeout(()=>overlay.remove(),460);
+  }
+  button.addEventListener('click',closeEntry);
+  overlay.addEventListener('click',function(e){if(e.target===overlay) closeEntry();});
+  document.addEventListener('keydown',function esc(e){if(e.key==='Escape'){closeEntry();document.removeEventListener('keydown',esc)}});
+})();
 </script>
 
 </body>
