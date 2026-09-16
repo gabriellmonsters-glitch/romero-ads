@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://gabriellmonsters-glitch.github.io/romero-ads/sitemap.xml
