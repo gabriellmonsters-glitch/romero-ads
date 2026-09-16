@@ -1560,63 +1560,37 @@ CONTACT
     overflow:hidden;
     padding:130px max(7vw,30px);
 }
-
-.contact::before{
-    content:"";
-    position:absolute;
-    width:700px;
-    height:700px;
-    left:50%;
-    top:50%;
-    transform:translate(-50%,-50%);
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(124,58,237,.20),
-            rgba(236,72,153,.08),
-            transparent 65%
-        );
-
-    pointer-events:none;
-}
-
-.contact-inner{
-    position:relative;
-    z-index:2;
-    text-align:center;
-    max-width:950px;
-    margin:auto;
-}
-
-.contact h2{
-    font-size:clamp(45px,8vw,100px);
-    line-height:.95;
-    letter-spacing:-5px;
-    margin-bottom:30px;
-}
-
-.contact h2 span{
-    background:linear-gradient(90deg,#a78bfa,#f472b6);
-    -webkit-background-clip:text;
-    background-clip:text;
-    color:transparent;
-}
-
-.contact p{
-    color:#888;
-    max-width:550px;
-    margin:0 auto 35px;
-    line-height:1.7;
-}
-
-.contact-links{
-    display:flex;
-    justify-content:center;
-    gap:12px;
-    flex-wrap:wrap;
-}
-
+.contact::before{content:"";position:absolute;width:800px;height:800px;left:50%;top:50%;transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(124,58,237,.20),rgba(236,72,153,.08),transparent 65%);pointer-events:none;}
+.contact-inner{position:relative;z-index:2;max-width:1100px;margin:auto;}
+.contact-head{text-align:center;max-width:900px;margin:0 auto 48px;}
+.contact h2{font-size:clamp(45px,8vw,100px);line-height:.95;letter-spacing:-5px;margin-bottom:30px;}
+.contact h2 span{background:linear-gradient(90deg,#a78bfa,#f472b6);-webkit-background-clip:text;background-clip:text;color:transparent;}
+.contact-head p{color:#888;max-width:590px;margin:0 auto;line-height:1.7;}
+.contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:20px;}
+.contact-card{position:relative;overflow:hidden;min-height:190px;padding:26px;border:1px solid rgba(255,255,255,.08);border-radius:20px;background:linear-gradient(145deg,rgba(255,255,255,.05),rgba(255,255,255,.015));transition:.4s ease;}
+.contact-card::before{content:"";position:absolute;top:-140%;left:-100%;width:45%;height:390%;transform:rotate(25deg);background:linear-gradient(90deg,transparent,rgba(255,255,255,.04),rgba(192,132,252,.16),rgba(255,255,255,.10),transparent);opacity:0;transition:left .8s ease,opacity .2s ease;}
+.contact-card:hover{transform:translateY(-7px);border-color:rgba(192,132,252,.30);box-shadow:0 25px 65px rgba(0,0,0,.28),0 0 35px rgba(124,58,237,.07);}
+.contact-card:hover::before{left:140%;opacity:1;}
+.contact-card-label{position:relative;z-index:2;color:#a78bfa;font-size:9px;letter-spacing:3px;text-transform:uppercase;}
+.contact-card h3{position:relative;z-index:2;font-size:25px;margin-top:48px;margin-bottom:8px;}
+.contact-card p{position:relative;z-index:2;color:#77737e;font-size:11px;line-height:1.6;margin:0;}
+.contact-card .contact-arrow{position:absolute;z-index:2;right:22px;top:22px;width:37px;height:37px;display:flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,.10);border-radius:50%;color:#aaa;transition:.3s;}
+.contact-card:hover .contact-arrow{background:linear-gradient(135deg,#7c3aed,#ec4899);color:#fff;transform:rotate(-45deg);}
+.project-launch{position:relative;overflow:hidden;margin-top:16px;padding:34px;border-radius:22px;border:1px solid rgba(255,255,255,.09);background:radial-gradient(circle at 10% 20%,rgba(124,58,237,.14),transparent 28%),radial-gradient(circle at 90% 80%,rgba(236,72,153,.10),transparent 28%),rgba(255,255,255,.018);display:flex;align-items:center;justify-content:space-between;gap:30px;}
+.project-launch h3{font-size:clamp(26px,3vw,42px);letter-spacing:-2px;margin-bottom:8px;}
+.project-launch p{color:#77737e;font-size:12px;line-height:1.6;max-width:570px;}
+.project-launch-btn{border:0;cursor:pointer;white-space:nowrap;}
+.project-options{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:28px 0 34px;}
+.project-option{position:relative;display:flex;align-items:center;gap:12px;padding:17px 18px;border:1px solid rgba(255,255,255,.08);border-radius:14px;background:rgba(255,255,255,.025);color:#8a8790;cursor:pointer;transition:.3s;}
+.project-option input{position:absolute;opacity:0;pointer-events:none;}
+.project-option-dot{width:11px;height:11px;border:1px solid #777;border-radius:50%;box-shadow:0 0 0 4px rgba(168,85,247,0);transition:.3s;}
+.project-option:hover,.project-option.selected{color:#fff;border-color:rgba(192,132,252,.32);background:rgba(168,85,247,.07);transform:translateY(-2px);}
+.project-option.selected .project-option-dot{background:#c084fc;border-color:#c084fc;box-shadow:0 0 0 4px rgba(168,85,247,.12);}
+.project-option span:last-child{font-size:12px;font-weight:700;}
+.project-modal-action{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-top:8px;}
+.project-modal-hint{color:#69666f;font-size:11px;line-height:1.6;max-width:430px;}
+.project-continue{border:0;cursor:pointer;opacity:.45;pointer-events:none;}
+.project-continue.ready{opacity:1;pointer-events:auto;}
 
 /* =====================================================
 FOOTER
@@ -1907,6 +1881,15 @@ RESPONSIVE
     .contact h2{
         letter-spacing:-4px;
     }
+
+    .contact-grid{grid-template-columns:1fr;}
+    .contact-card{min-height:160px;}
+    .contact-card h3{margin-top:35px;}
+    .project-launch{padding:25px;flex-direction:column;align-items:flex-start;}
+    .project-launch-btn{width:100%;}
+    .project-options{grid-template-columns:1fr;}
+    .project-modal-action{flex-direction:column;align-items:stretch;}
+    .project-continue{width:100%;}
 
     footer{
         flex-direction:column;
@@ -2782,56 +2765,46 @@ COMPETÊNCIAS & SOLUÇÕES
 <!-- CONTATO -->
 
 <section id="contato" class="contact">
-
-<div class="contact-inner reveal">
-
-<div class="section-label">
-06 / Contato
+<div class="contact-inner">
+<div class="contact-head reveal">
+<div class="section-label">06 / Contato</div>
+<h2>VAMOS COLOCAR<br>SUA MARCA<br><span>EM EVIDÊNCIA?</span></h2>
+<p>Tem uma ideia, projeto ou negócio que precisa de uma presença digital mais forte? Escolha o melhor canal ou inicie seu projeto com a ROMERO ADS&WEB.</p>
 </div>
-
-<h2>
-VAMOS COLOCAR
-<br>
-SUA MARCA
-<br>
-<span>EM EVIDÊNCIA?</span>
-</h2>
-
-<p>
-Tem uma ideia, projeto ou negócio que precisa
-de uma presença digital mais forte?
-
-Vamos conversar.
-</p>
-
-<div class="contact-links">
-
-<a
-class="btn btn-primary"
-href="https://wa.me/5511940361367"
-target="_blank">
-WHATSAPP
-</a>
-
-<a
-class="btn btn-secondary"
-href="https://www.instagram.com/adsromero"
-target="_blank">
-INSTAGRAM
-</a>
-
-<a
-class="btn btn-secondary"
-href="mailto:RomeroAds@proton.me">
-E-MAIL
-</a>
-
+<div class="contact-grid">
+<a class="contact-card reveal" href="https://wa.me/5511940361367" target="_blank" rel="noopener noreferrer"><span class="contact-card-label">Contato direto</span><span class="contact-arrow">↗</span><h3>WhatsApp</h3><p>Fale diretamente comigo para projetos, dúvidas e orçamentos.</p></a>
+<a class="contact-card reveal reveal-delay-1" href="https://www.instagram.com/adsromero" target="_blank" rel="noopener noreferrer"><span class="contact-card-label">Acompanhe a ROMERO</span><span class="contact-arrow">↗</span><h3>Instagram</h3><p>@adsromero<br>Acompanhe conteúdos, projetos e novidades.</p></a>
+<a class="contact-card reveal reveal-delay-2" href="mailto:RomeroAds@proton.me"><span class="contact-card-label">Propostas & projetos</span><span class="contact-arrow">↗</span><h3>E-mail</h3><p>RomeroAds@proton.me<br>Para propostas e contatos profissionais.</p></a>
 </div>
-
+<div class="project-launch reveal">
+<div><h3>TEM UM PROJETO EM MENTE?</h3><p>Conte primeiro qual solução você procura. O WhatsApp será aberto com uma mensagem pronta para começarmos a conversa.</p></div>
+<button class="btn btn-primary project-launch-btn" type="button" id="startProject">INICIAR UM PROJETO ↗</button>
 </div>
-
+</div>
 </section>
 
+<!-- INICIAR PROJETO MODAL -->
+<div class="service-modal" id="projectModal" aria-hidden="true">
+<div class="modal-window">
+<button class="modal-close" type="button" aria-label="Fechar">×</button>
+<div class="modal-content">
+<div class="modal-eyebrow">ROMERO ADS&WEB / NOVO PROJETO</div>
+<h2 class="modal-title">QUAL SOLUÇÃO<br><span>VOCÊ PROCURA?</span></h2>
+<p class="modal-description">Selecione o serviço de maior interesse. Ao continuar, abriremos o WhatsApp com uma mensagem preparada para o seu atendimento.</p>
+<div class="modal-divider"></div>
+<div class="project-options" id="projectOptions">
+<label class="project-option"><input type="radio" name="projectService" value="Marketing Digital"><span class="project-option-dot"></span><span>Marketing Digital</span></label>
+<label class="project-option"><input type="radio" name="projectService" value="Social Media"><span class="project-option-dot"></span><span>Social Media</span></label>
+<label class="project-option"><input type="radio" name="projectService" value="Tráfego Pago"><span class="project-option-dot"></span><span>Tráfego Pago</span></label>
+<label class="project-option"><input type="radio" name="projectService" value="Identidade Visual"><span class="project-option-dot"></span><span>Identidade Visual</span></label>
+<label class="project-option"><input type="radio" name="projectService" value="Desenvolvimento de Site"><span class="project-option-dot"></span><span>Desenvolvimento de Site</span></label>
+<label class="project-option"><input type="radio" name="projectService" value="Registro de Marca"><span class="project-option-dot"></span><span>Registro de Marca</span></label>
+<label class="project-option"><input type="radio" name="projectService" value="Outro"><span class="project-option-dot"></span><span>Outro</span></label>
+</div>
+<div class="project-modal-action"><p class="project-modal-hint">Você poderá editar ou complementar a mensagem normalmente antes de enviá-la.</p><button class="btn btn-primary project-continue" type="button" id="projectContinue">CONTINUAR NO WHATSAPP ↗</button></div>
+</div>
+</div>
+</div>
 
 <!-- FOOTER -->
 
@@ -3129,6 +3102,38 @@ serviceModals.forEach(modal=>{
 
 });
 
+
+/* INICIAR PROJETO */
+
+const startProject = document.getElementById("startProject");
+const projectModal = document.getElementById("projectModal");
+const projectContinue = document.getElementById("projectContinue");
+const projectOptions = document.querySelectorAll(".project-option");
+let selectedProjectService = "";
+
+if(startProject){
+    startProject.addEventListener("click",()=>openModal("projectModal"));
+}
+
+projectOptions.forEach(option=>{
+    option.addEventListener("click",()=>{
+        projectOptions.forEach(item=>item.classList.remove("selected"));
+        option.classList.add("selected");
+        const radio=option.querySelector("input");
+        radio.checked=true;
+        selectedProjectService=radio.value;
+        projectContinue.classList.add("ready");
+    });
+});
+
+if(projectContinue){
+    projectContinue.addEventListener("click",()=>{
+        if(!selectedProjectService) return;
+        const message=`Olá! Vim pelo site da ROMERO ADS&WEB e tenho interesse em ${selectedProjectService}. Gostaria de conversar sobre meu projeto.`;
+        const url=`https://wa.me/5511940361367?text=${encodeURIComponent(message)}`;
+        window.open(url,"_blank","noopener,noreferrer");
+    });
+}
 
 document.addEventListener(
     "keydown",
