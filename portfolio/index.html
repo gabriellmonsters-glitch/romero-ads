@@ -526,6 +526,45 @@ h1 .gradient{
 }
 </style>
 
+
+<style id="romero-final-visual-fix">
+/* Botão de download: fundo preto + TODAS as escritas/ícones brancos */
+a[href*="Portfolio-Gabriel-Romero-2026.pdf"],
+a[href*="Portfolio-Gabriel-Romero-2026.pdf"] *,
+.download-section a,
+.download-section a *,
+[class*="download"] a,
+[class*="download"] a * {
+  color:#fff !important;
+  fill:#fff !important;
+  stroke:#fff !important;
+}
+
+/* Brilho que acompanha o cursor */
+#romero-cursor-glow{
+  position:fixed;
+  left:0; top:0;
+  width:360px; height:360px;
+  border-radius:50%;
+  pointer-events:none;
+  z-index:999999;
+  transform:translate(-50%,-50%);
+  background:radial-gradient(circle,
+    rgba(255,255,255,.24) 0%,
+    rgba(190,130,255,.16) 18%,
+    rgba(168,85,247,.09) 38%,
+    rgba(236,72,153,.045) 55%,
+    transparent 72%);
+  filter:blur(7px);
+  mix-blend-mode:screen;
+  opacity:.82;
+  transition:opacity .2s ease;
+}
+@media (pointer:coarse), (prefers-reduced-motion:reduce){
+  #romero-cursor-glow{display:none}
+}
+</style>
+
 </head>
 <body>
 <main class="hero" id="inicio">
@@ -828,6 +867,25 @@ document.addEventListener("DOMContentLoaded",function(){
  modal.addEventListener("click",e=>{if(e.target===modal)shut()});
  document.addEventListener("keydown",e=>{if(e.key==="Escape")shut()});
 });
+</script>
+
+
+<div id="romero-cursor-glow" aria-hidden="true"></div>
+<script id="romero-cursor-glow-script">
+(()=>{
+ const glow=document.getElementById("romero-cursor-glow");
+ if(!glow || !window.matchMedia("(pointer:fine)").matches) return;
+ let tx=innerWidth/2, ty=innerHeight/2, x=tx, y=ty;
+ document.addEventListener("mousemove",e=>{tx=e.clientX;ty=e.clientY;glow.style.opacity=".82"},{passive:true});
+ document.addEventListener("mouseleave",()=>glow.style.opacity="0");
+ document.addEventListener("mouseenter",()=>glow.style.opacity=".82");
+ function animate(){
+   x+=(tx-x)*.16; y+=(ty-y)*.16;
+   glow.style.left=x+"px"; glow.style.top=y+"px";
+   requestAnimationFrame(animate);
+ }
+ animate();
+})();
 </script>
 
 </body>
