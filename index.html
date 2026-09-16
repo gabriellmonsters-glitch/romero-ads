@@ -2261,12 +2261,36 @@ CLIENTES 4 COLUNAS + MODAL SOBRE + BORDA ANIMADA
 .about-mini-close:hover{color:#fff;background:rgba(168,85,247,.12);transform:rotate(90deg);}
 
 /* Linha roxa/rosa que percorre a borda no hover */
-.edge-glow{position:absolute;inset:0;border-radius:inherit;padding:1px;pointer-events:none;z-index:20;opacity:0;background:conic-gradient(from 0deg,transparent 0deg,transparent 275deg,#7c3aed 305deg,#ec4899 335deg,transparent 360deg);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;}
-.edge-target:hover>.edge-glow,.edge-target:focus-within>.edge-glow{opacity:1;animation:edgeRun 1.8s linear infinite;}
-@keyframes edgeRun{to{transform:rotate(360deg);}}
+/* Linha luminosa estilo SVG: um traço roxo/rosa percorre todo o contorno */
+.edge-target{position:relative;}
+.edge-glow{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:20;overflow:visible;opacity:0;transition:opacity .22s ease;}
+.edge-glow .edge-base{fill:none;stroke:rgba(255,255,255,.07);stroke-width:1;vector-effect:non-scaling-stroke;}
+.edge-glow .edge-highlight{fill:none;stroke:url(#edgeGradient);stroke-width:2;stroke-linecap:round;vector-effect:non-scaling-stroke;stroke-dasharray:32 68;stroke-dashoffset:32;filter:drop-shadow(0 0 4px rgba(168,85,247,.70)) drop-shadow(0 0 7px rgba(236,72,153,.30));}
+.edge-target:hover>.edge-glow,.edge-target:focus-within>.edge-glow{opacity:1;}
+.edge-target:hover>.edge-glow .edge-highlight,.edge-target:focus-within>.edge-glow .edge-highlight{animation:edgeRun 1.35s linear infinite;}
+@keyframes edgeRun{to{stroke-dashoffset:-68;}}
 
 @media(max-width:900px){.clients{grid-template-columns:repeat(2,1fr);}}
 @media(max-width:600px){.clients{grid-template-columns:repeat(2,1fr);gap:8px}.client{min-height:92px;padding:13px;font-size:11px}.about-mini-card{padding:28px 24px}.about-mini-card h3{font-size:22px;}}
+
+
+/* V6 — CLIENTES + COMPETÊNCIAS */
+#clientes .clients{grid-template-columns:repeat(4,minmax(0,1fr));gap:9px;}
+#clientes .client{min-height:82px;padding:12px 10px;border-radius:13px;font-size:11px;line-height:1.35;}
+#clientes .clients-intro{max-width:690px;margin:-34px 0 30px;color:#aaa6b0;font-size:13px;line-height:1.75;}
+#clientes .client .romero-border-path{stroke-dasharray:38 62 !important;}
+.skills{gap:10px;}
+.skill{position:relative;isolation:isolate;padding:11px 16px;color:#aaa6b0;background:rgba(255,255,255,.03);border-color:rgba(255,255,255,.10);overflow:visible;}
+.skill::before{content:"";position:absolute;z-index:-1;inset:-7px -9px;border-radius:999px;background:linear-gradient(90deg,rgba(124,58,237,.22),rgba(168,85,247,.28),rgba(236,72,153,.22));filter:blur(15px);opacity:.28;transform:scale(.92);transition:opacity .35s ease,transform .35s ease,filter .35s ease;pointer-events:none;}
+.skill::after{content:"";position:absolute;inset:0;z-index:-1;border-radius:999px;background:linear-gradient(110deg,rgba(124,58,237,.06),rgba(236,72,153,.045));pointer-events:none;}
+.skill:hover{color:#fff;border-color:rgba(216,180,254,.42);background:rgba(168,85,247,.08);transform:translateY(-3px);box-shadow:0 7px 24px rgba(124,58,237,.10);}
+.skill:hover::before{opacity:.78;transform:scale(1.03);filter:blur(17px);}
+@media(max-width:600px){#clientes .clients{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;}#clientes .client{min-height:74px;padding:10px 8px;font-size:10px;}#clientes .clients-intro{margin:-25px 0 25px;font-size:12px;}.skill{padding:10px 13px;}}
+
+/* V7 — borda animada das competências acompanha o formato arredondado */
+.skill > .edge-glow{border-radius:999px;}
+.skill > .edge-glow .edge-base,
+.skill > .edge-glow .edge-highlight{stroke-linejoin:round;}
 
 </style>
 
@@ -3033,6 +3057,8 @@ MARCAS QUE
 JÁ CONFIARAM
 </h2>
 
+<p class="clients-intro reveal">Além de marcas e empresas, a ROMERO ADS&amp;WEB também desenvolve projetos para pessoas físicas e profissionais que buscam fortalecer sua presença, comunicação e posicionamento no digital.</p>
+
 <div class="clients">
 
 <div class="client reveal">Caio Autopeças</div>
@@ -3662,7 +3688,24 @@ const edgeSelectors=[
 document.querySelectorAll(edgeSelectors.join(",")).forEach(el=>{
     el.classList.add("edge-target");
     if(getComputedStyle(el).position==="static") el.style.position="relative";
-    if(!el.querySelector(":scope > .edge-glow")){const glow=document.createElement("span");glow.className="edge-glow";el.appendChild(glow);}
+    if(!el.querySelector(":scope > .edge-glow")){
+      const ns="http://www.w3.org/2000/svg";
+      const svg=document.createElementNS(ns,"svg");
+      svg.setAttribute("class","edge-glow");
+      svg.setAttribute("viewBox","0 0 100 100");
+      svg.setAttribute("preserveAspectRatio","none");
+      svg.innerHTML=`<defs><linearGradient id="edgeGradient" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#7c3aed"/><stop offset="48%" stop-color="#c084fc"/><stop offset="100%" stop-color="#ec4899"/></linearGradient></defs><rect class="edge-base" x="0.7" y="0.7" width="98.6" height="98.6" rx="3" ry="3" pathLength="100"/><rect class="edge-highlight" x="0.7" y="0.7" width="98.6" height="98.6" rx="3" ry="3" pathLength="100"/>`;
+      el.appendChild(svg);
+
+      // Competências & Soluções usam formato de cápsula.
+      // A linha animada acompanha o mesmo arredondamento do botão.
+      if (el.classList.contains('skill')) {
+          svg.querySelectorAll('rect').forEach(rect => {
+              rect.setAttribute('rx', '50');
+              rect.setAttribute('ry', '50');
+          });
+      }
+    }
 });
 
 </script>
