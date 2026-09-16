@@ -1999,6 +1999,247 @@ RESPONSIVE
 
 }
 
+
+/* =====================================================
+AJUSTES DE LEGIBILIDADE + GALERIA DE ARTES
+===================================================== */
+
+/* Textos secundários um pouco mais claros */
+.service p,
+.brand-card p,
+.modal-description,
+.modal-service p,
+.project-content p,
+.portfolio-bottom p,
+.client-note,
+.about-description,
+.contact-head p,
+.contact-card p,
+.project-launch p,
+.project-modal-hint,
+.modal-footer-text{
+    color:#aaa6b0;
+}
+
+.service-number,
+.brand-card .small,
+.project-type,
+.skills-label,
+.about-highlight-small{
+    color:#918d98;
+}
+
+.skill,
+.client{
+    color:#aaa6b0;
+}
+
+/* Blocos levemente mais claros, preservando a estética escura */
+.service,
+.brand-card,
+.about-stat,
+.about-highlight,
+.contact-card,
+.project-launch{
+    background-color:rgba(255,255,255,.025);
+    border-color:rgba(255,255,255,.115);
+}
+
+.service{
+    background:linear-gradient(145deg,rgba(255,255,255,.065),rgba(255,255,255,.022));
+}
+
+.brand-card{
+    background:
+        radial-gradient(circle at 80% 20%,rgba(168,85,247,.16),transparent 30%),
+        linear-gradient(145deg,rgba(255,255,255,.065),rgba(255,255,255,.022));
+}
+
+.brand-card:nth-child(2){
+    background:
+        radial-gradient(circle at 80% 20%,rgba(236,72,153,.15),transparent 30%),
+        linear-gradient(145deg,rgba(255,255,255,.065),rgba(255,255,255,.022));
+}
+
+.client{
+    background:rgba(255,255,255,.035);
+    border-color:rgba(255,255,255,.105);
+}
+
+.about-stat{
+    background:linear-gradient(145deg,rgba(255,255,255,.06),rgba(255,255,255,.02));
+}
+
+.about-highlight{
+    background:
+        radial-gradient(circle at 15% 15%,rgba(124,58,237,.17),transparent 30%),
+        radial-gradient(circle at 90% 80%,rgba(236,72,153,.12),transparent 30%),
+        linear-gradient(145deg,rgba(255,255,255,.055),rgba(255,255,255,.018));
+}
+
+.contact-card{
+    background:linear-gradient(145deg,rgba(255,255,255,.065),rgba(255,255,255,.022));
+}
+
+.project-launch{
+    background:
+        radial-gradient(circle at 10% 20%,rgba(124,58,237,.16),transparent 28%),
+        radial-gradient(circle at 90% 80%,rgba(236,72,153,.12),transparent 28%),
+        rgba(255,255,255,.03);
+}
+
+/* Vitrine de artes dentro de Projetos */
+.art-showcase{
+    margin-top:72px;
+    padding-top:48px;
+    border-top:1px solid rgba(255,255,255,.08);
+}
+
+.art-showcase-head{
+    display:flex;
+    align-items:flex-end;
+    justify-content:space-between;
+    gap:30px;
+    margin-bottom:24px;
+}
+
+.art-showcase-kicker{
+    color:#a78bfa;
+    font-size:9px;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    margin-bottom:12px;
+}
+
+.art-showcase h3{
+    font-size:clamp(28px,4vw,48px);
+    letter-spacing:-2px;
+    line-height:1;
+}
+
+.art-showcase-head p{
+    max-width:480px;
+    color:#aaa6b0;
+    font-size:12px;
+    line-height:1.7;
+}
+
+.art-showcase-card{
+    position:relative;
+    overflow:hidden;
+    min-height:210px;
+    padding:30px;
+    border:1px solid rgba(255,255,255,.115);
+    border-radius:22px;
+    background:
+        radial-gradient(circle at 85% 20%,rgba(168,85,247,.13),transparent 28%),
+        linear-gradient(145deg,rgba(255,255,255,.06),rgba(255,255,255,.018));
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:35px;
+    cursor:pointer;
+    transition:.4s ease;
+}
+
+.art-showcase-card:hover{
+    transform:translateY(-6px);
+    border-color:rgba(192,132,252,.30);
+    box-shadow:0 25px 70px rgba(0,0,0,.28),0 0 45px rgba(124,58,237,.07);
+}
+
+.art-showcase-copy{max-width:520px;}
+.art-showcase-copy span{color:#a78bfa;font-size:9px;letter-spacing:2.5px;text-transform:uppercase;}
+.art-showcase-copy h4{font-size:25px;margin:15px 0 10px;}
+.art-showcase-copy p{color:#aaa6b0;font-size:12px;line-height:1.7;}
+
+.art-mini-stack{display:flex;gap:10px;flex-shrink:0;}
+.art-mini{
+    width:88px;
+    aspect-ratio:4/5;
+    border-radius:13px;
+    border:1px solid rgba(255,255,255,.11);
+    background:
+        linear-gradient(145deg,rgba(124,58,237,.25),rgba(236,72,153,.08)),
+        #15131c;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#c8c3cf;
+    font-size:8px;
+    letter-spacing:1px;
+    text-align:center;
+    padding:8px;
+    box-shadow:0 12px 30px rgba(0,0,0,.25);
+}
+.art-mini:nth-child(2){transform:translateY(-8px);}
+
+/* Modal da galeria */
+.art-modal-window{width:min(1120px,100%);}
+.art-gallery-intro{margin-bottom:34px;}
+.art-gallery-groups{display:grid;gap:34px;}
+.art-gallery-group{padding-top:28px;border-top:1px solid rgba(255,255,255,.075);}
+.art-gallery-group:first-child{padding-top:0;border-top:0;}
+.art-gallery-group-head{display:flex;align-items:end;justify-content:space-between;gap:20px;margin-bottom:16px;}
+.art-gallery-group h4{font-size:20px;letter-spacing:-.5px;}
+.art-gallery-group p{color:#918d98;font-size:10px;line-height:1.6;max-width:440px;}
+.art-gallery-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+.art-thumb{
+    position:relative;
+    border:1px solid rgba(255,255,255,.09);
+    border-radius:16px;
+    overflow:hidden;
+    aspect-ratio:4/5;
+    background:#111116;
+    cursor:pointer;
+    transition:.35s ease;
+}
+.art-thumb:hover{transform:translateY(-5px);border-color:rgba(192,132,252,.35);box-shadow:0 18px 45px rgba(0,0,0,.3);}
+.art-placeholder{
+    width:100%;height:100%;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:9px;
+    text-align:center;padding:20px;
+    background:
+        radial-gradient(circle at 25% 20%,rgba(124,58,237,.22),transparent 35%),
+        radial-gradient(circle at 80% 80%,rgba(236,72,153,.12),transparent 35%),
+        linear-gradient(145deg,#17141f,#0d0d12);
+}
+.art-placeholder strong{font-size:12px;color:#ddd;}
+.art-placeholder span{font-size:8px;color:#8e8995;letter-spacing:1.5px;text-transform:uppercase;}
+.art-thumb::after{content:"AMPLIAR ↗";position:absolute;right:12px;bottom:11px;font-size:7px;letter-spacing:1.3px;color:#d8d3df;background:rgba(8,8,12,.72);border:1px solid rgba(255,255,255,.1);padding:7px 9px;border-radius:50px;backdrop-filter:blur(10px);}
+
+.art-lightbox{
+    position:fixed;inset:0;z-index:7000;
+    display:flex;align-items:center;justify-content:center;
+    padding:30px;background:rgba(2,2,5,.86);
+    backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);
+    opacity:0;visibility:hidden;transition:.3s ease;
+}
+.art-lightbox.active{opacity:1;visibility:visible;}
+.art-lightbox-card{
+    width:min(470px,90vw);aspect-ratio:4/5;border-radius:24px;overflow:hidden;
+    border:1px solid rgba(255,255,255,.14);
+    box-shadow:0 40px 120px rgba(0,0,0,.65),0 0 70px rgba(124,58,237,.13);
+    transform:scale(.94);transition:.3s ease;
+}
+.art-lightbox.active .art-lightbox-card{transform:scale(1);}
+.art-lightbox-close{position:absolute;top:22px;right:22px;width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.13);background:rgba(255,255,255,.05);color:#fff;font-size:22px;cursor:pointer;}
+
+@media(max-width:700px){
+    .art-showcase{margin-top:55px;padding-top:38px;}
+    .art-showcase-head{flex-direction:column;align-items:flex-start;}
+    .art-showcase-card{padding:24px;flex-direction:column;align-items:flex-start;}
+    .art-mini-stack{width:100%;}
+    .art-mini{width:calc((100% - 20px)/3);}
+    .art-gallery-row{grid-template-columns:repeat(3,1fr);gap:7px;}
+    .art-gallery-group-head{display:block;}
+    .art-gallery-group-head p{margin-top:7px;}
+    .art-placeholder{padding:8px;}
+    .art-placeholder strong{font-size:9px;}
+    .art-placeholder span{font-size:6px;}
+    .art-thumb::after{display:none;}
+}
+
 </style>
 
 </head>
@@ -2652,6 +2893,36 @@ banner para fachada e adesivos.
 </div>
 
 
+
+<!-- VITRINE DE ARTES -->
+<div class="art-showcase reveal">
+
+<div class="art-showcase-head">
+<div>
+<div class="art-showcase-kicker">Conteúdo & Publicidade</div>
+<h3>MODELOS DE ARTES<br>PARA O DIGITAL.</h3>
+</div>
+<p>
+Uma seleção visual de formatos criativos desenvolvidos para redes sociais,
+campanhas e anúncios. Abra a galeria para explorar as categorias.
+</p>
+</div>
+
+<div class="art-showcase-card" id="openArtGallery" role="button" tabindex="0" aria-label="Abrir galeria de artes">
+<div class="art-showcase-copy">
+<span>Galeria visual</span>
+<h4>Explore estilos, campanhas e formatos.</h4>
+<p>Artes alternativas, peças profissionais para ADS e campanhas, além de criativos pensados para Meta Ads.</p>
+</div>
+<div class="art-mini-stack" aria-hidden="true">
+<div class="art-mini">ARTE<br>01</div>
+<div class="art-mini">ARTE<br>02</div>
+<div class="art-mini">ARTE<br>03</div>
+</div>
+</div>
+
+</div>
+
 <div class="portfolio-bottom reveal">
 
 <p>
@@ -2670,6 +2941,54 @@ VER PORTFÓLIO COMPLETO ↗
 </div>
 
 </section>
+
+
+
+<!-- MODAL GALERIA DE ARTES -->
+<div class="service-modal" id="artGalleryModal" aria-hidden="true">
+<div class="modal-window art-modal-window" role="dialog" aria-modal="true" aria-labelledby="artGalleryTitle">
+<button class="modal-close" type="button" aria-label="Fechar">×</button>
+<div class="modal-content">
+<div class="modal-eyebrow">ROMERO ADS&WEB • GALERIA CRIATIVA</div>
+<h2 class="modal-title" id="artGalleryTitle">ARTES PARA<br><span>O DIGITAL.</span></h2>
+<p class="modal-description art-gallery-intro">Uma amostra organizada por estilo e objetivo. As imagens abaixo são espaços de demonstração e poderão ser substituídas pelas artes finais.</p>
+
+<div class="art-gallery-groups">
+<section class="art-gallery-group">
+<div class="art-gallery-group-head"><h4>01 / Artes Alternativas</h4><p>Composições mais livres, criativas e experimentais para conteúdos que precisam chamar atenção.</p></div>
+<div class="art-gallery-row">
+<div class="art-thumb" data-art="Artes Alternativas • 01"><div class="art-placeholder"><strong>ARTE ALTERNATIVA 01</strong><span>Imagem em breve</span></div></div>
+<div class="art-thumb" data-art="Artes Alternativas • 02"><div class="art-placeholder"><strong>ARTE ALTERNATIVA 02</strong><span>Imagem em breve</span></div></div>
+<div class="art-thumb" data-art="Artes Alternativas • 03"><div class="art-placeholder"><strong>ARTE ALTERNATIVA 03</strong><span>Imagem em breve</span></div></div>
+</div>
+</section>
+
+<section class="art-gallery-group">
+<div class="art-gallery-group-head"><h4>02 / Artes Profissionais • ADS & Campanhas</h4><p>Peças de comunicação com acabamento publicitário para posicionamento, promoções e campanhas.</p></div>
+<div class="art-gallery-row">
+<div class="art-thumb" data-art="ADS & Campanhas • 01"><div class="art-placeholder"><strong>ADS / CAMPANHA 01</strong><span>Imagem em breve</span></div></div>
+<div class="art-thumb" data-art="ADS & Campanhas • 02"><div class="art-placeholder"><strong>ADS / CAMPANHA 02</strong><span>Imagem em breve</span></div></div>
+<div class="art-thumb" data-art="ADS & Campanhas • 03"><div class="art-placeholder"><strong>ADS / CAMPANHA 03</strong><span>Imagem em breve</span></div></div>
+</div>
+</section>
+
+<section class="art-gallery-group">
+<div class="art-gallery-group-head"><h4>03 / Criativos Meta Ads</h4><p>Modelos voltados a anúncios e performance, pensados para comunicação rápida e leitura objetiva.</p></div>
+<div class="art-gallery-row">
+<div class="art-thumb" data-art="Meta Ads • 01"><div class="art-placeholder"><strong>META ADS 01</strong><span>Imagem em breve</span></div></div>
+<div class="art-thumb" data-art="Meta Ads • 02"><div class="art-placeholder"><strong>META ADS 02</strong><span>Imagem em breve</span></div></div>
+<div class="art-thumb" data-art="Meta Ads • 03"><div class="art-placeholder"><strong>META ADS 03</strong><span>Imagem em breve</span></div></div>
+</div>
+</section>
+</div>
+</div>
+</div>
+</div>
+
+<div class="art-lightbox" id="artLightbox" aria-hidden="true">
+<button class="art-lightbox-close" id="artLightboxClose" type="button" aria-label="Fechar imagem">×</button>
+<div class="art-lightbox-card" id="artLightboxCard"></div>
+</div>
 
 
 <!-- CLIENTES -->
@@ -3174,6 +3493,44 @@ serviceModals.forEach(modal=>{
 });
 
 
+
+/* GALERIA DE ARTES */
+const openArtGallery = document.getElementById("openArtGallery");
+const artLightbox = document.getElementById("artLightbox");
+const artLightboxCard = document.getElementById("artLightboxCard");
+const artLightboxClose = document.getElementById("artLightboxClose");
+
+if(openArtGallery){
+    const openGallery=()=>openModal("artGalleryModal");
+    openArtGallery.addEventListener("click",openGallery);
+    openArtGallery.addEventListener("keydown",event=>{
+        if(event.key==="Enter" || event.key===" "){
+            event.preventDefault();
+            openGallery();
+        }
+    });
+}
+
+document.querySelectorAll(".art-thumb").forEach(thumb=>{
+    thumb.addEventListener("click",()=>{
+        artLightboxCard.innerHTML=thumb.innerHTML;
+        artLightbox.classList.add("active");
+        artLightbox.setAttribute("aria-hidden","false");
+    });
+});
+
+function closeArtLightbox(){
+    if(!artLightbox) return;
+    artLightbox.classList.remove("active");
+    artLightbox.setAttribute("aria-hidden","true");
+}
+
+if(artLightboxClose) artLightboxClose.addEventListener("click",closeArtLightbox);
+if(artLightbox) artLightbox.addEventListener("click",event=>{
+    if(event.target===artLightbox) closeArtLightbox();
+});
+
+
 /* INICIAR PROJETO */
 
 const startProject = document.getElementById("startProject");
@@ -3211,6 +3568,11 @@ document.addEventListener(
     event=>{
 
         if(event.key==="Escape"){
+
+            if(artLightbox && artLightbox.classList.contains("active")){
+                closeArtLightbox();
+                return;
+            }
 
             const activeModal =
                 document.querySelector(
