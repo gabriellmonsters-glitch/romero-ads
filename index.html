@@ -2457,6 +2457,63 @@ CLIENTES 4 COLUNAS + MODAL SOBRE + BORDA ANIMADA
         font-size:6.5px;
     }
 }
+
+
+/* ===== DIVISORES ANIMADOS ENTRE SEÇÕES — v17 ===== */
+.section-divider{
+  width:min(1180px, calc(100% - 48px));
+  height:1px;
+  margin:clamp(34px,5vw,70px) auto clamp(18px,3vw,36px);
+  position:relative;
+  overflow:visible;
+  background:linear-gradient(90deg, transparent, rgba(255,255,255,.10) 12%, rgba(255,255,255,.10) 88%, transparent);
+}
+.section-divider::before{
+  content:"";
+  position:absolute;
+  top:-1px;
+  left:0;
+  width:28%;
+  height:3px;
+  border-radius:999px;
+  background:linear-gradient(90deg, transparent 0%, #7c3aed 22%, #c084fc 55%, #ec4899 82%, transparent 100%);
+  box-shadow:0 0 10px rgba(124,58,237,.65), 0 0 18px rgba(236,72,153,.38);
+  animation:sectionLineTravel 4.2s cubic-bezier(.45,0,.55,1) infinite;
+}
+.section-divider::after{
+  content:"";
+  position:absolute;
+  inset:-12px 0;
+  pointer-events:none;
+  background:radial-gradient(ellipse at 50% 50%, rgba(168,85,247,.06), transparent 58%);
+  opacity:.65;
+}
+@keyframes sectionLineTravel{
+  0%{transform:translateX(-110%);opacity:0}
+  12%{opacity:1}
+  50%{opacity:1}
+  88%{opacity:1}
+  100%{transform:translateX(365%);opacity:0}
+}
+@media(max-width:700px){
+  .section-divider{
+    width:calc(100% - 32px);
+    margin:30px auto 16px;
+  }
+  .section-divider::before{
+    width:42%;
+    animation-duration:3.6s;
+  }
+  @keyframes sectionLineTravel{
+    0%{transform:translateX(-110%);opacity:0}
+    12%{opacity:1}
+    88%{opacity:1}
+    100%{transform:translateX(245%);opacity:0}
+  }
+}
+@media(prefers-reduced-motion:reduce){
+  .section-divider::before{animation:none;left:36%;opacity:.9}
+}
 </style>
 
 
@@ -2628,6 +2685,8 @@ SCROLL
 
 <!-- SERVIÇOS -->
 
+<div class="section-divider" aria-hidden="true"></div>
+
 <section id="servicos">
 
 <div class="section-label reveal">
@@ -2678,6 +2737,8 @@ Conteúdo visual para comunicar sua marca com estratégia.
 
 
 <!-- SOLUÇÕES -->
+
+<div class="section-divider" aria-hidden="true"></div>
 
 <section id="romero">
 
@@ -2985,6 +3046,8 @@ SOLICITAR ORÇAMENTO ↗
 
 <!-- PROJETOS -->
 
+<div class="section-divider" aria-hidden="true"></div>
+
 <section id="projetos">
 
 <div class="section-label reveal">
@@ -3237,6 +3300,8 @@ VER PORTFÓLIO COMPLETO ↗
 
 <!-- CLIENTES -->
 
+<div class="section-divider" aria-hidden="true"></div>
+
 <section id="clientes">
 
 <div class="section-label reveal">
@@ -3282,6 +3347,8 @@ daqueles que optam por não divulgar sua identidade.
 <!-- =====================================================
 SOBRE - NOVA VERSÃO
 ===================================================== -->
+
+<div class="section-divider" aria-hidden="true"></div>
 
 <section id="sobre">
 
@@ -3419,6 +3486,8 @@ COMPETÊNCIAS & SOLUÇÕES
 </div>
 
 <!-- CONTATO -->
+
+<div class="section-divider" aria-hidden="true"></div>
 
 <section id="contato" class="contact">
 <div class="contact-inner">
