@@ -2267,7 +2267,7 @@ CLIENTES 4 COLUNAS + MODAL SOBRE + BORDA ANIMADA
 .edge-target{position:relative;}
 .edge-glow{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:20;overflow:visible;opacity:0;transition:opacity .22s ease;}
 .edge-glow .edge-base{fill:none;stroke:rgba(255,255,255,.07);stroke-width:1;vector-effect:non-scaling-stroke;}
-.edge-glow .edge-highlight{fill:none;stroke:url(#edgeGradient);stroke-width:2;stroke-linecap:round;vector-effect:non-scaling-stroke;stroke-dasharray:32 68;stroke-dashoffset:32;filter:drop-shadow(0 0 4px rgba(168,85,247,.70)) drop-shadow(0 0 7px rgba(236,72,153,.30));}
+.edge-glow .edge-highlight{fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round;vector-effect:non-scaling-stroke;stroke-dasharray:32 68;stroke-dashoffset:32;filter:drop-shadow(0 0 4px rgba(255,255,255,.95)) drop-shadow(0 0 10px rgba(255,255,255,.58));}
 .edge-target:hover>.edge-glow,.edge-target:focus-within>.edge-glow{opacity:1;}
 .edge-target:hover>.edge-glow .edge-highlight,.edge-target:focus-within>.edge-glow .edge-highlight{animation:edgeRun 1.35s linear infinite;}
 @keyframes edgeRun{to{stroke-dashoffset:-68;}}
@@ -2476,7 +2476,7 @@ CLIENTES 4 COLUNAS + MODAL SOBRE + BORDA ANIMADA
   width:28%;
   height:3px;
   border-radius:999px;
-  background:linear-gradient(90deg, transparent 0%, #7c3aed 22%, #c084fc 55%, #ec4899 82%, transparent 100%);
+  background:linear-gradient(90deg, transparent 0%, rgba(255,255,255,.42) 18%, #ffffff 48%, #ffffff 58%, rgba(255,255,255,.42) 84%, transparent 100%);
   box-shadow:0 0 10px rgba(124,58,237,.65), 0 0 18px rgba(236,72,153,.38);
   animation:sectionLineTravel 4.2s cubic-bezier(.45,0,.55,1) infinite;
 }
@@ -3964,7 +3964,7 @@ document.querySelectorAll(edgeSelectors.join(",")).forEach(el=>{
       svg.setAttribute("class","edge-glow");
       svg.setAttribute("viewBox","0 0 100 100");
       svg.setAttribute("preserveAspectRatio","none");
-      svg.innerHTML=`<defs><linearGradient id="edgeGradient" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#7c3aed"/><stop offset="48%" stop-color="#c084fc"/><stop offset="100%" stop-color="#ec4899"/></linearGradient></defs><rect class="edge-base" x="0.7" y="0.7" width="98.6" height="98.6" rx="3" ry="3" pathLength="100"/><rect class="edge-highlight" x="0.7" y="0.7" width="98.6" height="98.6" rx="3" ry="3" pathLength="100"/>`;
+      svg.innerHTML=`<defs><linearGradient id="edgeGradient" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#ffffff"/><stop offset="48%" stop-color="#ffffff"/><stop offset="100%" stop-color="#ffffff"/></linearGradient></defs><rect class="edge-base" x="0.7" y="0.7" width="98.6" height="98.6" rx="3" ry="3" pathLength="100"/><rect class="edge-highlight" x="0.7" y="0.7" width="98.6" height="98.6" rx="3" ry="3" pathLength="100"/>`;
       el.appendChild(svg);
 
     }
