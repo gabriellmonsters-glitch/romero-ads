@@ -2547,6 +2547,118 @@ CLIENTES 4 COLUNAS + MODAL SOBRE + BORDA ANIMADA
   @media(prefers-reduced-motion:reduce){.entry-orb,.entry-ring{animation:none}}
 </style>
 
+
+<style id="romero-contrast-review-v1">
+/* ===== ROMERO ADS&WEB — REVISÃO DE CONTRASTE ===== */
+:root{
+  --review-panel:#17151c;
+  --review-panel-2:#1d1a23;
+  --review-border:rgba(255,255,255,.28);
+  --review-border-strong:rgba(255,255,255,.48);
+  --review-text:#f7f4fa;
+  --review-muted:#c7c0cd;
+}
+
+/* textos secundários mais legíveis */
+.service p,.brand-card p,.project-content p,.client-note,
+.about-description,.contact-card p,.modal-description,.modal-service p,
+.modal-footer-text,.project-launch p,.project-option small,
+.art-gallery-preview p,.footer-info,.footer-info a{
+  color:var(--review-muted)!important;
+}
+
+/* cards e blocos: deixam de desaparecer no fundo */
+.service,.brand-card,.project-card,.client,.about-stat,.about-highlight,
+.contact-card,.project-launch,.art-gallery-preview,.art-thumb,
+.modal-service,.project-option{
+  background:
+    linear-gradient(145deg,rgba(31,28,38,.97),rgba(20,18,25,.96))!important;
+  border-color:var(--review-border)!important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.055),
+    0 10px 32px rgba(0,0,0,.24)!important;
+}
+
+/* hover com leitura clara, sem perder o preto premium */
+.service:hover,.brand-card:hover,.project-card:hover,.client:hover,
+.about-stat:hover,.contact-card:hover,.project-launch:hover,
+.art-gallery-preview:hover,.art-thumb:hover,.project-option:hover{
+  border-color:var(--review-border-strong)!important;
+  background:
+    linear-gradient(145deg,rgba(39,35,47,.98),rgba(24,21,29,.98))!important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.09),
+    0 16px 44px rgba(0,0,0,.32),
+    0 0 28px rgba(168,85,247,.08)!important;
+}
+
+/* modais: janela claramente separada do overlay */
+.service-modal,.tools-modal{
+  background:rgba(0,0,0,.78)!important;
+}
+.modal-window,.tools-window,.about-mini-card{
+  background:
+    radial-gradient(circle at 80% 5%,rgba(124,58,237,.12),transparent 30%),
+    linear-gradient(145deg,#211e27,#151219)!important;
+  border:1px solid rgba(255,255,255,.34)!important;
+  box-shadow:
+    0 34px 100px rgba(0,0,0,.68),
+    inset 0 1px 0 rgba(255,255,255,.07)!important;
+}
+
+/* botões: bordas mais visíveis */
+.btn{
+  border-color:rgba(255,255,255,.42)!important;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.035);
+}
+.btn-secondary{
+  background:rgba(255,255,255,.075)!important;
+  color:#fff!important;
+  border-color:rgba(255,255,255,.52)!important;
+}
+.btn-secondary:hover{
+  background:rgba(255,255,255,.15)!important;
+  border-color:rgba(255,255,255,.82)!important;
+  box-shadow:0 0 24px rgba(255,255,255,.09)!important;
+}
+.btn-primary{
+  border-color:rgba(255,255,255,.62)!important;
+  box-shadow:0 10px 30px rgba(124,58,237,.18),inset 0 0 0 1px rgba(255,255,255,.08)!important;
+}
+
+/* chips/tags e controles */
+.project-tag,.skill,.tool-chip,.project-option{
+  border-color:rgba(255,255,255,.25)!important;
+}
+.modal-close,.about-mini-close{
+  border:1px solid rgba(255,255,255,.36)!important;
+  background:rgba(255,255,255,.08)!important;
+  color:#fff!important;
+}
+
+/* navbar um pouco mais destacada quando sobre o conteúdo */
+.navbar.scrolled{
+  background:rgba(13,12,16,.86)!important;
+  border-bottom:1px solid rgba(255,255,255,.14)!important;
+  box-shadow:0 12px 36px rgba(0,0,0,.24)!important;
+}
+
+/* mantém as linhas animadas brancas já aprovadas e dá base mais visível */
+.edge-target{
+  border-color:rgba(255,255,255,.22)!important;
+}
+.section-divider{
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.18) 12%,rgba(255,255,255,.18) 88%,transparent)!important;
+}
+
+@media(max-width:700px){
+  .service,.brand-card,.project-card,.client,.about-stat,.contact-card,
+  .project-launch,.art-gallery-preview{
+    border-color:rgba(255,255,255,.30)!important;
+  }
+}
+</style>
+
 </head>
 
 
@@ -2620,7 +2732,7 @@ atenção e conectam pessoas.
 
 <a
 class="btn btn-primary"
-href="https://drive.google.com/file/d/1uDN8y_ABWFQvCc9g50rlhF3pa6CNWxaV/view?usp=drive_link"
+href="https://romeroadsweb.github.io/portfolio/"
 target="_blank"
 rel="noopener noreferrer">
 VER PORTFÓLIO
@@ -2628,7 +2740,7 @@ VER PORTFÓLIO
 
 <a
 class="btn btn-secondary"
-href="https://wa.me/5511940361367"
+href="https://wa.me/5511911508559"
 target="_blank"
 rel="noopener noreferrer">
 FALAR NO WHATSAPP
@@ -2921,7 +3033,7 @@ identidade e objetivos de cada cliente.
 
 <a
 class="btn btn-primary modal-whatsapp"
-href="https://wa.me/5511940361367?text=Olá%2C%20vim%20pelo%20site%20da%20ROMERO%20ADS%26WEB%20e%20gostaria%20de%20solicitar%20um%20orçamento%20para%20os%20serviços%20da%20ROMERO%20ADS."
+href="https://wa.me/5511911508559?text=Olá%2C%20vim%20pelo%20site%20da%20ROMERO%20ADS%26WEB%20e%20gostaria%20de%20solicitar%20um%20orçamento%20para%20os%20serviços%20da%20ROMERO%20ADS."
 target="_blank">
 SOLICITAR ORÇAMENTO ↗
 </a>
@@ -3030,7 +3142,7 @@ para fortalecer a presença online da sua marca.
 
 <a
 class="btn btn-primary modal-whatsapp"
-href="https://wa.me/5511940361367?text=Olá%2C%20vim%20pelo%20site%20da%20ROMERO%20ADS%26WEB%20e%20gostaria%20de%20solicitar%20um%20orçamento%20para%20os%20serviços%20da%20ROMERO%20WEB."
+href="https://wa.me/5511911508559?text=Olá%2C%20vim%20pelo%20site%20da%20ROMERO%20ADS%26WEB%20e%20gostaria%20de%20solicitar%20um%20orçamento%20para%20os%20serviços%20da%20ROMERO%20WEB."
 target="_blank">
 SOLICITAR ORÇAMENTO ↗
 </a>
@@ -3240,7 +3352,7 @@ Veja outros trabalhos e soluções no portfólio completo.
 
 <a
 class="btn btn-primary"
-href="https://drive.google.com/file/d/1uDN8y_ABWFQvCc9g50rlhF3pa6CNWxaV/view?usp=drive_link"
+href="https://romeroadsweb.github.io/portfolio/"
 target="_blank">
 VER PORTFÓLIO COMPLETO ↗
 </a>
@@ -3497,7 +3609,7 @@ COMPETÊNCIAS & SOLUÇÕES
 <p>Tem um projeto em mente? Escolha um canal e fale com a ROMERO.</p>
 </div>
 <div class="contact-grid">
-<a class="contact-card reveal" href="https://wa.me/5511940361367" target="_blank" rel="noopener noreferrer"><span class="contact-card-label">Contato direto</span><span class="contact-arrow">↗</span><h3>WhatsApp</h3><p>Projetos, dúvidas e orçamentos.</p></a>
+<a class="contact-card reveal" href="https://wa.me/5511911508559" target="_blank" rel="noopener noreferrer"><span class="contact-card-label">Contato direto</span><span class="contact-arrow">↗</span><h3>WhatsApp</h3><p>Projetos, dúvidas e orçamentos.</p></a>
 <a class="contact-card reveal reveal-delay-1" href="https://www.instagram.com/adsromero" target="_blank" rel="noopener noreferrer"><span class="contact-card-label">Acompanhe a ROMERO</span><span class="contact-arrow">↗</span><h3>Instagram</h3><p>@adsromero<br>Projetos e novidades.</p></a>
 <a class="contact-card reveal reveal-delay-2" href="mailto:RomeroAds@proton.me"><span class="contact-card-label">Propostas & projetos</span><span class="contact-arrow">↗</span><h3>E-mail</h3><p>RomeroAds@proton.me<br>Contato profissional.</p></a>
 </div>
@@ -3894,7 +4006,7 @@ if(projectContinue){
     projectContinue.addEventListener("click",()=>{
         if(!selectedProjectService) return;
         const message=`Olá! Vim pelo site da ROMERO ADS&WEB e tenho interesse em ${selectedProjectService}. Gostaria de conversar sobre meu projeto.`;
-        const url=`https://wa.me/5511940361367?text=${encodeURIComponent(message)}`;
+        const url=`https://wa.me/5511911508559?text=${encodeURIComponent(message)}`;
         window.open(url,"_blank","noopener,noreferrer");
     });
 }
