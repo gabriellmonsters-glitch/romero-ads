@@ -27,17 +27,14 @@
 <meta property="og:title" content="ROMERO ADS&WEB | Marketing Digital • Publicidade • Web">
 <meta property="og:description" content="Estratégia, criatividade e presença digital para transformar ideias em marcas que chamam atenção e conectam pessoas.">
 <meta property="og:url" content="https://gabriellmonsters-glitch.github.io/romero-ads/">
-<meta property="og:image" content="https://gabriellmonsters-glitch.github.io/romero-ads/romero-compartilhamento.png">
-<meta property="og:image:alt" content="ROMERO ADS&WEB — Sua marca em evidência">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:image:type" content="image/png">
+<meta property="og:image" content="https://gabriellmonsters-glitch.github.io/romero-ads/logo-romero.png">
+<meta property="og:image:alt" content="Logo da ROMERO ADS&WEB">
 
 <!-- X / TWITTER -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="ROMERO ADS&WEB | Marketing Digital • Publicidade • Web">
 <meta name="twitter:description" content="Estratégia, criatividade e presença digital para transformar ideias em marcas que chamam atenção e conectam pessoas.">
-<meta name="twitter:image" content="https://gabriellmonsters-glitch.github.io/romero-ads/romero-compartilhamento.png">
+<meta name="twitter:image" content="https://gabriellmonsters-glitch.github.io/romero-ads/logo-romero.png">
 
 <style>
 
@@ -53,13 +50,24 @@ BASE
 
 html{
     scroll-behavior:smooth;
+    width:100%;
+    max-width:100%;
+    overflow-x:hidden;
 }
 
 body{
     background:#08080b;
     color:#fff;
     font-family:Arial,Helvetica,sans-serif;
+    width:100%;
+    max-width:100%;
     overflow-x:hidden;
+}
+
+@supports (overflow:clip){
+    html,body{
+        overflow-x:clip;
+    }
 }
 
 body.modal-open{
@@ -247,6 +255,12 @@ HERO
     align-items:center;
     padding:160px max(7vw,30px) 100px;
     position:relative;
+    max-width:100%;
+    overflow-x:hidden;
+}
+
+@supports (overflow:clip){
+    .hero{overflow-x:clip;}
 }
 
 .hero::after{
@@ -1658,6 +1672,30 @@ footer{
     letter-spacing:1.5px;
 }
 
+
+/* =====================================================
+MOBILE HORIZONTAL OVERFLOW FIX
+===================================================== */
+
+section,
+footer,
+.marquee,
+.contact{
+    max-width:100%;
+}
+
+@supports (overflow:clip){
+    section,
+    footer,
+    .marquee,
+    .contact{
+        overflow-x:clip;
+    }
+}
+
+img,svg,video{
+    max-width:100%;
+}
 
 /* =====================================================
 RESPONSIVE
