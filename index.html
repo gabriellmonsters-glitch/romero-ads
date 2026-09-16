@@ -2240,6 +2240,34 @@ AJUSTES DE LEGIBILIDADE + GALERIA DE ARTES
     .art-thumb::after{display:none;}
 }
 
+
+
+/* =====================================================
+CLIENTES 4 COLUNAS + MODAL SOBRE + BORDA ANIMADA
+===================================================== */
+.clients{grid-template-columns:repeat(4,1fr);gap:10px;}
+.client{min-height:105px;padding:16px;font-size:12px;}
+
+.about-stat{cursor:pointer;}
+.about-stat:focus-visible{outline:2px solid #c084fc;outline-offset:3px;}
+.about-mini-modal{position:fixed;inset:0;z-index:6500;display:flex;align-items:center;justify-content:center;padding:20px;background:rgba(2,2,5,.62);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);opacity:0;visibility:hidden;transition:.3s ease;}
+.about-mini-modal.active{opacity:1;visibility:visible;}
+.about-mini-card{position:relative;width:min(470px,100%);padding:34px;border:1px solid rgba(255,255,255,.14);border-radius:22px;background:radial-gradient(circle at 15% 10%,rgba(124,58,237,.18),transparent 34%),radial-gradient(circle at 90% 90%,rgba(236,72,153,.12),transparent 32%),rgba(15,14,21,.94);box-shadow:0 30px 90px rgba(0,0,0,.55),0 0 50px rgba(124,58,237,.10);transform:translateY(18px) scale(.98);transition:.3s ease;}
+.about-mini-modal.active .about-mini-card{transform:translateY(0) scale(1);}
+.about-mini-eyebrow{color:#a78bfa;font-size:9px;letter-spacing:3px;margin-bottom:16px;}
+.about-mini-card h3{font-size:25px;letter-spacing:-1px;margin:0 45px 12px 0;}
+.about-mini-card p{color:#b7b3bd;font-size:13px;line-height:1.75;}
+.about-mini-close{position:absolute;right:17px;top:17px;width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.04);color:#bbb;font-size:21px;cursor:pointer;transition:.3s;}
+.about-mini-close:hover{color:#fff;background:rgba(168,85,247,.12);transform:rotate(90deg);}
+
+/* Linha roxa/rosa que percorre a borda no hover */
+.edge-glow{position:absolute;inset:0;border-radius:inherit;padding:1px;pointer-events:none;z-index:20;opacity:0;background:conic-gradient(from 0deg,transparent 0deg,transparent 275deg,#7c3aed 305deg,#ec4899 335deg,transparent 360deg);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;}
+.edge-target:hover>.edge-glow,.edge-target:focus-within>.edge-glow{opacity:1;animation:edgeRun 1.8s linear infinite;}
+@keyframes edgeRun{to{transform:rotate(360deg);}}
+
+@media(max-width:900px){.clients{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:600px){.clients{grid-template-columns:repeat(2,1fr);gap:8px}.client{min-height:92px;padding:13px;font-size:11px}.about-mini-card{padding:28px 24px}.about-mini-card h3{font-size:22px;}}
+
 </style>
 
 </head>
@@ -3010,13 +3038,17 @@ JÁ CONFIARAM
 <div class="client reveal">Caio Autopeças</div>
 <div class="client reveal reveal-delay-1">Ventura Semijoias</div>
 <div class="client reveal reveal-delay-2">Gilvania Consultoria</div>
-
 <div class="client reveal">EverR</div>
-<div class="client reveal reveal-delay-1">Elétrica Perillo</div>
-<div class="client reveal reveal-delay-2">Cantinho da Jú</div>
 
-<div class="client reveal">Construtec</div>
-<div class="client reveal reveal-delay-1">Lu Sobremesas Caseiras</div>
+<div class="client reveal">Elétrica Perillo</div>
+<div class="client reveal reveal-delay-1">Cantinho da Jú</div>
+<div class="client reveal reveal-delay-2">Construtec</div>
+<div class="client reveal">Lu Sobremesas Caseiras</div>
+
+<div class="client reveal">Contabilidade Chavante</div>
+<div class="client reveal reveal-delay-1">Transfer no Chile</div>
+<div class="client reveal reveal-delay-2">Arte&amp;Cia</div>
+<div class="client reveal">ArtCompanny</div>
 
 </div>
 
@@ -3075,30 +3107,38 @@ e preparada para se conectar com o público.
 
 <div class="about-stats reveal reveal-delay-1">
 
-<div class="about-stat">
+<div class="about-stat" tabindex="0" role="button" data-about-title="01 / TRAJETÓRIA" data-about-text="Início das atividades da ROMERO ADS&amp;WEB e desenvolvimento das primeiras parcerias profissionais.">
 <span class="about-stat-number">01 / TRAJETÓRIA</span>
 <h4>Desde<br>2023</h4>
 </div>
 
-<div class="about-stat">
+<div class="about-stat" tabindex="0" role="button" data-about-title="02 / SOLUÇÕES" data-about-text="Soluções integradas em marketing, publicidade e desenvolvimento web, pensadas de acordo com as necessidades de cada projeto.">
 <span class="about-stat-number">02 / SOLUÇÕES</span>
 <h4>Marketing<br>+ Web</h4>
 </div>
 
-<div class="about-stat">
+<div class="about-stat" tabindex="0" role="button" data-about-title="03 / CLIENTES" data-about-text="Atendimento para pessoa física e jurídica, com soluções adaptadas a profissionais, marcas e empresas.">
 <span class="about-stat-number">03 / CLIENTES</span>
 <h4>Pessoas<br>+ Empresas</h4>
 </div>
 
-<div class="about-stat">
+<div class="about-stat" tabindex="0" role="button" data-about-title="04 / ATUAÇÃO" data-about-text="Atendimento remoto com foco nas regiões Sul e Sudeste, permitindo acompanhar projetos com agilidade e proximidade em diferentes cidades.">
 <span class="about-stat-number">04 / ATUAÇÃO</span>
-<h4>Atendimento<br>em todo o Brasil</h4>
+<h4>Atendimento<br>Sul e Sudeste</h4>
 </div>
 
 </div>
 
 </div>
 
+<div class="about-mini-modal" id="aboutMiniModal" aria-hidden="true">
+<div class="about-mini-card" role="dialog" aria-modal="true" aria-labelledby="aboutMiniTitle">
+<button class="about-mini-close" id="aboutMiniClose" type="button" aria-label="Fechar">×</button>
+<div class="about-mini-eyebrow">ROMERO ADS&amp;WEB</div>
+<h3 id="aboutMiniTitle"></h3>
+<p id="aboutMiniText"></p>
+</div>
+</div>
 
 <div class="about-highlight reveal">
 
@@ -3587,6 +3627,43 @@ document.addEventListener(
 
     }
 );
+
+
+
+/* MODAL DOS BLOCOS SOBRE */
+const aboutMiniModal=document.getElementById("aboutMiniModal");
+const aboutMiniTitle=document.getElementById("aboutMiniTitle");
+const aboutMiniText=document.getElementById("aboutMiniText");
+const aboutMiniClose=document.getElementById("aboutMiniClose");
+function openAboutMini(stat){
+    aboutMiniTitle.textContent=stat.dataset.aboutTitle || "ROMERO ADS&WEB";
+    aboutMiniText.textContent=stat.dataset.aboutText || "";
+    aboutMiniModal.classList.add("active");
+    aboutMiniModal.setAttribute("aria-hidden","false");
+}
+function closeAboutMini(){
+    aboutMiniModal.classList.remove("active");
+    aboutMiniModal.setAttribute("aria-hidden","true");
+}
+document.querySelectorAll(".about-stat[data-about-title]").forEach(stat=>{
+    stat.addEventListener("click",()=>openAboutMini(stat));
+    stat.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();openAboutMini(stat);}});
+});
+if(aboutMiniClose) aboutMiniClose.addEventListener("click",closeAboutMini);
+if(aboutMiniModal) aboutMiniModal.addEventListener("click",e=>{if(e.target===aboutMiniModal) closeAboutMini();});
+document.addEventListener("keydown",e=>{if(e.key==="Escape"&&aboutMiniModal&&aboutMiniModal.classList.contains("active")) closeAboutMini();});
+
+/* BORDA ANIMADA NOS PRINCIPAIS BLOCOS */
+const edgeSelectors=[
+    ".service",".brand-card",".project-card",".art-gallery-preview",".art-thumb",
+    ".client",".about-stat",".about-highlight",".skill",".contact-card",
+    ".project-launch",".modal-service",".project-option"
+];
+document.querySelectorAll(edgeSelectors.join(",")).forEach(el=>{
+    el.classList.add("edge-target");
+    if(getComputedStyle(el).position==="static") el.style.position="relative";
+    if(!el.querySelector(":scope > .edge-glow")){const glow=document.createElement("span");glow.className="edge-glow";el.appendChild(glow);}
+});
 
 </script>
 
