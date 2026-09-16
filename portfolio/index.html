@@ -490,6 +490,39 @@ h1 .gradient{
 }
 </style>
 
+
+<style id="portfolio-gallery-fix">
+.work-card[data-gallery]{cursor:pointer}
+.gallery-modal{
+  position:fixed; inset:0; z-index:9999; display:none; align-items:center; justify-content:center;
+  padding:24px; background:rgba(5,5,8,.86); backdrop-filter:blur(16px);
+}
+.gallery-modal.open{display:flex}
+.gallery-dialog{
+  width:min(1120px,96vw); max-height:92vh; overflow:auto; position:relative;
+  border:1px solid rgba(255,255,255,.18); border-radius:28px; padding:28px;
+  background:rgba(18,16,22,.96); box-shadow:0 30px 100px rgba(0,0,0,.5);
+}
+.gallery-head{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:22px}
+.gallery-title{margin:0;color:#fff;font-size:clamp(26px,4vw,52px);letter-spacing:-.04em}
+.gallery-close{
+  width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.25);
+  background:transparent;color:#fff;font-size:24px;cursor:pointer
+}
+.gallery-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;align-items:start}
+.gallery-item{background:#fff;border-radius:18px;overflow:hidden;min-width:0}
+.gallery-item img{display:block;width:100%;height:auto;object-fit:contain}
+.gallery-modal[data-current="WEB"] .gallery-item{padding-top:28px;background:#ececf0;position:relative}
+.gallery-modal[data-current="WEB"] .gallery-item:before{
+  content:"";position:absolute;left:14px;top:12px;width:7px;height:7px;border-radius:50%;
+  background:#a8a8ad;box-shadow:12px 0 #a8a8ad,24px 0 #a8a8ad
+}
+@media(max-width:760px){
+  .gallery-modal{padding:12px}.gallery-dialog{padding:18px;border-radius:20px}
+  .gallery-grid{grid-template-columns:1fr}.gallery-item{max-width:520px;margin:auto}
+}
+</style>
+
 </head>
 <body>
 <main class="hero" id="inicio">
@@ -745,6 +778,46 @@ h1 .gradient{
     </footer>
   </div>
 </section>
+
+
+<div class="gallery-modal" id="galleryModal" aria-hidden="true">
+  <div class="gallery-dialog" role="dialog" aria-modal="true" aria-labelledby="galleryTitle">
+    <div class="gallery-head">
+      <h2 class="gallery-title" id="galleryTitle">PORTFÓLIO</h2>
+      <button class="gallery-close" id="galleryClose" aria-label="Fechar galeria">×</button>
+    </div>
+    <div class="gallery-grid" id="galleryGrid"></div>
+  </div>
+</div>
+<script id="portfolio-gallery-script">
+(() => {
+  const galleries = {
+    SOCIAL: ["social-01.png","social-02.png","social-03.png"],
+    ADS: ["ads-01.png","ads-02.png","ads-03.png"],
+    BRAND: ["brand-01.png","brand-02.png","brand-03.png"],
+    WEB: ["web-01.jpg","web-02.webp","web-03.webp"]
+  };
+  const modal=document.getElementById("galleryModal"), grid=document.getElementById("galleryGrid"),
+        title=document.getElementById("galleryTitle"), close=document.getElementById("galleryClose");
+  let lastFocus=null;
+  function openGallery(cat){
+    lastFocus=document.activeElement; title.textContent=cat; modal.dataset.current=cat;
+    grid.innerHTML=galleries[cat].map((src,i)=>`<div class="gallery-item"><img src="${src}" alt="${cat} — trabalho ${i+1}" loading="lazy"></div>`).join("");
+    modal.classList.add("open"); modal.setAttribute("aria-hidden","false"); document.body.style.overflow="hidden"; close.focus();
+  }
+  function closeGallery(){
+    modal.classList.remove("open"); modal.setAttribute("aria-hidden","true"); document.body.style.overflow="";
+    if(lastFocus) lastFocus.focus();
+  }
+  document.querySelectorAll("[data-gallery]").forEach(el=>{
+    el.addEventListener("click",()=>openGallery(el.dataset.gallery));
+    el.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();openGallery(el.dataset.gallery)}})
+  });
+  close.addEventListener("click",closeGallery);
+  modal.addEventListener("click",e=>{if(e.target===modal)closeGallery()});
+  document.addEventListener("keydown",e=>{if(e.key==="Escape"&&modal.classList.contains("open"))closeGallery()});
+})();
+</script>
 
 </body>
 </html>
