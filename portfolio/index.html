@@ -687,11 +687,23 @@ a[href="Portfolio-Gabriel-Romero-2026.pdf"] svg * {
 }
 </style>
 
+
+<style id="portfolio-logo-update">
+.brand-with-logo{display:flex;align-items:center;gap:10px}
+.brand-with-logo img{width:54px;height:54px;object-fit:contain;display:block}
+.footer-brand-logo{display:flex;align-items:center;gap:12px}
+.footer-brand-logo img{width:72px;height:72px;object-fit:contain;display:block}
+@media(max-width:600px){
+ .brand-with-logo span{display:none}
+ .brand-with-logo img{width:44px;height:44px}
+ .footer-brand-logo img{width:58px;height:58px}
+}
+</style>
 </head>
 <body>
 <main class="hero" id="inicio">
   <header class="top">
-    <div class="brand">GABRIEL ROMERO</div>
+    <div class="brand brand-with-logo"><img src="logo-romero(1).png" alt="ROMERO ADS & WEB"><span>GABRIEL ROMERO</span></div>
     <a class="back-main-site" href="https://romeroadsweb.github.io/" aria-label="Voltar ao site principal">
       <span class="back-arrow">←</span><span>Voltar ao site principal</span>
     </a>
@@ -853,7 +865,7 @@ a[href="Portfolio-Gabriel-Romero-2026.pdf"] svg * {
     <div class="tools-head">
       <div>
         <div class="section-no">05 / Ferramentas</div>
-        <h2>DO CONCEITO<br>À <span>EXECUÇÃO.</span></h2>
+        <h2>DO CONCEITO<br><span>À EXECUÇÃO.</span></h2>
       </div>
       <p class="tools-intro">Ferramentas e plataformas que fazem parte do meu fluxo de criação, marketing, publicidade e desenvolvimento.</p>
     </div>
@@ -937,7 +949,7 @@ a[href="Portfolio-Gabriel-Romero-2026.pdf"] svg * {
     </section>
 
     <footer class="portfolio-footer">
-      <div class="footer-name">Gabriel Romero</div>
+      <div class="footer-name footer-brand-logo"><img src="logo-romero(1).png" alt="ROMERO ADS & WEB"><span>Gabriel Romero</span></div>
       <div class="footer-copy">
         Portfólio desenvolvido por Gabriel Romero • Web Designer<br>
         © 2026 • Todos os direitos reservados
@@ -959,10 +971,10 @@ a[href="Portfolio-Gabriel-Romero-2026.pdf"] svg * {
 <script>
 document.addEventListener("DOMContentLoaded",function(){
  const files={
-  SOCIAL:["social-01.png","social-02.png","social-03.png"],
-  ADS:["ads-01.png","ads-02.png","ads-03.png"],
-  BRAND:["brand-01.png","brand-02.png","brand-03.png"],
-  WEB:["web-01.jpg","web-02.webp","web-03.webp"]
+  SOCIAL:["social-01.png","social-02.png","social-03.png","parabens-social.png","coracao-social.png","exclusico-social.png"],
+  ADS:["ads-01.png","ads-02.png","ads-03.png","oculos-ads.png","tenis-ads.png","bolo-ads.png"],
+  BRAND:["brand-01.png","brand-02.png","brand-03.png","noiva-brand.png","torta-brand.png","cafe-brand.png"],
+  WEB:["web-01.jpg","web-02.webp","web-03.webp","homem-web.png","mulher-web.png","genero-web.png"]
  };
  const modal=document.getElementById("portfolioGalleryModal"),grid=document.getElementById("portfolioGalleryGrid"),
  title=document.getElementById("portfolioGalleryTitle"),close=modal.querySelector(".portfolio-gallery-close");
