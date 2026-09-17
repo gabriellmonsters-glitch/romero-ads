@@ -641,11 +641,60 @@ a[href="Portfolio-Gabriel-Romero-2026.pdf"] svg * {
 }
 </style>
 
+
+<style id="back-main-site-style">
+.back-main-site{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  min-height:38px;
+  padding:0 14px;
+  margin-left:auto;
+  margin-right:12px;
+  border:1px solid rgba(21,18,25,.14);
+  border-radius:999px;
+  background:rgba(255,255,255,.56);
+  backdrop-filter:blur(12px);
+  font-size:9px;
+  font-weight:900;
+  letter-spacing:.11em;
+  text-transform:uppercase;
+  color:#332d36;
+  transition:.25s ease;
+}
+.back-main-site:hover{
+  transform:translateY(-2px);
+  border-color:rgba(124,58,237,.34);
+  color:#7c3aed;
+  background:rgba(255,255,255,.82);
+}
+.back-main-site .back-arrow{
+  font-size:14px;
+  color:#7c3aed;
+}
+@media(max-width:470px){
+  .top{gap:8px}
+  .brand{font-size:10px;letter-spacing:.1em}
+  .back-main-site{
+    margin-left:auto;
+    margin-right:0;
+    min-height:34px;
+    padding:0 11px;
+    font-size:7px;
+    letter-spacing:.08em;
+  }
+  .back-main-site .back-arrow{font-size:12px}
+}
+</style>
+
 </head>
 <body>
 <main class="hero" id="inicio">
   <header class="top">
     <div class="brand">GABRIEL ROMERO</div>
+    <a class="back-main-site" href="https://romeroadsweb.github.io/" aria-label="Voltar ao site principal">
+      <span class="back-arrow">←</span><span>Voltar ao site principal</span>
+    </a>
     <div class="year">PORTFÓLIO • 2026</div>
   </header>
 
