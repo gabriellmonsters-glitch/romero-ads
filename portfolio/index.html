@@ -127,6 +127,7 @@ h1 .gradient{
   background:linear-gradient(100deg,var(--purple) 5%,var(--violet) 48%,var(--pink) 95%);
   -webkit-background-clip:text;background-clip:text;
 }
+.movement-line{display:block;white-space:nowrap;font-size:.82em}
 .skills{
   margin-top:30px;font-size:clamp(12px,1.1vw,15px);font-weight:800;letter-spacing:.08em;
 }
@@ -188,6 +189,7 @@ h1 .gradient{
   .hero{min-height:100svh;padding:22px 20px 24px}
   .stage{grid-template-columns:1fr;padding:52px 0 20px;align-content:center}
   h1{font-size:clamp(51px,16vw,78px)}
+  .movement-line{font-size:.69em}
   .art{min-height:265px;margin-top:-10px}
   .o1{width:230px;right:7%;top:0}.o2{width:105px;left:4%;bottom:5%}.ring{width:270px;right:-4%;top:-8%}
   .glass{width:230px;padding:18px;border-radius:20px}.glass strong{font-size:24px}
@@ -329,11 +331,14 @@ h1 .gradient{
 }
 .work-card:hover .work-visual:before{transform:scale(1.12) translate(-8px,8px)}
 .visual-word{position:absolute;z-index:2;right:8%;bottom:12%;font-size:clamp(28px,4vw,58px);font-weight:900;letter-spacing:-.06em;color:#fff;text-transform:uppercase}
-.work-info{padding:22px 24px 24px}
+.work-info{padding:22px 24px 74px}
 .work-meta{font-size:8px;font-weight:900;letter-spacing:.17em;color:#817884;text-transform:uppercase}
 .work-info h3{margin:9px 0 0;font-size:20px;letter-spacing:-.035em}
 .work-info p{margin:8px 0 0;color:#766f7a;font-size:12px;line-height:1.55}
 .work-arrow{position:absolute;right:22px;bottom:22px;width:35px;height:35px;border-radius:50%;display:grid;place-items:center;border:1px solid rgba(21,18,25,.12);font-size:15px;background:rgba(255,255,255,.4)}
+.work-expand{position:absolute;left:24px;bottom:22px;min-height:38px;padding:0 16px;border:1px solid rgba(21,18,25,.17);border-radius:999px;background:#fff;color:#211b25;font:800 11px Arial,Helvetica,sans-serif;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;z-index:2;transition:background .2s,color .2s,transform .2s}
+.work-expand:hover,.work-expand:focus-visible{background:#211b25;color:#fff;transform:translateY(-2px)}
+.work-expand:focus-visible{outline:2px solid #7c3aed;outline-offset:3px}
 .experience-section{
  position:relative;padding:clamp(82px,10vw,150px) clamp(22px,5vw,76px);
  background:#17131b;color:#f8f5f9;overflow:hidden
@@ -370,8 +375,9 @@ h1 .gradient{
  .work-section,.experience-section{padding:80px 20px}
  .work-grid{grid-template-columns:1fr 1fr;gap:12px;margin-top:40px}
  .work-card,.work-card:nth-child(n){grid-column:auto;min-height:315px;border-radius:20px}
- .work-visual{height:190px}.work-info{padding:17px}.work-info h3{font-size:16px}.work-info p{font-size:11px}
+ .work-visual{height:190px}.work-info{padding:17px 17px 70px}.work-info h3{font-size:16px}.work-info p{font-size:11px}
  .work-arrow{display:none}.visual-word{font-size:28px}
+ .work-expand{left:17px;bottom:17px}
  .experience-head{grid-template-columns:1fr;gap:20px}
  .timeline-row{grid-template-columns:1fr;gap:10px}
 }
@@ -379,6 +385,7 @@ h1 .gradient{
  .work-card{min-height:280px}.work-visual{height:160px}
  .work-info p{display:none}.work-info h3{font-size:14px}
  .work-meta{font-size:7px}
+ .work-expand{min-height:34px;padding:0 12px;font-size:9px;letter-spacing:.03em}
 }
 </style>
 
@@ -713,7 +720,7 @@ a[href="Portfolio-Gabriel-Romero-2026.pdf"] svg * {
   <section class="stage">
     <div class="copy">
       <div class="eyebrow">Marketing • Design • Web</div>
-      <h1>IDEIAS QUE GANHAM <span class="gradient">FORMA, PRESENÇA</span> E MOVIMENTO.</h1>
+      <h1>IDEIAS QUE GANHAM <span class="gradient">FORMA, PRESENÇA</span><span class="movement-line">E MOVIMENTO.</span></h1>
       <div class="skills">MARKETING DIGITAL · DESIGN · SOCIAL MEDIA · WEB</div>
       <p class="intro">Uma apresentação visual de trabalhos, experiências e soluções digitais desenvolvidas desde 2023.</p>
       <div class="actions">
@@ -799,7 +806,7 @@ a[href="Portfolio-Gabriel-Romero-2026.pdf"] svg * {
         <div class="work-meta">Social Media • Conteúdo</div>
         <h3>Presença digital &amp; comunicação</h3>
         <p>Estruturação visual e conteúdos para marcas que precisam ganhar presença no digital.</p>
-      </div><div class="work-arrow">↗</div>
+      </div><button class="work-expand" type="button" aria-label="Expandir projetos de social media">Expandir +</button><div class="work-arrow">↗</div>
     </article>
     <article class="work-card">
       <div class="work-visual"><div class="visual-word">ADS</div></div>
@@ -807,7 +814,7 @@ a[href="Portfolio-Gabriel-Romero-2026.pdf"] svg * {
         <div class="work-meta">Publicidade • Campanhas</div>
         <h3>Criação para campanhas</h3>
         <p>Peças e conceitos pensados para comunicação publicitária.</p>
-      </div><div class="work-arrow">↗</div>
+      </div><button class="work-expand" type="button" aria-label="Expandir projetos de campanhas">Expandir +</button><div class="work-arrow">↗</div>
     </article>
     <article class="work-card">
       <div class="work-visual"><div class="visual-word">BRAND</div></div>
@@ -815,7 +822,7 @@ a[href="Portfolio-Gabriel-Romero-2026.pdf"] svg * {
         <div class="work-meta">Design • Identidade</div>
         <h3>Identidade visual</h3>
         <p>Construção de elementos que dão personalidade à comunicação.</p>
-      </div><div class="work-arrow">↗</div>
+      </div><button class="work-expand" type="button" aria-label="Expandir projetos de identidade visual">Expandir +</button><div class="work-arrow">↗</div>
     </article>
     <article class="work-card">
       <div class="work-visual"><div class="visual-word">WEB</div></div>
@@ -823,7 +830,7 @@ a[href="Portfolio-Gabriel-Romero-2026.pdf"] svg * {
         <div class="work-meta">Web Design • Desenvolvimento</div>
         <h3>Experiências para web</h3>
         <p>Sites responsivos com direção visual, conteúdo e interação.</p>
-      </div><div class="work-arrow">↗</div>
+      </div><button class="work-expand" type="button" aria-label="Expandir projetos para web">Expandir +</button><div class="work-arrow">↗</div>
     </article>
   </div>
 </section>
@@ -973,7 +980,7 @@ document.addEventListener("DOMContentLoaded",function(){
  const files={
   SOCIAL:["social-01.png","social-02.png","social-03.png","parabens-social.png","coracao-social.png","exclusico-social.png"],
   ADS:["ads-01.png","ads-02.png","ads-03.png","oculos-ads.png","tenis-ads.png","bolo-ads.png"],
-  BRAND:["brand-01.png","brand-02.png","brand-03.png","noiva-brand.png","torta-brand.png","cafe-brand.png"],
+  BRAND:["brand-01.png","brand-02.png","brand-03.png?v=13afa34d","noiva-brand.png","torta-brand.png","cafe-brand.png"],
   WEB:["web-01.jpg","web-02.webp","web-03.webp","homem-web.png","mulher-web.png","genero-web.png"]
  };
  const modal=document.getElementById("portfolioGalleryModal"),grid=document.getElementById("portfolioGalleryGrid"),
@@ -984,21 +991,13 @@ document.addEventListener("DOMContentLoaded",function(){
   modal.classList.add("open");modal.setAttribute("aria-hidden","false");document.body.style.overflow="hidden";
  }
  function shut(){modal.classList.remove("open");modal.setAttribute("aria-hidden","true");document.body.style.overflow="";}
- const candidates=[...document.querySelectorAll("article, .card, [class*=card], [class*=work], [class*=project]")];
- Object.keys(files).forEach(cat=>{
-   const label=[...document.querySelectorAll("h1,h2,h3,h4,h5,strong,b,span,div")].find(el=>el.children.length===0 && el.textContent.trim()===cat);
-   if(!label)return;
-   let card=label;
-   while(card && card!==document.body){
-     const txt=card.textContent||"";
-     if(txt.includes(cat) && (card.tagName==="ARTICLE" || /card|work|project|item/i.test(card.className||""))){break;}
-     card=card.parentElement;
-   }
-   if(!card || card===document.body) card=label.parentElement;
+ document.querySelectorAll(".work-grid .work-card").forEach((card,i)=>{
+   const cat=["SOCIAL","ADS","BRAND","WEB"][i];
+   if(!cat)return;
    card.classList.add("portfolio-clickable");
-   card.setAttribute("role","button");card.setAttribute("tabindex","0");
-   card.addEventListener("click",e=>{e.preventDefault();open(cat)});
-   card.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();open(cat)}});
+   const button=card.querySelector(".work-expand");
+   card.addEventListener("click",e=>{if(e.target.closest(".work-expand"))return;open(cat)});
+   button.addEventListener("click",()=>open(cat));
  });
  close.addEventListener("click",shut);
  modal.addEventListener("click",e=>{if(e.target===modal)shut()});
